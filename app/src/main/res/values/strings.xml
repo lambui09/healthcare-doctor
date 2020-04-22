@@ -1,0 +1,117 @@
+<resources>
+    <string name="app_name">HealthCare-Doctor</string>
+    <string name="msg_error_no_internet">loi roi</string>
+    <string name="text_internet_error">There was a problem connecting to the Internet.</string>
+    <string name="title_error">error</string>
+    <string name="messenger_error_connect_network">No internet connection</string>
+    <string name="empty">""</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="button_send">submit</string>
+    <string name="button_register">Register</string>
+    <string name="text_confirm_sms_register">Enter code</string>
+    <string name="text_description_code_sms_resend">%1$s min left</string>
+    <string name="text_show_password">save information for again</string>
+    <string name="text_login_ua_1">Login</string>
+    <string name="button_sign_up">Don’t have an account? Sign Up</string>
+    <!--screen introduce -->
+    <string name="title_splash_1">Discover doctor near you</string>
+    <string name="title_splash_2">Make a schedule easily</string>
+    <string name="title_splash_3">Enjoy treatment directly</string>
+    <string name="text_description_splash_1">Find the best doctor you want by your location or neighborhood</string>
+    <string name="text_description_splash_2">Choose the time you want to make an appointment with a doctor</string>
+    <string name="text_description_splash_3">Find the best doctor you want by your location or neighborhood</string>
+    <string name="text_sign_up">Sign Up</string>
+    <!--end endpoint-->
+    <!--screen main activity -->
+    <string name="title_tab_home">Home</string>
+    <string name="title_tab_appointment">Appointment</string>
+    <string name="title_tab_chat">Chat</string>
+    <string name="title_tab_notification">Notification</string>
+    <string name="title_tab_setting">Setting</string>
+    <string name="text_top_option_header">Nearby</string>
+    <string name="text_top_categories_header">Categories</string>
+    <string name="text_show_all_near_by">See all</string>
+
+    <!--end endpoint-->
+    <!--screen home fragment -->
+    <string name="text_title_categories_dentist">Dentist</string>
+    <string name="text_description_categories_dentist">Dentist sdfds</string>
+    <string name="text_title_categories_cardiology">Cardiology</string>
+    <string name="text_description_categories_cardiology">Cardiology sdfds</string>
+    <string name="text_title_categories_physician">Physician</string>
+    <string name="text_description_categories_physician">Physician sdfds</string>
+    <string name="text_title_categories_pediatric">Pediatric</string>
+    <string name="text_description_categories_pediatric">Pediatric sdfds</string>
+    <string name="text_title_categories_dermatology">Dermatology</string>
+    <string name="text_description_categories_dermatology">Dermatology Dermatology sdfds</string>
+    <string name="text_title_categories_orthopedician">Orthopedician</string>
+    <string name="text_description_categories_orthopedician">Orthopedician Orthopedician sdfds</string>
+    <string name="text_title_categories_neurologists">Neurologists</string>
+    <string name="text_description_categories_neurologists">Neurologists Neurologists sdfds</string>
+    <string name="your_location">Your Location</string>
+    <string name="text_map">Map</string>
+    <string name="text_filter">Filter</string>
+    <!--end endpoint-->
+
+    <!--screen detail doctor activity -->
+    <string name="text_title_button_book_appointment">Book Appointment</string>
+    <!--end endpoint-->
+    <!--key map-->
+    <string name="google_maps_api_key">AIzaSyCSsh65nOvuZTHQYQtz7dmAj5CPXwXtlzE</string>
+    <string name="address">Address</string>
+    <string name="remainder">Remainder</string>
+    <string name="consultation_and_treatment">Consultation and treatment</string>
+    <string name="text_setting_time_remainder">30 minutes before</string>
+    <string name="select_item_time_example">10:AM</string>
+    <string name="text_next_book_appointment">Next</string>
+    <!--end endpoint-->
+    <!--screen book appointment -->
+    <string name="confirm_book_appointment">Confirm</string>
+    <string name="title_review">Review</string>
+    <string name="date_example">2019:12:12</string>
+    <string name="time_example">8:30</string>
+    <string name="title_specialist_doctor">Specialist</string>
+    <string name="content_specialist_doctor_example">Khoa Mat</string>
+    <string name="title_service_doctor">Service</string>
+    <string name="title_fee">Fee</string>
+    <string name="title_remainder">Remainder</string>
+    <string name="fee_75_example">75$</string>
+    <string name="text_appointment_confirmed">Confirmed</string>
+    <string name="text_appointment_confirming">Confirming</string>
+    <string name="text_appointment_cancelled">Cancelled</string>
+    <string name="text_appointment_completed">Completed</string>
+    <!--end endpoint-->
+    <!--setting-->
+    <string name="text_account">Account</string>
+    <string name="text_general_setting">More optiion</string>
+    <string name="text_setting_notification">Notification</string>
+    <string name="text_setting_volume">Volume</string>
+    <string name="button_logout">Logout</string>
+    <string name="text_setting_faq">History</string>
+    <string name="text_title_tab_survey">Disease survey</string>
+    <string name="text_description_step_one">Personal information</string>
+   <string name="text_example_date_month_year">1990/01/01</string>
+    <string name="text_birthday">BirthDay</string>
+    <string name="text_sex">Gender</string>
+    <string name="text_male">Male</string>
+    <string name="text_female">Female</string>
+    <string name="text_unknown_gender">Unknown</string>
+    <string name="button_registration">Done</string>
+    <!--end endpoint-->
+    <!--register-->
+    <string name="text_hint_first_name">first name</string>
+    <string name="text_hint_last_name">last name</string>
+    <string name="text_header_name">Name</string>
+
+
+
+    <!--end endpoint-->
+    <!--login-->
+
+
+
+    <!--end endpoint-->
+
+</resources>

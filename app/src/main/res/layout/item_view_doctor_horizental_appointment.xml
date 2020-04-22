@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/dp_8">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_90"
+        app:cardBackgroundColor="@color/White"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfileDoctor"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="@dimen/dp_80"
+                android:layout_margin="@dimen/dp_5"
+                android:src="@drawable/img_profile_doctor"
+                app:civ_border_color="@color/White"
+                app:civ_border_width="2dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNameDoctor"
+                    style="@style/TextViewHeaderStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dr.Join"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLocationOfDoctor"
+                    style="@style/TextViewDescriptionStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:drawableStart="@drawable/ic_marker"
+                    android:drawablePadding="@dimen/dp_6"
+                    android:text="0.31 mi away - Dentist"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNameDoctor" />
+
+                <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                    android:id="@+id/materialRatingDoctor"
+                    style="@style/Widget.MaterialRatingBar.RatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dp_12"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:maxHeight="@dimen/dp_12"
+                    android:rating="2.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLocationOfDoctor"
+                    app:mrb_progressTint="@color/K_FF9500_yellow"
+                    app:mrb_secondaryProgressTint="@color/K_FF9500_yellow" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnCodeSmsResend"
+                style="@style/TextViewWithoutShadowStyleStatusAppointment"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                app:layout_constraintRight_toRightOf="parent"
+                android:text="@string/text_appointment_cancelled" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

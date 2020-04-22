@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_45"
+    android:background="@color/White"
+    android:foreground="?selectableItemBackgroundBorderless"
+    tools:ignore="UnusedAttribute">
+
+    <View
+        android:id="@+id/mViewLineTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/K_12173833_blue"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/mRlIcon"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mImgIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@+id/mImgRow"
+        android:layout_toEndOf="@+id/mRlIcon"
+        android:gravity="start|center_vertical"
+        android:paddingStart="@dimen/dp_5"
+        android:paddingEnd="@dimen/dp_5"
+        android:textColor="@color/K_DE173833_green"
+        android:textSize="@dimen/sp_14" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/mImgRow"
+        android:layout_width="@dimen/dp_7"
+        android:layout_height="@dimen/dp_12"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:background="@drawable/ic_right_row_gray" />
+
+    <View
+        android:id="@+id/mViewLineBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_alignParentBottom="true"
+        android:background="@color/K_12173833_blue"
+        android:visibility="invisible" />
+
+    <View
+        android:id="@+id/mViewLineBottomPadding"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/mRlIcon"
+        android:background="@color/K_12173833_blue"
+        android:visibility="invisible" />
+</RelativeLayout>

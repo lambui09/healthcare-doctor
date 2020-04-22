@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleIndicator">
+        <attr name="ci_width" format="dimension" />
+        <attr name="ci_height" format="dimension" />
+        <attr name="ci_margin" format="dimension" />
+        <attr name="ci_animator" format="reference" />
+        <attr name="ci_animator_reverse" format="reference" />
+        <attr name="ci_drawable" format="reference" />
+        <attr name="ci_drawable_unselected" format="reference" />
+
+        <attr name="ci_orientation" format="enum">
+            <!-- Defines an horizontal widget. -->
+            <enum name="horizontal" value="0" />
+            <!-- Defines a vertical widget. -->
+            <enum name="vertical" value="1" />
+        </attr>
+
+        <attr name="ci_gravity">
+            <!-- Push object to the top of its container, not changing its size. -->
+            <flag name="top" value="0x30" />
+            <!-- Push object to the bottom of its container, not changing its size. -->
+            <flag name="bottom" value="0x50" />
+            <!-- Push object to the left of its container, not changing its size. -->
+            <flag name="left" value="0x03" />
+            <!-- Push object to the right of its container, not changing its size. -->
+            <flag name="right" value="0x05" />
+            <!-- Place object in the vertical center of its container, not changing its size. -->
+            <flag name="center_vertical" value="0x10" />
+            <!-- Grow the vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill_vertical" value="0x70" />
+            <!-- Place object in the horizontal center of its container, not changing its size. -->
+            <flag name="center_horizontal" value="0x01" />
+            <!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
+            <flag name="fill_horizontal" value="0x07" />
+            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
+            <flag name="center" value="0x11" />
+            <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill" value="0x77" />
+            <flag name="clip_vertical" value="0x80" />
+            <flag name="clip_horizontal" value="0x08" />
+            <!-- Push object to the beginning of its container, not changing its size. -->
+            <flag name="start" value="0x00800003" />
+            <!-- Push object to the end of its container, not changing its size. -->
+            <flag name="end" value="0x00800005" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="MainToolbar">
+        <attr name="toolbarTitle" format="reference" />
+        <attr name="toolbarType" format="enum">
+            <enum name="showLeft" value="0" />
+            <enum name="showRight" value="1" />
+            <enum name="showBoth" value="2" />
+            <enum name="hideBoth" value="3" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="EditTextCustom">
+        <attr name="EditTextCustomText" format="reference" />
+
+        <attr name="hint" format="reference" />
+
+        <attr name="requestFocus" format="boolean" />
+
+        <attr name="disableLongClick" format="boolean" />
+
+        <attr name="maxLength" format="integer" />
+
+        <attr name="maxLines" format="integer" />
+
+        <attr name="imeOption" format="enum">
+            <enum name="next" value="0" />
+            <enum name="done" value="1" />
+        </attr>
+
+        <attr name="inputType" format="enum">
+            <enum name="text" value="0" />
+            <enum name="textPassword" value="1" />
+            <enum name="number" value="2" />
+            <enum name="email" value="3" />
+            <enum name="capCharacter" value="4" />
+        </attr>
+
+        <attr name="editable" format="boolean" />
+        <attr name="textAllCaps" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="BottomButton">
+        <attr name="BottomButtonSelected" format="boolean" />
+        <attr name="BottomButtonContent" format="reference" />
+        <attr name="Background" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="TopOptionCategories">
+        <attr name="TopOptionCategoryIcon" format="reference"/>
+        <attr name="TopOptionCategoryHeader" format="reference"/>
+        <attr name="TopOptionCategoryDescription" format="reference"/>
+    </declare-styleable>
+    <!--region refresh pullRefreshLayout -->
+    <declare-styleable name="refresh_PullRefreshLayout">
+        <attr name="refreshType" format="enum">
+            <enum name="material" value="0" />
+            <enum name="circles" value="1" />
+            <enum name="water_drop" value="2" />
+            <enum name="ring" value="3" />
+            <enum name="smartisan" value="4" />
+        </attr>
+        <attr name="refreshColors" format="reference" />
+        <attr name="refreshColor" format="reference" />
+    </declare-styleable>
+    <!--endregion-->
+    <!--region viewSettingContentChild -->
+    <declare-styleable name="SettingContentChild1">
+        <attr name="contentSettingChild" format="reference" />
+        <attr name="optionSettingChild" format="reference" />
+        <attr name="typeSettingChild" format="enum">
+            <enum name="header" value="0" />
+            <enum name="bottom" value="1" />
+            <enum name="single" value="2" />
+            <enum name="center" value="3" />
+        </attr>
+        <attr name="disableSettingChild" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="SettingContent">
+        <attr name="icon" format="reference" />
+        <attr name="content" format="reference" />
+        <attr name="type" format="enum">
+            <enum name="header" value="0" />
+            <enum name="bottom" value="1" />
+            <enum name="single" value="2" />
+            <enum name="center" value="3" />
+        </attr>
+    </declare-styleable>
+    <!--endregion-->
+</resources>

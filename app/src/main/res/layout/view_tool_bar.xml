@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_status_bar_gradient"
+    android:layout_height="@dimen/dp_45">
+
+    <RelativeLayout
+        android:id="@+id/rlBack"
+        android:layout_width="@dimen/dp_45"
+        android:layout_height="@dimen/dp_45">
+
+        <com.rilixtech.materialfancybutton.MaterialFancyButton
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_centerInParent="true"
+            fancy:mfb_defaultColor="@color/transparent"
+            fancy:mfb_focusColor="#d1d1d1"
+            fancy:mfb_radius="@dimen/dp_45"
+            android:background="@drawable/bg_button_general"
+            fancy:mfb_disabledColor="@color/K_C3CBCA_gray"
+            fancy:mfb_text=""/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/dp_17"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_back_white"
+            android:layout_height="@dimen/dp_17"/>
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvToolbar"
+        style="@style/TextViewTitleToolbar"
+        android:layout_toStartOf="@+id/rlClose"
+        android:layout_toEndOf="@+id/rlBack"/>
+
+    <RelativeLayout
+        android:id="@+id/rlClose"
+        android:layout_alignParentEnd="true"
+        android:layout_width="@dimen/dp_45"
+        android:layout_height="@dimen/dp_45">
+
+        <com.rilixtech.materialfancybutton.MaterialFancyButton
+            android:id="@+id/btnClose"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_centerInParent="true"
+            fancy:mfb_defaultColor="@color/transparent"
+            fancy:mfb_focusColor="#d1d1d1"
+            fancy:mfb_radius="@dimen/dp_45"
+            android:background="@drawable/bg_button_general"
+            fancy:mfb_disabledColor="@color/K_C3CBCA_gray"
+            fancy:mfb_text=""/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mImgRight"
+            android:layout_width="@dimen/dp_17"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_close_white"
+            android:layout_height="@dimen/dp_17"/>
+    </RelativeLayout>
+</RelativeLayout>

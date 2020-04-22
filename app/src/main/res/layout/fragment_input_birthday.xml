@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHeaderFullName"
+        style="@style/TextViewHeaderStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_17"
+        android:text="@string/text_header_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llContainerFullName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaderFullName">
+
+        <com.lambui.healthcare_app.widget.viewInApp.EditTextCustom
+            android:id="@+id/edtFirstNamePatient"
+            style="@style/EditTextCustomStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            app:hint="@string/text_hint_first_name"
+            app:imeOption="next"
+            app:inputType="text"
+            app:maxLines="1" />
+
+        <com.lambui.healthcare_app.widget.viewInApp.EditTextCustom
+            android:id="@+id/edtLastNamePatient"
+            style="@style/EditTextCustomStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:focusableInTouchMode="true"
+            app:hint="@string/text_hint_last_name"
+            app:imeOption="done"
+            app:inputType="text"
+            app:maxLines="1" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHeaderBirthDay"
+        style="@style/TextViewHeaderStyle"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/dp_17"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:text="@string/text_birthday"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llContainerFullName" />
+
+    <com.lambui.healthcare_app.widget.viewInApp.EditTextCustom
+        android:id="@+id/edtInputBirthDay"
+        style="@style/EditTextCustomStyle"
+        android:layout_marginTop="@dimen/dp_8"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        app:hint="@string/text_example_date_month_year"
+        app:inputType="number"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaderBirthDay"
+        app:maxLength="10" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHeaderSex"
+        style="@style/TextViewHeaderStyle"
+        android:layout_marginTop="@dimen/dp_17"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:text="@string/text_sex"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtInputBirthDay" />
+
+    <LinearLayout
+        android:id="@+id/containerGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaderSex">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMale"
+            style="@style/TextViewOptionGenderStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/dp_13"
+            android:layout_weight="1"
+            android:text="@string/text_male" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFemale"
+            style="@style/TextViewOptionGenderStyle"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/dp_13"
+            android:layout_weight="1"
+            android:text="@string/text_female" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUnknown"
+            style="@style/TextViewOptionGenderStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/text_unknown_gender" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDone"
+        style="@style/TextViewSelectedBottomStyle"
+        android:text="@string/button_registration"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

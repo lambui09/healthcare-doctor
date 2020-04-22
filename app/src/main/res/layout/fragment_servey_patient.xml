@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHeader"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="Nhập thông tin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagFever"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Sốt"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeader" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagCough"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Ho"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagFever" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagOppressive"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Khó thở"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagCough" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagSoreThroat"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Đau họng"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagOppressive" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagToothache"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Đau răng"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagSoreThroat" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagEarAche"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Đau tai"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagToothache" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagHeartComplaint"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Đau tim"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagEarAche" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagPoisoning"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Ngộ độc"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagHeartComplaint" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagInsomnia"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Mất ngủ"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagPoisoning" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagFracture"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Gẫy xương"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagInsomnia" />
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/cbTagSwelling"
+            style="@style/TextViewHeaderStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:buttonTint="@color/colorPrimary"
+            android:focusable="false"
+            android:text="Sưng tấy"
+            android:textColor="@color/K_8A173833_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cbTagFracture" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

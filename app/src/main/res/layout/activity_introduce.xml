@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/constraintLayoutSliderPageIntroduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpagerSliderIntroduce"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.lambui.healthcare_doctor.widget.CircleIndicator
+            android:id="@+id/circleIndicatorIntroduce"
+            android:layout_width="@dimen/dp_150"
+            android:layout_height="@dimen/dp_15"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            app:ci_drawable="@drawable/ic_page_introduce_selected"
+            app:ci_drawable_unselected="@drawable/ic_page_introduce_unselected"
+            app:ci_height="@dimen/dp_7"
+            app:ci_width="@dimen/dp_7" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/constraintLayoutSliderPageIntroduce"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.lambui.healthcare_doctor.widget.viewInApp.BottomButton
+            android:id="@+id/btnLogin"
+            android:layout_width="@dimen/dp_243"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:textSize="@dimen/sp_14"
+            app:BottomButtonContent="@string/text_login_ua_1"
+            app:BottomButtonSelected="true" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRegister"
+            style="@style/TextViewDescriptionStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:text="@string/button_sign_up"
+            android:textColor="@color/K_8A173833_gray"
+            android:textSize="@dimen/sp_12" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</RelativeLayout>
