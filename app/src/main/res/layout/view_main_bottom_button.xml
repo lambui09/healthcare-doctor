@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_45"
+    android:layout_marginStart="@dimen/dp_5"
+    android:layout_marginEnd="@dimen/dp_5"
+    android:background="@drawable/bg_button_gradient">
+
+    <com.rilixtech.materialfancybutton.MaterialFancyButton
+        android:id="@+id/btnClick"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        fancy:mfb_defaultColor="@color/transparent"
+        fancy:mfb_disabledColor="@color/K_C3CBCA_gray"
+        fancy:mfb_focusColor="@color/K_17C68B_green"
+        fancy:mfb_radius="@dimen/dp_45"
+        fancy:mfb_text="" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="cancel"
+        android:textColor="@color/White"
+        android:textSize="@dimen/sp_14" />
+</RelativeLayout>

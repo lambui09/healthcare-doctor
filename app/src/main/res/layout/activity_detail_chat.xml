@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:clickable="true"
+    android:focusable="true">
+
+    <com.lambui.healthcare_doctor.widget.toolbar.MainToolbar
+        android:id="@+id/toolBar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:toolbarType="hideBoth" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMessages"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar" />
+
+    <View
+        android:id="@+id/viewDeliver"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:background="@color/K_8F9EAA_black"
+        app:layout_constraintBottom_toTopOf="@+id/bottomView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/bottomView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/dp_50"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingEnd="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnTakePic"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dp_3"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="@dimen/dp_3"
+            app:srcCompat="@drawable/ic_camera_black" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnChooseFromGallery"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_3"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="@dimen/dp_4"
+            app:srcCompat="@drawable/ic_gallery_black" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtChat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_chat"
+                android:ellipsize="end"
+                android:hint="message"
+                android:maxLength="1000"
+                android:lineSpacingMultiplier="1.2"
+                android:maxHeight="@dimen/dp_90"
+                android:minHeight="@dimen/dp_40"
+                android:paddingStart="@dimen/dp_5"
+                android:paddingEnd="@dimen/dp_5"
+                android:textColor="@color/K_435C70_black"
+                android:textColorHint="@color/K_BAC3C2_gray"
+                android:textSize="@dimen/sp_14" />
+
+            <ProgressBar
+                android:id="@+id/pbSendingStatus"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp_5"
+                android:indeterminate="true"
+                android:visibility="gone"
+                android:indeterminateDrawable="@anim/progress"
+                android:indeterminateTint="@color/colorPrimary"
+                tools:targetApi="lollipop" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/btnSend"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_2"
+            android:background="?selectableItemBackgroundBorderless"
+            android:padding="@dimen/dp_5"
+            app:srcCompat="@drawable/ic_send_primary_color" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>

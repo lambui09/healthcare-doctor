@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/K_05173833_gray"
+    android:orientation="vertical">
+
+    <com.lambui.healthcare_app.widget.toolbar.MainToolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toolbarTitle="@string/title_tab_setting"
+        app:toolbarType="hideBoth" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextViewHeaderSetting"
+                android:text="@string/text_account" />
+
+            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+                android:id="@+id/stAccount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:content="@string/text_account"
+                app:icon="@drawable/ic_account"
+                app:type="single" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/TextViewHeaderSetting"
+                android:text="@string/text_general_setting" />
+
+            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+                android:id="@+id/stNotification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:content="@string/text_setting_notification"
+                app:icon="@drawable/ic_notification"
+                app:type="header" />
+
+            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+                android:id="@+id/stVolume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:content="@string/text_setting_volume"
+                app:icon="@drawable/ic_volume"
+                app:type="center" />
+
+            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+                android:id="@+id/stFaq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:content="@string/text_setting_faq"
+                app:icon="@drawable/ic_faq"
+                app:type="header" />
+
+            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+                android:id="@+id/stLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:content="@string/button_logout"
+                app:icon="@drawable/ic_logout"
+                app:type="bottom" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

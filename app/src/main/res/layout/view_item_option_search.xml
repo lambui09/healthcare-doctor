@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp_10"
+    android:weightSum="2">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSearchOptionMap"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_45"
+        android:layout_weight="1"
+        app:cardCornerRadius="@dimen/dp_8"
+        app:strokeColor="@color/Black">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/ic_map"
+            android:drawablePadding="@dimen/dp_6"
+            android:padding="@dimen/dp_10"
+            android:text="@string/text_map">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSearchOptionFilter"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_45"
+        android:layout_weight="1"
+        app:cardCornerRadius="@dimen/dp_8">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/ic_filter"
+            android:drawablePadding="@dimen/dp_6"
+            android:padding="@dimen/dp_10"
+            android:text="@string/text_filter" />
+
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

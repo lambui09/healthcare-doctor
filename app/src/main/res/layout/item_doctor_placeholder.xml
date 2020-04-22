@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/dp_135"
+    android:layout_height="@dimen/dp_140"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgProfileDoctor"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
+        android:background="@color/colorPlaceholder"
+        app:civ_border_color="@color/Black"
+        app:civ_border_width="2dp" />
+
+    <View
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@color/colorPlaceholder"
+        android:padding="@dimen/dp_5" />
+
+    <View
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@color/colorPlaceholder"
+        android:padding="@dimen/dp_5" />
+</LinearLayout>

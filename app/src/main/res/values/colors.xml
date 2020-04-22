@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#20D0B8</color>
+    <color name="colorPrimaryDark">#20D0B8</color>
+    <color name="colorAccent">#17c68b</color>
+    <color name="transparent">@android:color/transparent</color>
+    <!--region - Base App Colours-->
+    <color name="K_6EACEF_blue">#6EACEF</color>
+    <color name="K_666666_black">#666666</color>
+    <color name="K_212121_black">#212121</color>
+    <color name="K_E60000_red">#E60000</color>
+    <color name="K_FF0000_red">#FF0000</color>
+    <color name="K_707070_gray">#707070</color>
+    <color name="K_E4E4E4_gray">#E4E4E4</color>
+    <color name="black_text_bold">#13131E</color>
+    <color name="K_05173833_green">#05173833</color>
+    <color name="K_E9546A_red">#E9546A</color>
+    <!--endregion - Base App Colours-->
+    <!--region - Base system colours-->
+    <color name="White">#FFFFFF</color>
+    <color name="Black">#000000</color>
+    <!--endregion - Base system colours-->
+    <!--region - Project color-->
+    <color name="K_F3F5F4_gray">#F3F5F4</color>
+    <color name="K_C3CBCA_gray">#C3CBCA</color>
+    <color name="K_BAC3C2_gray">#BAC3C2</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="K_20D0B8_green">#20D0B8</color>
+    <color name="K_F97072_pink">#F97072</color>
+    <color name="K_FEDADA_pink">#FEDADA</color>
+    <color name="K_030C1C1A_gray">#030C1C1A</color>
+    <color name="K_E2E7E6_gray">#E2E7E6</color>
+    <color name="K_ACB0B1_gray">#ACB0B1</color>
+    <color name="K_05173833_gray">#05173833</color>
+    <color name="K_12263337_gray">#12263337</color>
+    <color name="K_12173833_blue">#12173833</color>
+    <color name="K_173833_blue">#173833</color>
+    <color name="K_26173833_gray">#26173833</color>
+    <color name="colorStartGradient">#3FC6DE</color>
+    <color name="colorEndGradient">#3DD0BB</color>
+    <color name="K_17C68B_green">#17c68b</color>
+    <color name="K_030C1C1A_brown">#030C1C1A</color>
+    <color name="K_F1F2F2_white">#F1F2F2</color>
+    <color name="K_05173833_white">#05173833</color>
+    <color name="K_787F82_gray">#787F82</color>
+    <color name="K_8A173833_gray">#8A173833</color>
+    <color name="K_42173833_gray">#42173833</color>
+    <color name="K_E0E1E2_gray">#E0E1E2</color>
+    <color name="K_DE173833_green">#DE173833</color>
+    <color name="K_E9546A_pink">#E9546A</color>
+    <color name="K_0D173833_green">#0D173833</color>
+    <color name="K_263337_green">#263337</color>
+    <color name="K_B3FFFFFF_white">#B3FFFFFF</color>
+    <color name="colorPlaceholder">#dddddd</color>
+    <color name="K_FF9500_yellow">#FF9500</color>
+    <color name="K_4486FF_blue">#4486FF</color>
+    <color name="K_435C70_black">#435C70</color>
+    <color name="K_F8F9FB_gray">#F8F9FB</color>
+    <color name="K_8F9EAA_black">#8F9EAA</color>
+    <!--endregion - Project color-->
+</resources>
