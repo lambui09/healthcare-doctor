@@ -1,7 +1,7 @@
 package com.lambui.healthcare_doctor.utils.extension
 
 import androidx.lifecycle.MutableLiveData
-import com.lambui.healthcare_app.utils.rxAndroid.BaseSchedulerProvider
+import com.lambui.healthcare_doctor.utils.rxAndroid.BaseSchedulerProvider
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Observable

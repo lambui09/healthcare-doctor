@@ -1,8 +1,8 @@
 package com.lambui.healthcare_doctor.data.source.repositories
 
-import com.lambui.healthcare_app.data.source.sharedprf.SharedPrefsApi
-import com.lambui.healthcare_app.data.source.sharedprf.SharedPrefsKey
-import com.lambui.healthcare_app.utils.extension.notNull
+import com.lambui.healthcare_doctor.data.source.sharedprf.SharedPrefsApi
+import com.lambui.healthcare_doctor.data.source.sharedprf.SharedPrefsKey
+import com.lambui.healthcare_doctor.utils.extension.notNull
 
 interface TimeCountDownRepository {
     fun getPreviousTime() : Long?

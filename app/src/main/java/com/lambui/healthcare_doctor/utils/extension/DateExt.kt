@@ -1,7 +1,7 @@
 package com.lambui.healthcare_doctor.utils.extension
 
 import android.text.TextUtils
-import com.lambui.healthcare_app.utils.DateTimeUtils
+import com.lambui.healthcare_doctor.utils.DateTimeUtils
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
