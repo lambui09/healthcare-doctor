@@ -24,7 +24,7 @@
             android:layout_marginBottom="@dimen/dp_16"
             android:text="@string/phone_number" />
 
-        <com.lambui.healthcare_app.widget.viewInApp.EditTextCustom
+        <com.lambui.healthcare_doctor.widget.viewInApp.EditTextCustom
             android:id="@+id/edtPhoneNumber"
             style="@style/EditTextCustomStyle"
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:text="@string/password"
             app:layout_constraintTop_toBottomOf="@+id/edtPhoneNumber" />
 
-        <com.lambui.healthcare_app.widget.viewInApp.EditTextCustom
+        <com.lambui.healthcare_doctor.widget.viewInApp.EditTextCustom
             android:id="@+id/edtPassword"
             style="@style/EditTextCustomStyle"
             android:layout_width="match_parent"
@@ -71,7 +71,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <com.lambui.healthcare_app.widget.viewInApp.BottomButton
+        <com.lambui.healthcare_doctor.widget.viewInApp.BottomButton
             android:id="@+id/btnLoginSubmit"
             android:layout_width="@dimen/dp_243"
             android:layout_height="wrap_content"

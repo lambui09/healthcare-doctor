@@ -74,14 +74,14 @@
                 android:background="@color/K_12173833_blue"
                 android:visibility="invisible" />
 
-            <com.lambui.healthcare_app.widget.viewInApp.SettingContentChild1
+            <com.lambui.healthcare_doctor.widget.viewInApp.SettingContentChild1
                 android:id="@+id/stOptionTimeRemain"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_42"
                 app:contentSettingChild="@string/text_setting_time_remainder"
                 app:typeSettingChild="bottom">
 
-            </com.lambui.healthcare_app.widget.viewInApp.SettingContentChild1>
+            </com.lambui.healthcare_doctor.widget.viewInApp.SettingContentChild1>
 
             <View
                 android:id="@+id/LineBottom"
@@ -89,14 +89,14 @@
                 android:layout_height="@dimen/dp_1"
                 android:background="@color/K_12173833_blue"
                 android:visibility="invisible" />
-            <com.lambui.healthcare_app.widget.viewInApp.BottomButton
+            <com.lambui.healthcare_doctor.widget.viewInApp.BottomButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_10"
                 android:layout_marginBottom="@dimen/dp_10"
                 app:BottomButtonContent="@string/text_next_book_appointment">
 
-            </com.lambui.healthcare_app.widget.viewInApp.BottomButton>
+            </com.lambui.healthcare_doctor.widget.viewInApp.BottomButton>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

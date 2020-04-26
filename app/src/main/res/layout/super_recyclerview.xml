@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.lambui.healthcare_app.widget.recycleView.PullRefreshLayout
+    <com.lambui.healthcare_doctor.widget.recycleView.PullRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,5 +15,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false" />
-    </com.lambui.healthcare_app.widget.recycleView.PullRefreshLayout>
+    </com.lambui.healthcare_doctor.widget.recycleView.PullRefreshLayout>
 </FrameLayout>

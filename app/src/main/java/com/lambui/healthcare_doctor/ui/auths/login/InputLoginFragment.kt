@@ -6,7 +6,6 @@ import com.google.firebase.iid.FirebaseInstanceId
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
 import com.lambui.healthcare_doctor.enums.LoginNav
-import com.lambui.healthcare_doctor.notification.MyFireBaseMessagingService
 import com.lambui.healthcare_doctor.ui.auths.signup.RegisterActivity
 import com.lambui.healthcare_doctor.utils.RxView
 import com.lambui.healthcare_doctor.utils.ValidateUtils

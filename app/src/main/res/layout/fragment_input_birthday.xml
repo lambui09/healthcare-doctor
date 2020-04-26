@@ -22,7 +22,7 @@
         android:layout_marginTop="@dimen/dp_8"
         app:layout_constraintTop_toBottomOf="@+id/tvHeaderFullName">
 
-        <com.lambui.healthcare_app.widget.viewInApp.EditTextCustom
+        <com.lambui.healthcare_doctor.widget.viewInApp.EditTextCustom
             android:id="@+id/edtFirstNamePatient"
             style="@style/EditTextCustomStyle"
             android:layout_width="0dp"
@@ -34,7 +34,7 @@
             app:inputType="text"
             app:maxLines="1" />
 
-        <com.lambui.healthcare_app.widget.viewInApp.EditTextCustom
+        <com.lambui.healthcare_doctor.widget.viewInApp.EditTextCustom
             android:id="@+id/edtLastNamePatient"
             style="@style/EditTextCustomStyle"
             android:layout_width="0dp"
@@ -56,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/llContainerFullName" />
 
-    <com.lambui.healthcare_app.widget.viewInApp.EditTextCustom
+    <com.lambui.healthcare_doctor.widget.viewInApp.EditTextCustom
         android:id="@+id/edtInputBirthDay"
         style="@style/EditTextCustomStyle"
         android:layout_marginTop="@dimen/dp_8"

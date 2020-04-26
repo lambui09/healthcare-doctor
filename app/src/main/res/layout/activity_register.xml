@@ -6,7 +6,7 @@
     android:background="@color/colorWhite"
     android:orientation="vertical">
 
-    <com.lambui.healthcare_app.widget.toolbar.MainToolbar
+    <com.lambui.healthcare_doctor.widget.toolbar.MainToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

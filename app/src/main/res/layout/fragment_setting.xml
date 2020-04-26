@@ -6,7 +6,7 @@
     android:background="@color/K_05173833_gray"
     android:orientation="vertical">
 
-    <com.lambui.healthcare_app.widget.toolbar.MainToolbar
+    <com.lambui.healthcare_doctor.widget.toolbar.MainToolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:toolbarTitle="@string/title_tab_setting"
@@ -25,7 +25,7 @@
                 style="@style/TextViewHeaderSetting"
                 android:text="@string/text_account" />
 
-            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+            <com.lambui.healthcare_doctor.widget.viewInApp.SettingContent
                 android:id="@+id/stAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                 style="@style/TextViewHeaderSetting"
                 android:text="@string/text_general_setting" />
 
-            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+            <com.lambui.healthcare_doctor.widget.viewInApp.SettingContent
                 android:id="@+id/stNotification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 app:icon="@drawable/ic_notification"
                 app:type="header" />
 
-            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+            <com.lambui.healthcare_doctor.widget.viewInApp.SettingContent
                 android:id="@+id/stVolume"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 app:icon="@drawable/ic_volume"
                 app:type="center" />
 
-            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+            <com.lambui.healthcare_doctor.widget.viewInApp.SettingContent
                 android:id="@+id/stFaq"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                 app:icon="@drawable/ic_faq"
                 app:type="header" />
 
-            <com.lambui.healthcare_app.widget.viewInApp.SettingContent
+            <com.lambui.healthcare_doctor.widget.viewInApp.SettingContent
                 android:id="@+id/stLogout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
