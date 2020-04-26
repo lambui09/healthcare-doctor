@@ -28,8 +28,8 @@ import android.view.animation.Transformation;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 
-import com.lambui.healthcare_app.widget.recycleView.PullRefreshLayout;
-import com.lambui.healthcare_app.widget.recycleView.RefreshDrawable;
+import com.lambui.healthcare_doctor.widget.recycleView.PullRefreshLayout;
+import com.lambui.healthcare_doctor.widget.recycleView.RefreshDrawable;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

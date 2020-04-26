@@ -19,11 +19,11 @@ import android.widget.ImageView;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 
-import com.lambui.healthcare_app.R;
-import com.lambui.healthcare_app.widget.recycleView.RefreshDrawable;
-import com.lambui.healthcare_app.widget.recycleView.RingDrawable;
-import com.lambui.healthcare_app.widget.recycleView.SmartisanDrawable;
-import com.lambui.healthcare_app.widget.recycleView.WaterDropDrawable;
+import com.lambui.healthcare_doctor.R;
+import com.lambui.healthcare_doctor.widget.recycleView.RefreshDrawable;
+import com.lambui.healthcare_doctor.widget.recycleView.RingDrawable;
+import com.lambui.healthcare_doctor.widget.recycleView.SmartisanDrawable;
+import com.lambui.healthcare_doctor.widget.recycleView.WaterDropDrawable;
 
 import java.security.InvalidParameterException;
 

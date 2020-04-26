@@ -10,8 +10,8 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.util.TypedValue;
 
-import com.lambui.healthcare_app.widget.recycleView.PullRefreshLayout;
-import com.lambui.healthcare_app.widget.recycleView.RefreshDrawable;
+import com.lambui.healthcare_doctor.widget.recycleView.PullRefreshLayout;
+import com.lambui.healthcare_doctor.widget.recycleView.RefreshDrawable;
 
 import java.security.InvalidParameterException;
 

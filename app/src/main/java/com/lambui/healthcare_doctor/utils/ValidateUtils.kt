@@ -5,7 +5,7 @@ import androidx.core.text.isDigitsOnly
 
 object ValidateUtils {
     fun validatePhoneNumber(numberPhone: String, context: Context): String {
-        if (numberPhone.isNullOrEmpty()) {
+        if (numberPhone.isEmpty()) {
             return "Must input phone number"
         }
         if (numberPhone.length < 10) {
