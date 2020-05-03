@@ -1,8 +1,10 @@
 package com.lambui.healthcare_doctor.data.source.remote.service
 
+import com.google.gson.JsonObject
 import com.lambui.healthcare_doctor.data.model.UserModel
 import com.lambui.healthcare_doctor.data.source.remote.api.response.ApiResponse
 import io.reactivex.Single
+import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -11,12 +13,16 @@ interface AuthApi {
     /**
      * api register member
      * */
-    @POST("/auth/signup")
-    @FormUrlEncoded
+    @POST("auth/signup")
     fun register(
-        @Field("phone_number") phoneNumber: String,
-        @Field("password") password: String,
-        @Field("password_confirmation") confirmPassWord: String,
-        @Field("device_token") deviceToken: String
+        @Body body: JsonObject
+    ): Single<ApiResponse<UserModel>>
+
+    /**
+     * api login member
+     * */
+    @POST("auth/login")
+    fun login(
+        @Body body: JsonObject
     ): Single<ApiResponse<UserModel>>
 }

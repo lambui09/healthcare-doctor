@@ -5,6 +5,8 @@ import com.lambui.healthcare_doctor.data.source.remote.api.middleware.Intercepto
 import com.lambui.healthcare_doctor.data.source.remote.api.middleware.RxErrorHandlingCallAdapterFactory
 import com.lambui.healthcare_doctor.data.source.repositories.TokenRepository
 import com.google.gson.Gson
+import com.lambui.healthcare_doctor.BuildConfig
+import com.lambui.healthcare_doctor.data.source.remote.service.AuthApi
 import okhttp3.Cache
 import okhttp3.Dispatcher
 import okhttp3.Interceptor
@@ -58,7 +60,7 @@ fun provideOkHttpClient(cache: Cache, interceptor: Interceptor): OkHttpClient {
 
 fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
     return Retrofit.Builder()
-        .baseUrl("xxxxx")
+        .baseUrl(BuildConfig.BASE_URL)
         .addCallAdapterFactory(
             RxErrorHandlingCallAdapterFactory.create()
         )
@@ -67,5 +69,7 @@ fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
         .client(okHttpClient)
         .build()
 }
+
+fun provideAuthenApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
 
 

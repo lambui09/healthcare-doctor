@@ -28,7 +28,7 @@ object Constants {
     const val STR_DEFAULT = ""
 
     object Manager {
-        const val KEY_CLINIC = "KEY_CLINIC"
+        const val KEY_CLINIC = "DOCTOR"
         const val KEY_ADMIN = "KEY_ADMIN"
     }
 }
