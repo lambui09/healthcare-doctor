@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "283468083738",
+    "firebase_url": "https://healthy-care-9834a.firebaseio.com",
+    "project_id": "healthy-care-9834a",
+    "storage_bucket": "healthy-care-9834a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283468083738:android:35780b00aac631cd8e17a3",
+        "android_client_info": {
+          "package_name": "com.lambui.healthcare_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283468083738-cp6p8nm1rh90tdujh5bcv1hvme33r529.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lambui.healthcare_app",
+            "certificate_hash": "1074068db8c2a37860e10d0fedd74b208c2ff859"
+          }
+        },
+        {
+          "client_id": "283468083738-g1j3v0nvrpnnslof5j0t8crs8kh90n4b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6wAVviuAlEMqegmpM-4yhYVjc4eTtyiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283468083738-g1j3v0nvrpnnslof5j0t8crs8kh90n4b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283468083738:android:2189f67236c07d768e17a3",
+        "android_client_info": {
+          "package_name": "com.lambui.healthcare_doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283468083738-8jnd4382qspk3l1lnrvme6lm3mre7dtn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lambui.healthcare_doctor",
+            "certificate_hash": "1074068db8c2a37860e10d0fedd74b208c2ff859"
+          }
+        },
+        {
+          "client_id": "283468083738-g1j3v0nvrpnnslof5j0t8crs8kh90n4b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6wAVviuAlEMqegmpM-4yhYVjc4eTtyiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283468083738-g1j3v0nvrpnnslof5j0t8crs8kh90n4b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
