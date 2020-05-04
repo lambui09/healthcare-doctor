@@ -12,6 +12,7 @@ import okhttp3.Dispatcher
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -21,6 +22,9 @@ import java.util.concurrent.TimeUnit
 val networkModule = module {
     single {provideInterceptor(get()) }
     single { provideOkHttpClient(get(), get()) }
+    single { provideRetrofit(get(), get()) }
+    single { provideAuthenApi(get()) }
+
 }
 
 fun provideInterceptor(

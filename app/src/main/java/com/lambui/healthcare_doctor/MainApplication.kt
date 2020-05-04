@@ -3,8 +3,11 @@ package com.lambui.healthcare_doctor
 import android.app.Activity
 import android.app.Application
 import android.util.Log
+import com.androidnetworking.AndroidNetworking
+import com.cloudinary.android.MediaManager
 import com.lambui.healthcare_doctor.di.*
 import com.lambui.healthcare_doctor.utils.Foreground
+import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -22,7 +25,8 @@ class MainApplication : Application(), Foreground.Listener {
     super.onCreate()
 
     sInstance = this
-
+    initFastNetwork()
+    initCloudinary()
 
     startKoin {
       androidLogger(Level.DEBUG)
@@ -72,6 +76,16 @@ class MainApplication : Application(), Foreground.Listener {
   companion object {
     private const val TAG = "MainApplication"
     lateinit var sInstance: MainApplication
+  }
+
+  fun initCloudinary(){
+    MediaManager.init(this)
+  }
+
+  private fun initFastNetwork() {
+    val okHttpClient: OkHttpClient = OkHttpClient().newBuilder()
+      .build()
+    AndroidNetworking.initialize(applicationContext, okHttpClient)
   }
 
   interface ReLoginListener {
