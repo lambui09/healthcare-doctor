@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "283468083738",
-    "firebase_url": "https://healthy-care-9834a.firebaseio.com",
-    "project_id": "healthy-care-9834a",
-    "storage_bucket": "healthy-care-9834a.appspot.com"
+    "project_number": "778478069174",
+    "firebase_url": "https://health-care-276516.firebaseio.com",
+    "project_id": "health-care-276516",
+    "storage_bucket": "health-care-276516.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:283468083738:android:35780b00aac631cd8e17a3",
+        "mobilesdk_app_id": "1:778478069174:android:2b30ecabb51c0b3c2e8d17",
         "android_client_info": {
           "package_name": "com.lambui.healthcare_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "283468083738-cp6p8nm1rh90tdujh5bcv1hvme33r529.apps.googleusercontent.com",
+          "client_id": "778478069174-mi50v7dsvl516q1o0furk9d2i0h8fkj0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.lambui.healthcare_app",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "283468083738-g1j3v0nvrpnnslof5j0t8crs8kh90n4b.apps.googleusercontent.com",
+          "client_id": "778478069174-4npl765p73kdqfih2ofe9e3e3khckik4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB6wAVviuAlEMqegmpM-4yhYVjc4eTtyiI"
+          "current_key": "AIzaSyBmZSlbt2sN0mC6vQiUlUAaoomB6V8DDPY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "283468083738-g1j3v0nvrpnnslof5j0t8crs8kh90n4b.apps.googleusercontent.com",
+              "client_id": "778478069174-4npl765p73kdqfih2ofe9e3e3khckik4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -45,14 +45,14 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:283468083738:android:2189f67236c07d768e17a3",
+        "mobilesdk_app_id": "1:778478069174:android:b966f2fc8bbef48a2e8d17",
         "android_client_info": {
           "package_name": "com.lambui.healthcare_doctor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "283468083738-8jnd4382qspk3l1lnrvme6lm3mre7dtn.apps.googleusercontent.com",
+          "client_id": "778478069174-agnkpkntfvv0skp3oo7kfm4ft88h6pg3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.lambui.healthcare_doctor",
@@ -60,20 +60,20 @@
           }
         },
         {
-          "client_id": "283468083738-g1j3v0nvrpnnslof5j0t8crs8kh90n4b.apps.googleusercontent.com",
+          "client_id": "778478069174-4npl765p73kdqfih2ofe9e3e3khckik4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB6wAVviuAlEMqegmpM-4yhYVjc4eTtyiI"
+          "current_key": "AIzaSyBmZSlbt2sN0mC6vQiUlUAaoomB6V8DDPY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "283468083738-g1j3v0nvrpnnslof5j0t8crs8kh90n4b.apps.googleusercontent.com",
+              "client_id": "778478069174-4npl765p73kdqfih2ofe9e3e3khckik4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
