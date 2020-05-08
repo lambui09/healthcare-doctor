@@ -79,7 +79,6 @@ class IntroduceActivity : BaseActivity<IntroduceVM>() {
     override fun onResume() {
         tvRegister.enable(true)
         super.onResume()
-
     }
 
     private fun handleRegister() {
