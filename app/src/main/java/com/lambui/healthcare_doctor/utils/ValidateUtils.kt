@@ -2,6 +2,7 @@ package com.lambui.healthcare_doctor.utils
 
 import android.content.Context
 import androidx.core.text.isDigitsOnly
+import com.lambui.healthcare_doctor.utils.StringUtils.isBlank
 
 object ValidateUtils {
     fun validatePhoneNumber(numberPhone: String, context: Context): String {
@@ -42,6 +43,19 @@ object ValidateUtils {
     fun validateSmsCode(smsCode: String, context: Context) : String{
         if (smsCode.length == 5){
             return "Sms not valid"
+        }
+        return ""
+    }
+    fun validateName(name: String, context: Context): String {
+        if (isBlank(name)) {
+            return "Must input password"
+        }
+        return ""
+    }
+
+    fun validateBirthDay(birthDay: String, context: Context): String {
+        if (isBlank(birthDay)) {
+            return "Must input password"
         }
         return ""
     }

@@ -6,9 +6,9 @@ import com.lambui.healthcare_doctor.data.source.sharedprf.SharedPrefsKey
 import com.lambui.healthcare_doctor.utils.extension.notNull
 
 interface TokenRepository {
-    fun getToken(): Token?
+    fun getToken(): String?
 
-    fun saveToken(token: Token)
+    fun saveToken(token: String)
 
     fun clearToken()
 
@@ -28,15 +28,15 @@ interface TokenRepository {
 }
 
 class TokenRepositoryImpl(private val sharedPrefsApi: SharedPrefsApi) : TokenRepository {
-    private var tokenCache: Token? = null
+    private var tokenCache: String? = null
     private var prefixRoleTemp = ""
 
-    override fun getToken(): Token? {
+    override fun getToken(): String? {
         tokenCache.notNull {
             return it
         }
 
-        val token = sharedPrefsApi.get(SharedPrefsKey.KEY_TOKEN, Token::class.java)
+        val token = sharedPrefsApi.get(SharedPrefsKey.KEY_TOKEN, String::class.java)
         token.notNull {
             tokenCache = it
             return it
@@ -45,7 +45,7 @@ class TokenRepositoryImpl(private val sharedPrefsApi: SharedPrefsApi) : TokenRep
         return null
     }
 
-    override fun saveToken(token: Token) {
+    override fun saveToken(token: String) {
         tokenCache = token
         sharedPrefsApi.put(SharedPrefsKey.KEY_TOKEN, tokenCache)
     }

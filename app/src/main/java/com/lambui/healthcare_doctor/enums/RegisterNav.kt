@@ -5,5 +5,6 @@ enum class RegisterNav {
     MAP,
     SURVEY_PATIENT,
     CONFIRM_SMS,
-    MAIN
+    MAIN,
+    BIRTH_DAY
 }
