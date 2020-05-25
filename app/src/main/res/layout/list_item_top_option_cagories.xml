@@ -1,51 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <com.lambui.healthcare_doctor.widget.viewInApp.TopOptionCategories
-        android:id="@+id/btnSearchDentist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:TopOptionCategoryHeader="@string/text_title_categories_dentist"
-        app:TopOptionCategoryIcon="@drawable/ic_categories_dentist"
-        app:TopOptionCategoryDescription="@string/text_description_categories_dentist"/>
-    <com.lambui.healthcare_doctor.widget.viewInApp.TopOptionCategories
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:TopOptionCategoryHeader="@string/text_title_categories_cardiology"
-        app:TopOptionCategoryIcon="@drawable/ic_categories_cardiology"
-        app:TopOptionCategoryDescription="@string/text_description_categories_cardiology"/>
-    <com.lambui.healthcare_doctor.widget.viewInApp.TopOptionCategories
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:TopOptionCategoryHeader="@string/text_title_categories_physician"
-        app:TopOptionCategoryIcon="@drawable/ic_categories_physician"
-        app:TopOptionCategoryDescription="@string/text_description_categories_physician"/>
-    <com.lambui.healthcare_doctor.widget.viewInApp.TopOptionCategories
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:TopOptionCategoryHeader="@string/text_title_categories_pediatric"
-        app:TopOptionCategoryIcon="@drawable/ic_categories_pediatric"
-        app:TopOptionCategoryDescription="@string/text_description_categories_pediatric"/>
-    <com.lambui.healthcare_doctor.widget.viewInApp.TopOptionCategories
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:TopOptionCategoryHeader="@string/text_title_categories_dermatology"
-        app:TopOptionCategoryIcon="@drawable/ic_categories_dermatology"
-        app:TopOptionCategoryDescription="@string/text_description_categories_dermatology"/>
-    <com.lambui.healthcare_doctor.widget.viewInApp.TopOptionCategories
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:TopOptionCategoryHeader="@string/text_title_categories_orthopedician"
-        app:TopOptionCategoryIcon="@drawable/ic_categories_orthopedician"
-        app:TopOptionCategoryDescription="@string/text_description_categories_orthopedician"/>
-    <com.lambui.healthcare_doctor.widget.viewInApp.TopOptionCategories
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:TopOptionCategoryHeader="@string/text_title_categories_neurologists"
-        app:TopOptionCategoryIcon="@drawable/ic_categories_neurologists"
-        app:TopOptionCategoryDescription="@string/text_description_categories_neurologists"/>
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <com.lambui.healthcare_doctor.widget.viewInApp.TopOptionCategories
+        android:id="@+id/btnCreateSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:TopOptionCategoryHeader="@string/text_title_create_schedule"
+        app:TopOptionCategoryIcon="@drawable/ic_categories_dentist" />
+
+    <com.lambui.healthcare_doctor.widget.viewInApp.TopOptionCategories
+        android:id="@+id/btnCreateExamination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:TopOptionCategoryHeader="@string/text_title_create_examination"
+        app:TopOptionCategoryIcon="@drawable/ic_categories_cardiology" />
 </LinearLayout>

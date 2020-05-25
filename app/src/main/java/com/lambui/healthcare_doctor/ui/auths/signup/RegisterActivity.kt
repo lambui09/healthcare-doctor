@@ -57,6 +57,25 @@ class RegisterActivity : BaseActivity<RegisterVM>() {
                             tag = RegisterInputFragment::class.java.simpleName
                         )
                     }
+                    RegisterNav.BIRTH_DAY.name -> {
+                        replaceFragmentInActivity(
+                            containerId = frameLayoutRegister.id,
+                            addToBackStack = false,
+                            fragment = InputBirthDayFragment(),
+                            animateType = AnimateType.NO_ANIMATION,
+                            tag = InputBirthDayFragment::class.java.simpleName
+                        )
+                    }
+                    RegisterNav.MAP.name -> {
+                        replaceFragmentInActivity(
+                            containerId = frameLayoutRegister.id,
+                            addToBackStack = false,
+                            fragment = InputAddressFragment(),
+                            animateType = AnimateType.NO_ANIMATION,
+                            tag = InputAddressFragment::class.java.simpleName
+                        )
+                    }
+
                 }
             })
         }

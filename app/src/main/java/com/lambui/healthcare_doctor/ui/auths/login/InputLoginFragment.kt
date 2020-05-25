@@ -2,12 +2,14 @@ package com.lambui.healthcare_doctor.ui.auths.login
 
 import android.util.Log
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import com.google.firebase.iid.FirebaseInstanceId
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
 import com.lambui.healthcare_doctor.enums.LoginNav
 import com.lambui.healthcare_doctor.ui.auths.signup.RegisterActivity
 import com.lambui.healthcare_doctor.utils.RxView
+import com.lambui.healthcare_doctor.utils.StringUtils.isBlank
 import com.lambui.healthcare_doctor.utils.ValidateUtils
 import com.lambui.healthcare_doctor.utils.extension.enable
 import com.lambui.healthcare_doctor.utils.extension.goTo
@@ -24,6 +26,8 @@ class InputLoginFragment : BaseFragment<LoginVM>() {
     override val viewModelx: LoginVM by sharedViewModel()
 
     override fun initialize() {
+        edtPhoneNumber.getEditText().setText("04012312302")
+        edtPassword.getEditText().setText("aa123123")
         handleRegister()
         validate()
         Log.d(
@@ -33,13 +37,24 @@ class InputLoginFragment : BaseFragment<LoginVM>() {
     }
 
     override fun onSubscribeObserver() {
-
+        with(viewModelx) {
+            loginSuccess.observe(this@InputLoginFragment, Observer {
+                val deviceToken = FirebaseInstanceId.getInstance().getToken() ?: ""
+                val patientId = getUserId() ?: ""
+                if (!isBlank(deviceToken) && !isBlank(patientId)) {
+                    viewModelx.updateDeviceToken(deviceToken, patientId)
+                }
+                viewModelx.setNavigationLogin(LoginNav.CONFIRM_CODE)
+            })
+        }
     }
 
     override fun registerOnClick() {
         btnLoginSubmit.getViewClick().setOnClickListener {
             if (validateInput()) {
-                viewModelx.setNavigationLogin(LoginNav.CONFIRM_CODE)
+                val phoneNumber = edtPhoneNumber.getEditText().text.toString()
+                val passWord = edtPassword.getEditText().text.toString()
+                viewModelx.login(phoneNumber, passWord)
             }
         }
     }
@@ -69,7 +84,6 @@ class InputLoginFragment : BaseFragment<LoginVM>() {
                         } else {
                             edtPhoneNumber.setVisibilityError(EditTextCustom.GONE)
                             btnLoginSubmit.setButtonSelected(validateInput())
-
                         }
                     }
                 )
