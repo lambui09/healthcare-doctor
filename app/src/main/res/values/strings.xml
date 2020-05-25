@@ -104,7 +104,8 @@
     <string name="text_hint_first_name">first name</string>
     <string name="text_hint_last_name">last name</string>
     <string name="text_header_name">Name</string>
-
+    <string name="text_title_create_schedule">tạo kế hoạch làm việc</string>
+    <string name="text_title_create_examination">tạo dịch vụ phòng khám</string>
 
 
     <!--end endpoint-->

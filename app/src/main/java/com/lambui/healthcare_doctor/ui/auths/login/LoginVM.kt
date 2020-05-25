@@ -7,9 +7,12 @@ import com.lambui.healthcare_doctor.base.BaseViewModel
 import com.lambui.healthcare_doctor.constant.Constants.INTIAL_DELAY
 import com.lambui.healthcare_doctor.constant.Constants.PERIOD
 import com.lambui.healthcare_doctor.constant.Constants.TIME_RESET_GET_OTP_SECOND
+import com.lambui.healthcare_doctor.data.model.DoctorModel
 import com.lambui.healthcare_doctor.data.model.UserModel
 import com.lambui.healthcare_doctor.data.source.repositories.TimeCountDownRepository
+import com.lambui.healthcare_doctor.data.source.repositories.TokenRepository
 import com.lambui.healthcare_doctor.data.source.repositories.UserAuthRepository
+import com.lambui.healthcare_doctor.data.source.repositories.UserLocalRepository
 import com.lambui.healthcare_doctor.enums.LoginNav
 import com.lambui.healthcare_doctor.utils.extension.loading
 import com.lambui.healthcare_doctor.utils.extension.withScheduler
@@ -22,11 +25,13 @@ import java.util.concurrent.TimeUnit
 
 class LoginVM(
     private val baseSchedulerProvider: BaseSchedulerProvider,
-    private val timeCountDownRepository: TimeCountDownRepository,
-    private val userAuthRepository: UserAuthRepository
+    private val userAuthRepository: UserAuthRepository,
+    private val tokenRepository: TokenRepository,
+    private val userLocalRepository: UserLocalRepository
 ) : BaseViewModel() {
     var navigationLogin = MutableLiveData<String>()
     var loginSuccess = MutableLiveData<UserModel>()
+    var updateLoginSuccess = MutableLiveData<DoctorModel>()
     private val remainD = MutableLiveData<Long>()
         .apply { value = TIME_RESET_GET_OTP_SECOND }
     private val startIntervalS = PublishSubject.create<Unit>()
@@ -83,4 +88,26 @@ class LoginVM(
                 )
         }
     }
+    fun updateDeviceToken(deviceToken: String, patientId: String) {
+        launchDisposable {
+            userAuthRepository.updateDeviceToken(patientId, deviceToken)
+                .withScheduler(baseSchedulerProvider)
+                .loading(isLoading)
+                .subscribeBy(
+                    onSuccess = {
+                        updateLoginSuccess.value = it.data
+                        userLocalRepository.saveUserLocal(it.data)
+                    },
+                    onError = {
+                        onError.value = it
+                    }
+                )
+        }
+    }
+
+    fun getUserId(): String? {
+        return userLocalRepository.getUserLocal()?.id
+    }
+
+
 }

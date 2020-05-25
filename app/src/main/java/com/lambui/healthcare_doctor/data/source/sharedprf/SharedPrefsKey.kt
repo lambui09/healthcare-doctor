@@ -11,5 +11,7 @@ object SharedPrefsKey {
   const val KEY_PHONE_NUMBER = "KEY_PHONE_NUMBER"
   const val KEY_USER_LOCAL = "KEY_USER_LOCAL"
   const val KEY_START_COUNT_DOWN = "KEY_START_COUNT_DOWN"
+  const val KEY_LOGOUT = "KEY_LOGOUT"
+  const val KEY_ID_USER = "KEY_ID_USER"
 
 }
