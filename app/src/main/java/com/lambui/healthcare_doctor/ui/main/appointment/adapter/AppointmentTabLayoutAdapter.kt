@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.lambui.healthcare_doctor.ui.main.appointment.appointmentPrevious.AppointmentPreviousFragment
+import com.lambui.healthcare_doctor.ui.main.appointment.appointmentPrevious.AppointmentHistoryFragment
 import com.lambui.healthcare_doctor.ui.main.appointment.appointmentUpcoming.AppointmentUpcomingFragment
 
 class AppointmentTabLayoutAdapter(val context: Context?,
@@ -17,7 +17,7 @@ class AppointmentTabLayoutAdapter(val context: Context?,
             }
 
             else -> {
-                AppointmentPreviousFragment()
+                AppointmentHistoryFragment()
             }
         }
     }
@@ -28,8 +28,8 @@ class AppointmentTabLayoutAdapter(val context: Context?,
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
-            1 -> "Upcoming"
-            else -> "Previous"
+            0 -> "Upcoming"
+            else -> "History"
         }
     }
 }

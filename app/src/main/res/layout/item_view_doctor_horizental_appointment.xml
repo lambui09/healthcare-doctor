@@ -38,8 +38,10 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvNameDoctor"
                     style="@style/TextViewHeaderStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/dp_150"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="@integer/name_length"
                     android:text="Dr.Join"
                     android:textSize="@dimen/sp_16"
                     app:layout_constraintStart_toStartOf="parent"
@@ -48,11 +50,12 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvLocationOfDoctor"
                     style="@style/TextViewDescriptionStyle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/dp_150"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginTop="12dp"
                     android:drawableStart="@drawable/ic_marker"
                     android:drawablePadding="@dimen/dp_6"
+                    android:ellipsize="end"
                     android:text="0.31 mi away - Dentist"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvNameDoctor" />
@@ -70,13 +73,14 @@
                     app:mrb_progressTint="@color/K_FF9500_yellow"
                     app:mrb_secondaryProgressTint="@color/K_FF9500_yellow" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/btnCodeSmsResend"
-                style="@style/TextViewWithoutShadowStyleStatusAppointment"
+                android:id="@+id/tvStatus"
+                style="@style/TextViewWithoutShadowStyleStatusUpcomingAppointment"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
-                app:layout_constraintRight_toRightOf="parent"
-                android:text="@string/text_appointment_cancelled" />
+                android:text="@string/text_status_pending"
+                app:layout_constraintRight_toRightOf="parent" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

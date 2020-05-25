@@ -170,5 +170,19 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/K_8A173833_gray</item>
     </style>
+    <style name="TextViewWithoutShadowStyleStatusUpcomingAppointment">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_20</item>
+        <item name="android:background">@drawable/bg_button_upcoming_general</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:paddingRight">@dimen/dp_5</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:paddingLeft">@dimen/dp_5</item>
+        <item name="android:layout_marginStart">@dimen/dp_16</item>
+        <item name="android:layout_marginEnd">@dimen/dp_16</item>
+        <item name="android:gravity">center</item>
+        <item name="android:state_selected">false</item>
+    </style>
 
 </resources>

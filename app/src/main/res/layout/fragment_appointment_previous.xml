@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <com.lambui.healthcare_doctor.widget.recycleView.SuperRecyclerView
+        android:id="@+id/rvAppointmentHisTory"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_24"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:textColor="@color/K_263337_green"
+            android:textSize="@dimen/sp_22"
+            tools:text="@string/text_there_is_currently_no_appointment" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvContentEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:textColor="@color/K_787F82_gray"
+            android:textSize="@dimen/sp_14"
+            tools:text="@string/text_when_appointment_are_delivered_they_will_be_displayed_here" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</FrameLayout>
