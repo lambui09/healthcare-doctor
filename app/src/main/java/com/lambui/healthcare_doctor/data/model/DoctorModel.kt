@@ -8,62 +8,67 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class DoctorModel(
     @Expose
-    @SerializedName("id")
-    val id: Int,
+    @SerializedName("_id")
+    var id: String? = null,
     @Expose
-    @SerializedName("medical_department")
-    val medicalDepartment: String,
+    @SerializedName("first_name")
+    var firstName: String? = null,
     @Expose
-    @SerializedName("name")
-    val name: String? = "",
+    @SerializedName("last_name")
+    var lastName: String? = null,
     @Expose
-    @SerializedName("email")
-    val email: String? = "",
+    @SerializedName("birth_day")
+    var birthDay: String? = null,
     @Expose
-    @SerializedName("phone")
+    @SerializedName("gender")
+    var gender: String? = null,
+    @Expose
+    @SerializedName("full_name")
+    val fullName: String? = "",
+    @Expose
+    @SerializedName("location")
+    val location : LocationModel? = null,
+    @Expose
+    @SerializedName("device_token")
+    val deviceToken : String? = null,
+    @Expose
+    @SerializedName("phone_number")
     val phone: String? = "",
     @Expose
-    @SerializedName("mobile_phone")
-    val mobilePhone: String? = "",
+    @SerializedName("awards")
+    val awards: String? = "",
     @Expose
-    @SerializedName("fax")
-    val fax: String? = "",
+    @SerializedName("about")
+    val about: String? = "",
     @Expose
-    @SerializedName("postal_code")
-    val postalCode: String? = "",
+    @SerializedName("year_experience")
+    val year_experience: Int? = 0,
     @Expose
-    @SerializedName("prefecture_id")
-    val prefectureId: Int,
+    @SerializedName("specialist")
+    var specialistModel: SpecialistModel? = null,
     @Expose
-    @SerializedName("city_id")
-    val cityId: Int,
+    @SerializedName("examination_list")
+    var examinationList: MutableList<String>? = null,
     @Expose
-    @SerializedName("address")
-    val address: String? = "",
+    @SerializedName("avatar")
+    var avatarUrl: String? = "",
     @Expose
-    @SerializedName("building_name")
-    val buildingName: String? = "",
+    @SerializedName("is_active")
+    var is_active: Boolean? = null,
     @Expose
-    @SerializedName("introduction")
-    val introduction: String? = "",
+    @SerializedName("is_complete")
+    var is_complete: Boolean? = null,
     @Expose
-    @SerializedName("image")
-    val image: String? = "",
-    @Expose
-    @SerializedName("image_url")
-    val imageUrl: String? = "",
-    @Expose
-    @field:SerializedName("avatar_url")
-    val avatarUrl: String? = "",
+    @SerializedName("user_id")
+    var userId : String? = null,
     @Expose
     @SerializedName("created_at")
-    val createdAt: String? = "",
+    var createdAt: String? = "",
     @Expose
     @SerializedName("updated_at")
-    val updatedAt: String? = ""
-): Parcelable{
-    fun getImageDisplay(): String {
-        if (avatarUrl.isNullOrEmpty()) return imageUrl.toString()
-        return avatarUrl
-    }
-}
+    val updatedAt: String? = null,
+    @Expose
+    @SerializedName("address")
+    val address: String? = null
+
+) : Parcelable
