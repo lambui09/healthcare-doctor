@@ -3,9 +3,15 @@ package com.lambui.healthcare_doctor.ui.main.appointment
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.lambui.healthcare_doctor.base.BaseViewModel
+import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
 import com.lambui.healthcare_doctor.data.source.repositories.AppointmentRepository
 import com.lambui.healthcare_doctor.data.source.repositories.UserLocalRepository
+import com.lambui.healthcare_doctor.enums.DetailAppointmentNav
+import com.lambui.healthcare_doctor.utils.StringUtils.isBlank
+import com.lambui.healthcare_doctor.utils.extension.loading
+import com.lambui.healthcare_doctor.utils.extension.withScheduler
 import com.lambui.healthcare_doctor.utils.rxAndroid.BaseSchedulerProvider
+import io.reactivex.rxkotlin.subscribeBy
 
 class AppointmentVM(
     private val baseSchedulerProvider: BaseSchedulerProvider,
@@ -15,7 +21,8 @@ class AppointmentVM(
     var listAppointmentPending = MutableLiveData<MutableList<AppointmentFullModel>>()
     var listAppointmentOfDoctor = MutableLiveData<MutableList<AppointmentFullModel>>()
     var appointmentCancelRequest = MutableLiveData<AppointmentFullModel>()
-    var commentSucces = MutableLiveData<CommentModel>()
+    var appointmentConfirmRequest = MutableLiveData<AppointmentFullModel>()
+    var appointmentCompleteRequest = MutableLiveData<AppointmentFullModel>()
     var isRefresh = MutableLiveData<Boolean>()
     var appointmentItem: AppointmentFullModel? = null
     var navigation = MutableLiveData<String>()
@@ -26,7 +33,7 @@ class AppointmentVM(
 
     fun getAppointmentPending() {
         launchDisposable {
-            appointmentRepository.getAppointmentPendingOfPatient(getPatientId(), "PENDING")
+            appointmentRepository.getAppointmentConfirmOfDoctor(getDoctorId(), "PENDING")
                 .withScheduler(baseSchedulerProvider)
                 .loading(isLoading)
                 .subscribeBy(
@@ -42,7 +49,7 @@ class AppointmentVM(
 
     fun getAppointmentOfDoctor() {
         launchDisposable {
-            appointmentRepository.getAppointmentOfPatient(getPatientId())
+            appointmentRepository.getAppointmentOfDoctor(getDoctorId())
                 .withScheduler(baseSchedulerProvider)
                 .loading(isLoading)
                 .subscribeBy(
@@ -56,7 +63,7 @@ class AppointmentVM(
         }
     }
 
-    fun getPatientId(): String {
+    fun getDoctorId(): String {
         var id = userLocalRepository.getUserLocal()?.id
         if (isBlank(id)) {
             id = userLocalRepository.getUserId()
@@ -69,9 +76,9 @@ class AppointmentVM(
         isRefresh.value = isRefreshData
     }
 
-    fun cancelRequst(appointmentId: String) {
+    fun cancelRequest() {
         launchDisposable {
-            appointmentRepository.cancelAppointment(appointmentId)
+            appointmentRepository.cancelAppointment(getAppointmentId())
                 .withScheduler(baseSchedulerProvider)
                 .loading(isLoading)
                 .subscribeBy(
@@ -83,19 +90,39 @@ class AppointmentVM(
         }
     }
 
-    fun reviewAppointment(doctorId: String, content: String, rate_star: Double) {
+    fun confirmRequest() {
         launchDisposable {
-            appointmentRepository.addCommentToDoctor(doctorId, content, rate_star)
+            appointmentRepository.confirmAppointment(getAppointmentId())
                 .withScheduler(baseSchedulerProvider)
                 .loading(isLoading)
                 .subscribeBy(
                     onSuccess = {
-                        commentSucces.value = it.commentCreated
+                        appointmentConfirmRequest.value = it
                     },
                     onError = {
                         onError.value = it
                     }
                 )
         }
+    }
+
+    fun completeRequest() {
+        launchDisposable {
+            appointmentRepository.completeAppointment(getAppointmentId())
+                .withScheduler(baseSchedulerProvider)
+                .loading(isLoading)
+                .subscribeBy(
+                    onSuccess = {
+                        appointmentCompleteRequest.value = it
+                    },
+                    onError = {
+                        onError.value = it
+                    }
+                )
+        }
+    }
+
+    fun getAppointmentId(): String {
+        return ""
     }
 }

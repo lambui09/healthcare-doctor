@@ -69,6 +69,8 @@
     <!--end endpoint-->
     <!--screen book appointment -->
     <string name="confirm_book_appointment">Confirm</string>
+    <string name="reject_book_appointment">Reject</string>
+    <string name="complete_book_appointment">Complete</string>
     <string name="title_review">Review</string>
     <string name="date_example">2019:12:12</string>
     <string name="time_example">8:30</string>

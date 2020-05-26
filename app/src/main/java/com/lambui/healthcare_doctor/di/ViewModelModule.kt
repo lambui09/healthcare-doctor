@@ -21,7 +21,7 @@ val viewModelModule = module {
     viewModel { LoginVM(get(), get(), get(), get()) }
     viewModel { IntroduceVM() }
     viewModel { HomeVM() }
-    viewModel { AppointmentVM() }
+    viewModel { AppointmentVM(get(), get(), get()) }
     viewModel { ChatVM() }
     viewModel { NotificationVM() }
     viewModel { SettingVM() }

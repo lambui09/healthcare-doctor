@@ -1,6 +1,7 @@
 package com.lambui.healthcare_doctor.ui.main.appointment.appointmentUpcoming
 
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lambui.healthcare_doctor.R
@@ -11,6 +12,7 @@ import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
 import com.lambui.healthcare_doctor.ui.main.appointment.detail.DetailBookAppointmentActivity
 import com.lambui.healthcare_doctor.utils.extension.goTo
+import com.lambui.healthcare_doctor.utils.extension.show
 import kotlinx.android.synthetic.main.fragment_appointment_upcoming.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
