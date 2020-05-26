@@ -2,6 +2,7 @@ package com.lambui.healthcare_doctor.di
 
 import com.google.gson.Gson
 import com.lambui.healthcare_doctor.data.source.remote.service.AuthApi
+import com.lambui.healthcare_doctor.data.source.remote.service.InformationAppointmentApi
 import com.lambui.healthcare_doctor.data.source.repositories.*
 import com.lambui.healthcare_doctor.data.source.sharedprf.SharedPrefsApi
 import org.koin.dsl.module
@@ -11,6 +12,7 @@ val repositoryModule = module {
     single { provideUserAuthRepository(get(), get()) }
     single { provideTokenRepository(get()) }
     single { provideUserLocalRepository(get()) }
+    single { provideInformationAppointmentRepository(get(), get()) }
 }
 
 fun provideTimeCountDownRepository(sharedPrefsApi: SharedPrefsApi): TimeCountDownRepository =
@@ -24,3 +26,9 @@ fun provideTokenRepository(sharedPrefsApi: SharedPrefsApi): TokenRepository =
 
 fun provideUserLocalRepository(sharedPrefsApi: SharedPrefsApi): UserLocalRepository =
     UserLocalRepositoryImpl(sharedPrefsApi)
+
+fun provideInformationAppointmentRepository(
+    informationAppointmentApi: InformationAppointmentApi,
+    gson: Gson
+): AppointmentRepository =
+    AppointmentRepositoryImpl(informationAppointmentApi, gson)

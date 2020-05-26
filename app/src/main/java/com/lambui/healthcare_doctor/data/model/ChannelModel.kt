@@ -36,23 +36,17 @@ data class ChannelModel(
     @Expose
     @SerializedName("message_unread_count")
     var unreadMsgCount: Int = 0
-): Parcelable{
-
+) : Parcelable {
     fun isShowUnreadMessage(): Boolean {
         return unreadMsgCount != 0
     }
 
-    fun getClinicOrManager() : List<DoctorModel>? {
+    fun getClinicOrManager(): List<DoctorModel>? {
         if (!clinics.isNullOrEmpty())
             return clinics
         if (!managers.isNullOrEmpty())
             return managers
         return null
-    }
-    fun getRoomImage(): String {
-        if (!managers.isNullOrEmpty())
-            return managers[0].getImageDisplay()
-        return Constants.STR_DEFAULT
     }
 
 }

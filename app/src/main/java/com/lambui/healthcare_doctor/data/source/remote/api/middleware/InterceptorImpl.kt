@@ -5,6 +5,7 @@ import androidx.annotation.NonNull
 import com.lambui.healthcare_doctor.constant.Constants.API_PREFIX
 import com.lambui.healthcare_doctor.constant.Constants.BASE_URL
 import com.lambui.healthcare_doctor.data.source.repositories.TokenRepository
+import com.lambui.healthcare_doctor.data.source.sharedprf.SharedPrefsKey.KEY_TOKEN
 import com.lambui.healthcare_doctor.utils.extension.insert
 import com.lambui.healthcare_doctor.utils.extension.notNull
 import okhttp3.Interceptor
@@ -35,11 +36,13 @@ class InterceptorImpl(private var tokenRepository: TokenRepository?) : Intercept
       //TODO refresh Token
 
       builder.removeHeader(
-        KEY_TOKEN)
+        KEY_TOKEN
+      )
 
-      tokenRepository?.getToken()?.accessToken.notNull { accessToken ->
+      tokenRepository?.getToken()?.notNull { accessToken ->
         builder.addHeader(
-          KEY_TOKEN, TOKEN_TYPE + accessToken)
+          KEY_TOKEN, TOKEN_TYPE + accessToken
+        )
         request = builder.build()
         response = chain.proceed(request)
       }
@@ -52,8 +55,10 @@ class InterceptorImpl(private var tokenRepository: TokenRepository?) : Intercept
     val originRequest = chain.request()
 
     val urlWithPrefix = BASE_URL + API_PREFIX
-    val newUrl = chain.request().url.toString().insert(index = urlWithPrefix.length,
-      contentInsert = "")
+    val newUrl = chain.request().url.toString().insert(
+      index = urlWithPrefix.length,
+      contentInsert = ""
+    )
     Log.e("newUrl", newUrl)
     val builder = originRequest.newBuilder()
       .url(newUrl)
@@ -63,7 +68,7 @@ class InterceptorImpl(private var tokenRepository: TokenRepository?) : Intercept
       .method(originRequest.method, originRequest.body)
 
 
-    tokenRepository?.getToken()?.accessToken.notNull { accessToken ->
+    tokenRepository?.getToken()?.notNull { accessToken ->
       builder.addHeader(KEY_TOKEN, TOKEN_TYPE + accessToken)
     }
 

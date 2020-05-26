@@ -69,6 +69,8 @@
     <!--end endpoint-->
     <!--screen book appointment -->
     <string name="confirm_book_appointment">Confirm</string>
+    <string name="reject_book_appointment">Reject</string>
+    <string name="complete_book_appointment">Complete</string>
     <string name="title_review">Review</string>
     <string name="date_example">2019:12:12</string>
     <string name="time_example">8:30</string>
@@ -92,7 +94,7 @@
     <string name="text_setting_faq">History</string>
     <string name="text_title_tab_survey">Disease survey</string>
     <string name="text_description_step_one">Personal information</string>
-   <string name="text_example_date_month_year">1990/01/01</string>
+    <string name="text_example_date_month_year">1990/01/01</string>
     <string name="text_birthday">BirthDay</string>
     <string name="text_sex">Gender</string>
     <string name="text_male">Male</string>
@@ -106,13 +108,49 @@
     <string name="text_header_name">Name</string>
     <string name="text_title_create_schedule">tạo kế hoạch làm việc</string>
     <string name="text_title_create_examination">tạo dịch vụ phòng khám</string>
-
-
     <!--end endpoint-->
     <!--login-->
-
-
-
     <!--end endpoint-->
+    <!--setting account start-->
+    <string name="text_hint_full_name_ex">bui duc lam</string>
+    <string name="text_hint_phone_number_ex">0374445473</string>
+    <string name="text_hint_birth_date_ex">04/08/1997</string>
+    <string name="text_header_profile">profile</string>
+    <string name="text_header_history">history</string>
+    <string name="text_title_logout">Logout</string>
+    <string name="text_confirm_logout">Do you want to log out?</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="name_example">Bui Duc Lam</string>
+    <string name="specialist_example">Khoa mat</string>
+    <string name="address_example">344 duong 2/9 Da Nang</string>
+    <!--end endpoint-->
+    <!--book appointment-->
+    <string name="text_title_detail_doctor">Appointment</string>
+    <string name="text_off">off</string>
+    <string name="text_setting_time_5_minute">5 minute</string>
+    <string name="text_setting_time_10_minute">10 minute</string>
+    <string name="text_setting_time_60_minute">60 minute</string>
+    <string name="text_setting_time_30_minute">30 minute</string>
+    <string name="text_setting_time_45_minute">45 minute</string>
+    <string name="text_always">30 minute</string>
+    <string name="text_setting_time_15_minute">15 minute</string>
+    <string name="text_content_examination">Sieu am</string>
+    <string name="text_example_symptom">Dau mat</string>
+    <string name="text_there_is_currently_no_appointment">There are currently no appointments</string>
+    <string name="text_there_is_currently_no_notification">There are currently no notification</string>
+    <string name="text_there_is_currently_no_time_free">There are currently no free time</string>
+    <string name="text_when_appointment_are_delivered_they_will_be_displayed_here">When the information of appointment is delivered, it will be displayed here</string>
+    <string name="text_when_notification_are_delivered_they_will_be_displayed_here">When the information of notification is delivered, it will be displayed here</string>
+    <string name="text_when_schedule_are_delivered_they_will_be_displayed_here">When the information of schedule is delivered, it will be displayed here</string>
+    <!--end endpoint-->
+    <!--appointment-->
+    <string name="text_status_pending">PENDING</string>
+    <string name="text_status_cancel">CANCELED</string>
+    <string name="text_status_confirmed">CONFIRMED</string>
+    <string name="text_status_completed">COMPLETED</string>
+    <!--end endpoint-->
+    <!--appointment-->
+    <string name="text_comment_example">Phòng khám thân thiệt, bác sĩ tốt</string>
+    <!--appointment-->
 
 </resources>

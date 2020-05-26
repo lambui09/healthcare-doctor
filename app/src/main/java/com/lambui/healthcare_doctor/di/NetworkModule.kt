@@ -7,6 +7,9 @@ import com.lambui.healthcare_doctor.data.source.repositories.TokenRepository
 import com.google.gson.Gson
 import com.lambui.healthcare_doctor.BuildConfig
 import com.lambui.healthcare_doctor.data.source.remote.service.AuthApi
+import com.lambui.healthcare_doctor.data.source.remote.service.InformationAppointmentApi
+import com.lambui.healthcare_doctor.data.source.remote.service.NotificationApi
+import com.lambui.healthcare_doctor.data.source.remote.service.SettingAccountApi
 import okhttp3.Cache
 import okhttp3.Dispatcher
 import okhttp3.Interceptor
@@ -20,11 +23,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 val networkModule = module {
-    single {provideInterceptor(get()) }
+    single { provideInterceptor(get()) }
     single { provideOkHttpClient(get(), get()) }
     single { provideRetrofit(get(), get()) }
     single { provideAuthenApi(get()) }
-
+    single { provideInformationAppointment(get()) }
+    single { provideNotification(get()) }
+    single { provideSettingAccountApi(get()) }
 }
 
 fun provideInterceptor(
@@ -75,5 +80,14 @@ fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
 }
 
 fun provideAuthenApi(retrofit: Retrofit): AuthApi = retrofit.create(AuthApi::class.java)
+
+fun provideInformationAppointment(retrofit: Retrofit): InformationAppointmentApi =
+    retrofit.create(InformationAppointmentApi::class.java)
+
+fun provideNotification(retrofit: Retrofit): NotificationApi =
+    retrofit.create(NotificationApi::class.java)
+
+fun provideSettingAccountApi(retrofit: Retrofit): SettingAccountApi =
+    retrofit.create(SettingAccountApi::class.java)
 
 

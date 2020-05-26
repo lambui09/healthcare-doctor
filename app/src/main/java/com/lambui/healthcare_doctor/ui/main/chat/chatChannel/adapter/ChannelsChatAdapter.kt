@@ -53,8 +53,7 @@ class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
                     else it.unreadMsgCount.toString() + "+"
                 tvUnreadMessage.text = totalUnread
                 tvUnreadMessage.show(it.isShowUnreadMessage())
-                tvRoomName.text = it.getClinicOrManager()?.get(FIRST_INDEX)?.name
-                iv.loadImageUrlInCircle(it.getRoomImage(), R.drawable.img_profile_doctor)
+                tvRoomName.text = it.getClinicOrManager()?.get(FIRST_INDEX)?.fullName
             }
         }
     }
