@@ -70,12 +70,14 @@
         <item name="android:textSize">@dimen/sp_13</item>
         <item name="android:background">@color/K_0D173833_green</item>
     </style>
+
     <style name="TextViewErrorStyle">
         <item name="android:textSize">@dimen/sp_10</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/K_E9546A_red</item>
     </style>
+
     <style name="TextViewWithoutShadowStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_54</item>
@@ -89,11 +91,13 @@
         <item name="android:gravity">center</item>
         <item name="android:state_selected">true</item>
     </style>
+
     <style name="TextViewDescriptionSplashStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/K_42173833_gray</item>
     </style>
+
     <style name="TextViewOptionStyle">
         <item name="android:layout_height">@dimen/dp_48</item>
         <item name="android:background">@drawable/bg_time_select_general</item>
@@ -106,6 +110,7 @@
         <item name="android:paddingLeft">@dimen/dp_15</item>
         <item name="android:state_selected">true</item>
     </style>
+
     <style name="TextViewOptionGenderStyle">
         <item name="android:layout_height">@dimen/dp_48</item>
         <item name="android:background">@drawable/bg_gender_general</item>
@@ -132,6 +137,7 @@
         <item name="android:gravity">center</item>
         <item name="android:state_selected">true</item>
     </style>
+
     <style name="TextViewHeaderSetting">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_57</item>
@@ -141,6 +147,7 @@
         <item name="android:paddingStart">@dimen/dp_16</item>
         <item name="android:paddingEnd">@dimen/dp_16</item>
     </style>
+
     <style name="TextViewRoundStyle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -149,6 +156,7 @@
         <item name="android:textColor">@drawable/tc_round_general</item>
         <item name="android:background">@drawable/bg_round_general</item>
     </style>
+
     <style name="TextViewSelectedBottomStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_54</item>
@@ -164,12 +172,14 @@
         <item name="android:gravity">center</item>
         <item name="android:state_selected">true</item>
     </style>
+
     <style name="TextWhiteOpacity100Size10">
         <item name="android:textSize">@dimen/sp_12</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/K_8A173833_gray</item>
     </style>
+
     <style name="TextViewWithoutShadowStyleStatusUpcomingAppointment">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_20</item>
@@ -184,6 +194,7 @@
         <item name="android:gravity">center</item>
         <item name="android:state_selected">false</item>
     </style>
+
     <style name="TextViewWithoutShadowStyleCompleteAppointment">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_20</item>
@@ -197,6 +208,12 @@
         <item name="android:layout_marginEnd">@dimen/dp_8</item>
         <item name="android:gravity">center</item>
         <item name="android:state_selected">false</item>
+    </style>
+
+    <style name="ViewLineHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_1</item>
+        <item name="android:background">@color/K_12173833_blue</item>
     </style>
 
 </resources>

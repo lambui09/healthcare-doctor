@@ -9,8 +9,6 @@ import com.lambui.healthcare_doctor.constant.Constants.PERIOD
 import com.lambui.healthcare_doctor.constant.Constants.TIME_RESET_GET_OTP_SECOND
 import com.lambui.healthcare_doctor.data.model.DoctorModel
 import com.lambui.healthcare_doctor.data.model.LoginModelResponse
-import com.lambui.healthcare_doctor.data.model.UserModel
-import com.lambui.healthcare_doctor.data.source.repositories.TimeCountDownRepository
 import com.lambui.healthcare_doctor.data.source.repositories.TokenRepository
 import com.lambui.healthcare_doctor.data.source.repositories.UserAuthRepository
 import com.lambui.healthcare_doctor.data.source.repositories.UserLocalRepository
@@ -82,6 +80,8 @@ class LoginVM(
                 .subscribeBy(
                     onSuccess = {
                         loginSuccess.value = it.data
+                        it?.data?.token?.let { it1 -> tokenRepository.saveToken(it1) }
+                        it?.data?.userId?.let { it2 -> userLocalRepository.saveUserId(it2) }
                     },
                     onError = {
                         onError.value = it
@@ -89,6 +89,7 @@ class LoginVM(
                 )
         }
     }
+
     fun updateDeviceToken(deviceToken: String, patientId: String) {
         launchDisposable {
             userAuthRepository.updateDeviceToken(patientId, deviceToken)
@@ -109,6 +110,4 @@ class LoginVM(
     fun getUserId(): String? {
         return userLocalRepository.getUserLocal()?.id
     }
-
-
 }
