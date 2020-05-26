@@ -23,7 +23,7 @@ val viewModelModule = module {
     viewModel { HomeVM() }
     viewModel { AppointmentVM(get(), get(), get()) }
     viewModel { ChatVM() }
-    viewModel { NotificationVM() }
+    viewModel { NotificationVM(get(),get()) }
     viewModel { SettingVM() }
     viewModel { SplashVM() }
     viewModel { ChatDetailVM() }

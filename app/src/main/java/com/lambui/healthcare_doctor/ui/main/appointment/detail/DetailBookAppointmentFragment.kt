@@ -3,6 +3,7 @@ package com.lambui.healthcare_doctor.ui.main.appointment.detail
 import androidx.lifecycle.Observer
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
+import com.lambui.healthcare_doctor.dialog.DialogConfirm
 import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
 import com.lambui.healthcare_doctor.utils.RxView
@@ -57,6 +58,17 @@ class DetailBookAppointmentFragment : BaseFragment<AppointmentVM>() {
                     }
                 }).subscribe {
                 viewModelx.cancelRequest()
+                showConfirmDialog(resources.getString(R.string.text_title_dialog_complete),
+                    resources.getString(R.string.text_content_dialog_complete),
+                    object : DialogConfirm.OnButtonClickedListener {
+                        override fun onPositiveClicked() {
+                            viewModelx.completeRequest()
+                        }
+
+                        override fun onNegativeClicked() {
+
+                        }
+                    })
             }
         }
     }

@@ -151,6 +151,12 @@
     <!--end endpoint-->
     <!--appointment-->
     <string name="text_comment_example">Phòng khám thân thiệt, bác sĩ tốt</string>
-    <!--appointment-->
+    <!--dialog-->
+    <string name="text_title_dialog_complete">Xác nhận</string>
+    <string name="text_title_dialog_cancel">Xác nhận</string>
+    <string name="text_content_dialog_complete">Bạn chắc chắn cuộc hẹn khám đã hoàn thành</string>
+    <string name="text_content_dialog_reject">Bạn chắc chắn muốn hủy lịch hẹn khám này</string>
+    <!--end dialog-->
+
 
 </resources>

@@ -40,6 +40,14 @@ class DetailBookAppointmentActivity : BaseActivity<AppointmentVM>() {
                             fragment = DetailBookAppointmentFragment()
                         )
                     }
+                    DetailAppointmentNav.COMPELETE_APPOINTMENT.name -> {
+                        replaceFragmentInActivity(
+                            containerId = frameLayoutDetailAppointment.id,
+                            addToBackStack = false,
+                            tag = CompleteBookAppointmentFragment::class.java.simpleName,
+                            fragment = CompleteBookAppointmentFragment()
+                        )
+                    }
                 }
             })
             typeToolbar.observe(this@DetailBookAppointmentActivity, Observer {
