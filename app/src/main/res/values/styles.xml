@@ -39,6 +39,7 @@
         <item name="android:textSize">@dimen/sp_12</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColor">@color/K_8A173833_gray</item>
     </style>
 
@@ -60,6 +61,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/K_DE173833_green</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">@dimen/sp_15</item>
     </style>
 
@@ -189,7 +191,7 @@
         <item name="android:paddingRight">@dimen/dp_5</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:paddingLeft">@dimen/dp_5</item>
-        <item name="android:layout_marginStart">@dimen/dp_16</item>
+        <item name="android:layout_marginStart">@dimen/dp_8</item>
         <item name="android:layout_marginEnd">@dimen/dp_16</item>
         <item name="android:gravity">center</item>
         <item name="android:state_selected">false</item>
