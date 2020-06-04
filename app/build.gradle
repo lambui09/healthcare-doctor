@@ -25,7 +25,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://192.168.100.17:3000/api/v1/\"")
+            buildConfigField("String", "BASE_URL", "\"http://192.168.1.64:3000/api/v1/\"")
             buildConfigField("String","BASE_SOCKET_URL", "\"https://echo.http://192.168.1.3:3000.net\"")
             buildConfigField("String","KEY_MAP", "\"AIzaSyANv34TjPiMhsfAHF5T-jVUndO5i3tKRrI\"")
             applicationVariants.all { variant -> appendVersionNameVersionCode(variant) }
