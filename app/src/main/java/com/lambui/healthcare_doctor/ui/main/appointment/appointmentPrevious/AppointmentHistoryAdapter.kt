@@ -16,7 +16,7 @@ class AppointmentHistoryAdapter(context: Context) :
     BaseLoadMoreAdapter<AppointmentFullModel>(context) {
     override fun onCreateViewHolderLM(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(context)
-            .inflate(R.layout.item_view_doctor_horizental_appointment, parent, false)
+            .inflate(R.layout.item_view_doctor_history_appointment, parent, false)
         return AppointmentHistoryVH(view)
     }
 
@@ -36,10 +36,6 @@ class AppointmentHistoryVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
             when (this?.status) {
                 StatusAppointmentType.COMPLETED.name -> {
                     tvStatus.text = resources.getString(R.string.text_status_completed)
-                    tvStatus.isSelected = true
-                }
-                StatusAppointmentType.CONFIRMED.name -> {
-                    tvStatus.text = resources.getString(R.string.text_status_confirmed)
                     tvStatus.isSelected = true
                 }
                 StatusAppointmentType.CANCELED.name -> {

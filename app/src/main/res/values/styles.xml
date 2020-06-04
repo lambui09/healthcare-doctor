@@ -217,5 +217,12 @@
         <item name="android:layout_height">@dimen/dp_1</item>
         <item name="android:background">@color/K_12173833_blue</item>
     </style>
+    <style name="TextViewNameAppointmentStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/K_DE173833_green</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
 
 </resources>
