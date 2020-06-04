@@ -40,9 +40,9 @@ class InputLoginFragment : BaseFragment<LoginVM>() {
         with(viewModelx) {
             loginSuccess.observe(this@InputLoginFragment, Observer {
                 val deviceToken = FirebaseInstanceId.getInstance().getToken() ?: ""
-                val patientId = getUserId() ?: ""
-                if (!isBlank(deviceToken) && !isBlank(patientId)) {
-                    viewModelx.updateDeviceToken(deviceToken, patientId)
+                val doctorId = getUserId() ?: ""
+                if (!isBlank(deviceToken) && !isBlank(doctorId)) {
+                    viewModelx.updateDeviceToken(deviceToken, doctorId)
                 }
                 viewModelx.setNavigationLogin(LoginNav.CONFIRM_CODE)
             })

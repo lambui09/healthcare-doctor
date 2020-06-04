@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.recycleview.BaseLoadMoreAdapter
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
+import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.utils.extension.listen
 import com.lambui.healthcare_doctor.utils.extension.loadImageUrl
 import kotlinx.android.synthetic.main.item_view_doctor_horizental_appointment.view.*
@@ -36,6 +37,16 @@ class UpcomingVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
             imgProfileDoctor.loadImageUrl(appointmentModel?.doctorId?.avatarUrl)
             tvNameDoctor.text = appointmentModel?.doctorId?.fullName ?: "Bùi Đức Lâm"
             tvLocationOfDoctor.text = appointmentModel?.doctorId?.address ?: "updating"
+            when (appointmentModel?.status) {
+                StatusAppointmentType.PENDING.name -> {
+                    tvStatus.text = resources.getText(R.string.text_status_pending)
+                    tvStatus.isSelected = false
+                }
+                StatusAppointmentType.CONFIRMED.name -> {
+                    tvStatus.text = resources.getText(R.string.text_status_confirmed)
+                    tvStatus.isSelected = true
+                }
+            }
         }
     }
 }

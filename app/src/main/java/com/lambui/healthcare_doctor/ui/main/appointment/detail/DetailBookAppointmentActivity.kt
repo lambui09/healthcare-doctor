@@ -40,7 +40,7 @@ class DetailBookAppointmentActivity : BaseActivity<AppointmentVM>() {
                             fragment = DetailBookAppointmentFragment()
                         )
                     }
-                    DetailAppointmentNav.COMPELETE_APPOINTMENT.name -> {
+                    DetailAppointmentNav.COMPLETE_APPOINTMENT.name -> {
                         replaceFragmentInActivity(
                             containerId = frameLayoutDetailAppointment.id,
                             addToBackStack = false,
