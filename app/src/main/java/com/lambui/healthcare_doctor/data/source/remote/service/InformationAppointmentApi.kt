@@ -2,6 +2,7 @@ package com.lambui.healthcare_doctor.data.source.remote.service
 
 import com.google.gson.JsonObject
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
+import com.lambui.healthcare_doctor.data.model.GetAppointmentBody
 import com.lambui.healthcare_doctor.data.model.ListAppointmentResponse
 import com.lambui.healthcare_doctor.data.source.remote.api.response.ApiResponse
 import io.reactivex.Single
@@ -12,19 +13,18 @@ interface InformationAppointmentApi {
      * get appointment pending
      * */
     @Headers("Content-Type: application/json")
-    @GET("appointments")
+    @POST("appointments/list")
     fun getAllAppointmentConfirmOfDoctor(
-        @Query("doctor_id") doctorId: String,
-        @Query("status") status: String
+        @Body body: GetAppointmentBody
     ): Single<ApiResponse<ListAppointmentResponse>>
 
     /**
      * get appointment of patient
      * */
     @Headers("Content-Type: application/json")
-    @GET("appointments")
+    @POST("appointments/list")
     fun getAllAppointmentOfDoctor(
-        @Query("doctor_id") doctorId: String
+        @Body body: GetAppointmentBody
     ): Single<ApiResponse<ListAppointmentResponse>>
 
     /**

@@ -3,17 +3,17 @@ package com.lambui.healthcare_doctor.data.source.repositories
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
+import com.lambui.healthcare_doctor.data.model.GetAppointmentBody
 import com.lambui.healthcare_doctor.data.model.ListAppointmentResponse
 import com.lambui.healthcare_doctor.data.source.remote.service.InformationAppointmentApi
 import io.reactivex.Single
 
 interface AppointmentRepository {
     fun getAppointmentConfirmOfDoctor(
-        doctorId: String,
-        status: String
+        status: GetAppointmentBody
     ): Single<ListAppointmentResponse>
 
-    fun getAppointmentOfDoctor(doctorId: String): Single<ListAppointmentResponse>
+    fun getAppointmentOfDoctor(status: GetAppointmentBody): Single<ListAppointmentResponse>
 
     fun cancelAppointment(appointmentId: String): Single<AppointmentFullModel>
 
@@ -27,14 +27,14 @@ class AppointmentRepositoryImpl(
     private val gson: Gson
 ) : AppointmentRepository {
     override fun getAppointmentConfirmOfDoctor(
-        doctorId: String, status: String
+        status: GetAppointmentBody
     ): Single<ListAppointmentResponse> {
-        return informationAppointmentApi.getAllAppointmentConfirmOfDoctor(doctorId, status)
+        return informationAppointmentApi.getAllAppointmentConfirmOfDoctor(status)
             .map { it.data }
     }
 
-    override fun getAppointmentOfDoctor(doctorId: String): Single<ListAppointmentResponse> {
-        return informationAppointmentApi.getAllAppointmentOfDoctor(doctorId).map { it.data }
+    override fun getAppointmentOfDoctor(status: GetAppointmentBody): Single<ListAppointmentResponse> {
+        return informationAppointmentApi.getAllAppointmentOfDoctor(status).map { it.data }
     }
 
     override fun cancelAppointment(appointmentId: String): Single<AppointmentFullModel> {

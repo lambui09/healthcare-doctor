@@ -57,18 +57,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"
-            android:text="@string/title_specialist_doctor"
+            android:text="@string/address"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTimeSelectAppoint" />
 
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvContentSpecialistDoctor"
+            android:id="@+id/tvAddress"
             style="@style/TextViewDescriptionStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_5"
-            android:text="@string/content_specialist_doctor_example"
+            android:text="@string/text_address_example"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitleNameDoctor" />
 
@@ -80,7 +80,7 @@
             android:layout_marginTop="@dimen/dp_16"
             android:text="@string/title_service_doctor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvContentSpecialistDoctor" />
+            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvContentService"
@@ -88,6 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_5"
+            android:ellipsize="end"
             android:text="Tu van va dieu tri theo chi dinh bac si"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitleService" />
@@ -138,6 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_20"
             android:layout_marginBottom="@dimen/dp_10"
+            android:visibility="visible"
             app:BottomButtonContent="@string/confirm_book_appointment"
             app:layout_constraintBottom_toTopOf="@+id/btnReject"
             app:layout_constraintStart_toStartOf="parent"
@@ -148,6 +150,7 @@
             android:id="@+id/btnReject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="visible"
             app:BottomButtonContent="@string/reject_book_appointment"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

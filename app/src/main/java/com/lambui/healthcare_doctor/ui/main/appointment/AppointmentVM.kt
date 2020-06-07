@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.lambui.healthcare_doctor.base.BaseViewModel
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
+import com.lambui.healthcare_doctor.data.model.GetAppointmentBody
 import com.lambui.healthcare_doctor.data.source.repositories.AppointmentRepository
 import com.lambui.healthcare_doctor.data.source.repositories.UserLocalRepository
 import com.lambui.healthcare_doctor.enums.DetailAppointmentNav
@@ -31,9 +32,10 @@ class AppointmentVM(
         navigation.value = navigationNav.name
     }
 
-    fun getAppointmentPending() {
+    fun getAllAppointmentUpcoming() {
+        val statusForUpComing: List<String> = listOf("PENDING", "CONFIRMED")
         launchDisposable {
-            appointmentRepository.getAppointmentConfirmOfDoctor(getDoctorId(), "PENDING")
+            appointmentRepository.getAppointmentConfirmOfDoctor(GetAppointmentBody(statusForUpComing))
                 .withScheduler(baseSchedulerProvider)
                 .loading(isLoading)
                 .subscribeBy(
@@ -47,9 +49,10 @@ class AppointmentVM(
         }
     }
 
-    fun getAppointmentOfDoctor() {
+    fun getAllAppointmentHistory() {
+        val statusForHistory: List<String> = listOf("COMPLETED", "CANCELED")
         launchDisposable {
-            appointmentRepository.getAppointmentOfDoctor(getDoctorId())
+            appointmentRepository.getAppointmentOfDoctor(GetAppointmentBody(statusForHistory))
                 .withScheduler(baseSchedulerProvider)
                 .loading(isLoading)
                 .subscribeBy(

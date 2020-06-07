@@ -1,12 +1,18 @@
 package com.lambui.healthcare_doctor.ui.main.appointment.appointmentPrevious
 
+import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
+import com.lambui.healthcare_doctor.base.recycleview.OnItemClickListener
+import com.lambui.healthcare_doctor.constant.ExtraKeyConstants.EXTRA_ITEM_APPOINMENT
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
+import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
+import com.lambui.healthcare_doctor.ui.main.appointment.detail.DetailBookAppointmentActivity
+import com.lambui.healthcare_doctor.utils.extension.goTo
 import com.lambui.healthcare_doctor.utils.extension.show
 import kotlinx.android.synthetic.main.fragment_appointment_previous.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -46,7 +52,20 @@ class AppointmentHistoryFragment : BaseFragment<AppointmentVM>() {
 
     private fun initAdapter() {
         context?.let {
-            appointmentHistoryAdapter = AppointmentHistoryAdapter(it)
+            appointmentHistoryAdapter = AppointmentHistoryAdapter(it).apply {
+                registerItemClickListener(object : OnItemClickListener<AppointmentFullModel> {
+                    override fun onItemViewClick(item: AppointmentFullModel, position: Int) {
+                        if (item.status == StatusAppointmentType.CONFIRMED.name) {
+                            val bundle = Bundle()
+                            bundle.putParcelable(EXTRA_ITEM_APPOINMENT, item)
+                            this@AppointmentHistoryFragment.goTo(
+                                DetailBookAppointmentActivity::class,
+                                bundle
+                            )
+                        }
+                    }
+                })
+            }
         }
         rvAppointmentHisTory.apply {
             setAdapter(appointmentHistoryAdapter)
@@ -61,7 +80,7 @@ class AppointmentHistoryFragment : BaseFragment<AppointmentVM>() {
 
     private fun callApi() {
         with(viewModelx) {
-            getAppointmentOfDoctor()
+            getAllAppointmentHistory()
         }
     }
 

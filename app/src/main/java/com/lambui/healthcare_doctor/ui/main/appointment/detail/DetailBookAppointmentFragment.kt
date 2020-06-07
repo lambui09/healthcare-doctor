@@ -16,7 +16,14 @@ class DetailBookAppointmentFragment : BaseFragment<AppointmentVM>() {
     override val viewModelx: AppointmentVM by sharedViewModel()
 
     override fun initialize() {
-
+        with(viewModelx) {
+            appointmentItem?.let {
+                tvDateSelectAppoint.text = it.dataStartBook
+                tvTimeSelectAppoint.text = it.timeStartBook
+                tvAddress.text = it.patientId?.address ?: "not updating"
+                tvContentService.text = it.listExamination?.get(0)?.serviceName ?: ""
+            }
+        }
     }
 
     override fun onSubscribeObserver() {
@@ -24,7 +31,7 @@ class DetailBookAppointmentFragment : BaseFragment<AppointmentVM>() {
             appointmentItem.apply {
                 tvDateSelectAppoint.text = this?.dataStartBook
                 tvTimeSelectAppoint.text = this?.timeStartBook
-                tvContentSpecialistDoctor.text = this?.doctorId?.specialistModel?.specialistName
+                tvAddress.text = this?.doctorId?.specialistModel?.specialistName
                 val length = this?.symptomlist?.size
                 val builder = StringBuffer()
                 length?.let {

@@ -9,4 +9,5 @@ object ExtraKeyConstants {
     const val KEY_NEAR_BY = "KEY_NEAR_BY"
     const val KEY_UPCOMING_ITEM = "KEY_UPCOMING_ITEM"
     const val EXTRA_HAS_NOTIFICATION = "EXTRA_HAS_NOTIFICATION"
+    const val EXTRA_ITEM_APPOINMENT = "EXTRA_ITEM_APPOINMENT"
 }
