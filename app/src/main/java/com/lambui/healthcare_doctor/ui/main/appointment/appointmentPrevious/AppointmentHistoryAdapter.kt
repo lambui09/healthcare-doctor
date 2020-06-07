@@ -10,7 +10,12 @@ import com.lambui.healthcare_doctor.base.recycleview.BaseLoadMoreAdapter
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
 import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.utils.extension.loadImageUrl
+import kotlinx.android.synthetic.main.item_view_doctor_history_appointment.view.*
 import kotlinx.android.synthetic.main.item_view_doctor_horizental_appointment.view.*
+import kotlinx.android.synthetic.main.item_view_doctor_horizental_appointment.view.imgProfileDoctor
+import kotlinx.android.synthetic.main.item_view_doctor_horizental_appointment.view.tvLocationOfDoctor
+import kotlinx.android.synthetic.main.item_view_doctor_horizental_appointment.view.tvNameDoctor
+import kotlinx.android.synthetic.main.item_view_doctor_horizental_appointment.view.tvStatus
 
 class AppointmentHistoryAdapter(context: Context) :
     BaseLoadMoreAdapter<AppointmentFullModel>(context) {
@@ -41,6 +46,7 @@ class AppointmentHistoryVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 StatusAppointmentType.CANCELED.name -> {
                     tvStatus.text = resources.getString(R.string.text_status_cancel)
                     tvStatus.isSelected = false
+                    containerAppointment.isEnabled = false
                 }
             }
         }

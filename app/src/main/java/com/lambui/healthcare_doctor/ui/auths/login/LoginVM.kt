@@ -108,6 +108,6 @@ class LoginVM(
     }
 
     fun getUserId(): String? {
-        return userLocalRepository.getUserLocal()?.id
+        return userLocalRepository.getUserId()
     }
 }
