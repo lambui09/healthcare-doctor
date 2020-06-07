@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
 import com.lambui.healthcare_doctor.base.recycleview.OnItemClickListener
-import com.lambui.healthcare_doctor.constant.ExtraKeyConstants.EXTRA_ITEM_APPOINMENT
+import com.lambui.healthcare_doctor.constant.ExtraKeyConstants.EXTRA_ITEM_APPOINTMENT
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
 import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
@@ -57,7 +57,7 @@ class AppointmentHistoryFragment : BaseFragment<AppointmentVM>() {
                     override fun onItemViewClick(item: AppointmentFullModel, position: Int) {
                         if (item.status == StatusAppointmentType.CONFIRMED.name) {
                             val bundle = Bundle()
-                            bundle.putParcelable(EXTRA_ITEM_APPOINMENT, item)
+                            bundle.putParcelable(EXTRA_ITEM_APPOINTMENT, item)
                             this@AppointmentHistoryFragment.goTo(
                                 DetailBookAppointmentActivity::class,
                                 bundle
