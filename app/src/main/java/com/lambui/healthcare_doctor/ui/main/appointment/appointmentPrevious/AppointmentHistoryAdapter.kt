@@ -30,9 +30,9 @@ class AppointmentHistoryAdapter(context: Context) :
 class AppointmentHistoryVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bindData(appointmentFullModel: AppointmentFullModel?) = with(itemView) {
         with(appointmentFullModel) {
-            imgProfileDoctor.loadImageUrl(appointmentFullModel?.doctorId?.avatarUrl)
-            tvNameDoctor.text = appointmentFullModel?.doctorId?.fullName ?: "Bùi Đức Lâm"
-            tvLocationOfDoctor.text = appointmentFullModel?.doctorId?.address ?: "updating"
+            imgProfileDoctor.loadImageUrl(appointmentFullModel?.patientId?.avatar)
+            tvNameDoctor.text = appointmentFullModel?.patientId?.fullName ?: "Bùi Đức Lâm"
+            tvLocationOfDoctor.text = appointmentFullModel?.patientId?.address ?: "updating"
             when (this?.status) {
                 StatusAppointmentType.COMPLETED.name -> {
                     tvStatus.text = resources.getString(R.string.text_status_completed)

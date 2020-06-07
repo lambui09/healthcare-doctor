@@ -25,7 +25,7 @@
                 android:layout_width="@dimen/dp_80"
                 android:layout_height="@dimen/dp_80"
                 android:layout_margin="@dimen/dp_5"
-                android:src="@drawable/img_profile_doctor"
+                android:src="@drawable/img_patient_example"
                 app:civ_border_color="@color/White"
                 app:civ_border_width="2dp" />
 
@@ -42,7 +42,8 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="Dr.Join"
+                    android:singleLine="true"
+                    android:text="Nguyễn Văn Mẫn"
                     android:textSize="@dimen/sp_16"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +57,8 @@
                     android:drawableStart="@drawable/ic_marker"
                     android:drawablePadding="@dimen/dp_6"
                     android:ellipsize="end"
-                    android:text="0.31 mi away - Dentist"
+                    android:singleLine="true"
+                    android:text="89 Tôn Đức Thắng Hòa khánh"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvNameDoctor" />
 

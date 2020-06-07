@@ -64,7 +64,7 @@ class AppointmentUpcomingFragment : BaseFragment<AppointmentVM>() {
 
     private fun callApi() {
         with(viewModelx) {
-            getAppointmentPending()
+            getAllAppointmentUpcoming()
         }
     }
 

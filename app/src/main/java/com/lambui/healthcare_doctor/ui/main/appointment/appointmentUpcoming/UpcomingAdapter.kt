@@ -34,9 +34,9 @@ class UpcomingAdapter(context: Context) : BaseLoadMoreAdapter<AppointmentFullMod
 class UpcomingVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bindData(appointmentModel: AppointmentFullModel?) = with(itemView) {
         with(appointmentModel) {
-            imgProfileDoctor.loadImageUrl(appointmentModel?.doctorId?.avatarUrl)
-            tvNameDoctor.text = appointmentModel?.doctorId?.fullName ?: "Bùi Đức Lâm"
-            tvLocationOfDoctor.text = appointmentModel?.doctorId?.address ?: "updating"
+            imgProfileDoctor.loadImageUrl(appointmentModel?.patientId?.avatar)
+            tvNameDoctor.text = appointmentModel?.patientId?.fullName ?: "Bùi Đức Lâm"
+            tvLocationOfDoctor.text = appointmentModel?.patientId?.address ?: "updating"
             when (appointmentModel?.status) {
                 StatusAppointmentType.PENDING.name -> {
                     tvStatus.text = resources.getText(R.string.text_status_pending)

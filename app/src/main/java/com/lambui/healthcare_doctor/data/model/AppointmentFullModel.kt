@@ -36,5 +36,8 @@ data class AppointmentFullModel(
     var patientId: PatientModel? = null,
     @Expose
     @SerializedName("time_remainder_send_notification")
-    var timeRemainSendNotification: Int? = 0
+    var timeRemainSendNotification: Int? = 0,
+    @Expose
+    @SerializedName("examination_list")
+    var listExamination : List<ExaminationModel>?
 ) : Parcelable

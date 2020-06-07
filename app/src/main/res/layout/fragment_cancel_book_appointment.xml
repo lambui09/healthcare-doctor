@@ -134,9 +134,11 @@
             android:id="@+id/btnCompleteAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:BottomButtonContent="@string/complete_book_appointment"
+            app:BottomButtonContent="@string/button_cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_bias="0.9" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>
