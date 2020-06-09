@@ -10,13 +10,14 @@ import com.lambui.healthcare_doctor.base.recycleview.OnItemClickListener
 import com.lambui.healthcare_doctor.constant.ExtraKeyConstants.KEY_UPCOMING_ITEM
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
+import com.lambui.healthcare_doctor.ui.main.appointment.appointmentPending.UpcomingAdapter
 import com.lambui.healthcare_doctor.ui.main.appointment.detail.DetailBookAppointmentActivity
 import com.lambui.healthcare_doctor.utils.extension.goTo
 import com.lambui.healthcare_doctor.utils.extension.show
 import kotlinx.android.synthetic.main.fragment_appointment_upcoming.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class AppointmentUpcomingFragment : BaseFragment<AppointmentVM>() {
+class AppointmentPendingFragment : BaseFragment<AppointmentVM>() {
     override val layoutID: Int
         get() = R.layout.fragment_appointment_upcoming
     override val viewModelx: AppointmentVM by sharedViewModel()
@@ -38,11 +39,11 @@ class AppointmentUpcomingFragment : BaseFragment<AppointmentVM>() {
 
     override fun onSubscribeObserver() {
         with(viewModelx) {
-            listAppointmentPending.observe(this@AppointmentUpcomingFragment, Observer {
+            listAppointmentPending.observe(this@AppointmentPendingFragment, Observer {
                 bindData(it.toMutableList())
                 rvAppointmentUpcoming.stopAllStatusLoadData()
             })
-            onError.observe(this@AppointmentUpcomingFragment, Observer {
+            onError.observe(this@AppointmentPendingFragment, Observer {
                 handleApiError(it)
             })
         }
@@ -75,7 +76,7 @@ class AppointmentUpcomingFragment : BaseFragment<AppointmentVM>() {
                     override fun onItemViewClick(item: AppointmentFullModel, position: Int) {
                         val bundle = Bundle()
                         bundle.putParcelable(KEY_UPCOMING_ITEM, item)
-                        this@AppointmentUpcomingFragment.goTo(DetailBookAppointmentActivity::class, bundle)
+                        this@AppointmentPendingFragment.goTo(DetailBookAppointmentActivity::class, bundle)
                     }
                 })
             }

@@ -11,13 +11,14 @@ import com.lambui.healthcare_doctor.constant.ExtraKeyConstants.EXTRA_ITEM_APPOIN
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
 import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
+import com.lambui.healthcare_doctor.ui.main.appointment.appointmentComplete.AppointmentHistoryAdapter
 import com.lambui.healthcare_doctor.ui.main.appointment.detail.DetailBookAppointmentActivity
 import com.lambui.healthcare_doctor.utils.extension.goTo
 import com.lambui.healthcare_doctor.utils.extension.show
 import kotlinx.android.synthetic.main.fragment_appointment_previous.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class AppointmentHistoryFragment : BaseFragment<AppointmentVM>() {
+class AppointmentCompleteFragment : BaseFragment<AppointmentVM>() {
     override val layoutID: Int
         get() = R.layout.fragment_appointment_previous
     override val viewModelx: AppointmentVM by sharedViewModel()
@@ -39,7 +40,7 @@ class AppointmentHistoryFragment : BaseFragment<AppointmentVM>() {
 
     override fun onSubscribeObserver() {
         with(viewModelx) {
-            listAppointmentOfDoctor.observe(this@AppointmentHistoryFragment, Observer {
+            listAppointmentOfDoctor.observe(this@AppointmentCompleteFragment, Observer {
                 bindData(it.toMutableList())
                 rvAppointmentHisTory.stopRefreshData()
                 rvAppointmentHisTory.stopAllStatusLoadData()
@@ -58,7 +59,7 @@ class AppointmentHistoryFragment : BaseFragment<AppointmentVM>() {
                         if (item.status == StatusAppointmentType.CONFIRMED.name) {
                             val bundle = Bundle()
                             bundle.putParcelable(EXTRA_ITEM_APPOINTMENT, item)
-                            this@AppointmentHistoryFragment.goTo(
+                            this@AppointmentCompleteFragment.goTo(
                                 DetailBookAppointmentActivity::class,
                                 bundle
                             )

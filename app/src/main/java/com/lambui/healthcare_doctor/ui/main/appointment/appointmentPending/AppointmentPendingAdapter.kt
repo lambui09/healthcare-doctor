@@ -1,4 +1,4 @@
-package com.lambui.healthcare_doctor.ui.main.appointment.appointmentUpcoming
+package com.lambui.healthcare_doctor.ui.main.appointment.appointmentPending
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -41,10 +41,6 @@ class UpcomingVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 StatusAppointmentType.PENDING.name -> {
                     tvStatus.text = resources.getText(R.string.text_status_pending)
                     tvStatus.isSelected = false
-                }
-                StatusAppointmentType.CONFIRMED.name -> {
-                    tvStatus.text = resources.getText(R.string.text_status_confirmed)
-                    tvStatus.isSelected = true
                 }
             }
         }
