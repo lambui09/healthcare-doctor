@@ -75,7 +75,6 @@ abstract class BaseLoadMoreAdapter<T>(context: Context) :
         fun bind(isLoadMore: Boolean) {
             itemView.loading.show(isLoadMore)
         }
-
     }
 
     protected abstract fun onCreateViewHolderLM(

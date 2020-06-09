@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.lambui.healthcare_doctor.widget.recycleView.SuperRecyclerView
-        android:id="@+id/rvAppointmentHisTory"
+        android:id="@+id/rvAppointmentComplete"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

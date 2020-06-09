@@ -9,20 +9,24 @@ import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.recycleview.BaseLoadMoreAdapter
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
 import com.lambui.healthcare_doctor.enums.StatusAppointmentType
+import com.lambui.healthcare_doctor.utils.extension.listen
 import com.lambui.healthcare_doctor.utils.extension.loadImageUrl
-import kotlinx.android.synthetic.main.item_view_doctor_history_appointment.view.*
+import kotlinx.android.synthetic.main.item_view_patient_history_appointment.view.*
 
 class CancelAppointmentAdapter(context: Context) :
     BaseLoadMoreAdapter<AppointmentFullModel>(context) {
     override fun onCreateViewHolderLM(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_view_doctor_history_appointment, parent, false
+            R.layout.item_view_patient_history_appointment, parent, false
         )
-        return CancelAppointmentVH(view)
+        return CancelAppointmentVH(view).listen { position, type ->
+            getItem(position)?.let {
+                itemClickListener?.onItemViewClick(it, position)
+            }
+        }
     }
 
     override fun onBindViewHolderLM(holder: RecyclerView.ViewHolder, position: Int) {
-
         (holder as CancelAppointmentVH).bindData(getItem(position))
     }
 
@@ -35,13 +39,9 @@ class CancelAppointmentVH(view: View) : RecyclerView.ViewHolder(view) {
             imgProfileDoctor.loadImageUrl(appointmentFullModel?.patientId?.avatar)
             tvNameDoctor.text = appointmentFullModel?.patientId?.fullName ?: "Bùi Đức Lâm"
             tvLocationOfDoctor.text = appointmentFullModel?.patientId?.address ?: "updating"
-            when (this?.status) {
-                StatusAppointmentType.CANCELED.name -> {
-                    tvStatus.text = resources.getString(R.string.text_status_cancel)
-                    tvStatus.isSelected = false
-                    containerAppointment.isEnabled = false
-                }
-            }
+            tvStatus.text = resources.getString(R.string.text_status_cancel)
+            tvStatus.isSelected = false
+            containerAppointment.isEnabled = false
         }
     }
 }

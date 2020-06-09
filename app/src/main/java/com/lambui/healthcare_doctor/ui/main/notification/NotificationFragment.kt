@@ -65,7 +65,7 @@ class NotificationFragment : BaseFragment<NotificationVM>() {
         recyclerViewListNotification.apply {
             setAdapter(notificationAdapter)
             setLayoutManager(LinearLayoutManager(context?.applicationContext))
-            setEnableLoadMore(true)
+            setEnableLoadMore(false)
             setEnableSwipe(true)
             setHasFixedSize(true)
         }

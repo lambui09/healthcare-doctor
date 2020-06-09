@@ -9,16 +9,18 @@ import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.recycleview.BaseLoadMoreAdapter
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
 import com.lambui.healthcare_doctor.enums.StatusAppointmentType
+import com.lambui.healthcare_doctor.utils.extension.listen
 import com.lambui.healthcare_doctor.utils.extension.loadImageUrl
-import kotlinx.android.synthetic.main.item_view_doctor_horizental_appointment.view.*
+import kotlinx.android.synthetic.main.item_view_patient_horizental_appointment.view.*
 
 class ConfirmAppointmentAdapter(context: Context) :
     BaseLoadMoreAdapter<AppointmentFullModel>(context) {
     override fun onCreateViewHolderLM(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_view_doctor_horizental_appointment, parent, false)
-        return ConfirmAppointmentVH(view)
-
+            .inflate(R.layout.item_view_patient_horizental_appointment, parent, false)
+        return ConfirmAppointmentVH(view).listen { position, type ->
+            getItem(position)?.let { itemClickListener?.onItemViewClick(it, position) }
+        }
     }
 
     override fun onBindViewHolderLM(holder: RecyclerView.ViewHolder, position: Int) {
@@ -35,12 +37,9 @@ class ConfirmAppointmentVH(view: View) : RecyclerView.ViewHolder(view) {
             imgProfileDoctor.loadImageUrl(appointmentFullModel?.patientId?.avatar)
             tvNameDoctor.text = appointmentFullModel?.patientId?.fullName ?: "Bùi Đức Lâm"
             tvLocationOfDoctor.text = appointmentFullModel?.patientId?.address ?: "updating"
-            when (this?.status) {
-                StatusAppointmentType.CONFIRMED.name -> {
-                    tvStatus.text = resources.getString(R.string.text_status_completed)
-                    tvStatus.isSelected = true
-                }
-            }
+            tvStatus.text = resources.getString(R.string.text_status_confirmed)
+            tvStatus.isSelected = true
+
         }
     }
 

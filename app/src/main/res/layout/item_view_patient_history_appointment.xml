@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerAppointment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/containerAppointment"
     android:padding="@dimen/dp_8">
 
     <com.google.android.material.card.MaterialCardView
@@ -26,7 +26,7 @@
                 android:layout_width="@dimen/dp_80"
                 android:layout_height="@dimen/dp_80"
                 android:layout_margin="@dimen/dp_5"
-                android:src="@drawable/img_profile_doctor"
+                android:src="@drawable/img_patient_example"
                 app:civ_border_color="@color/White"
                 app:civ_border_width="2dp" />
 
@@ -42,7 +42,7 @@
                     android:layout_width="@dimen/dp_150"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:text="Dr.Join"
+                    android:text="Tran Thanh Chung"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,19 +59,6 @@
                     android:text="0.31 mi away - Dentist"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvNameDoctor" />
-
-                <me.zhanghai.android.materialratingbar.MaterialRatingBar
-                    android:id="@+id/materialRatingDoctor"
-                    style="@style/Widget.MaterialRatingBar.RatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/dp_12"
-                    android:layout_marginTop="@dimen/dp_4"
-                    android:maxHeight="@dimen/dp_12"
-                    android:rating="2.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvLocationOfDoctor"
-                    app:mrb_progressTint="@color/K_FF9500_yellow"
-                    app:mrb_secondaryProgressTint="@color/K_FF9500_yellow" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatTextView

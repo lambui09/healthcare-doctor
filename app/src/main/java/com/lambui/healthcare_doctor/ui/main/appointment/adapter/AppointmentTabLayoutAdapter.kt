@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.lambui.healthcare_doctor.ui.main.appointment.appointmentCancel.CancelAppointmentFragment
 import com.lambui.healthcare_doctor.ui.main.appointment.appointmentConfirm.ConfirmAppointmentFragment
-import com.lambui.healthcare_doctor.ui.main.appointment.appointmentPrevious.AppointmentCompleteFragment
-import com.lambui.healthcare_doctor.ui.main.appointment.appointmentUpcoming.AppointmentPendingFragment
+import com.lambui.healthcare_doctor.ui.main.appointment.appointmentComplete.AppointmentCompleteFragment
+import com.lambui.healthcare_doctor.ui.main.appointment.appointmentPending.AppointmentPendingFragment
 
 class AppointmentTabLayoutAdapter(
     val context: Context?,

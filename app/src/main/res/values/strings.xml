@@ -159,6 +159,8 @@
     <string name="text_address_example">344 đường 2 tháng 9 hải châu đà nẵng</string>
     <string name="name_patient_example">Nguyễn Văn Nam</string>
     <string name="address_patient_example">448 trưng nữ vương, hải châu</string>
+    <string name="text_book_appointment_success">Thành công</string>
+    <string name="text_book_appointment_fail">Thất bại</string>
     <!--end dialog-->
 
 
