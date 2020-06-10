@@ -3,7 +3,7 @@ package com.lambui.healthcare_doctor.dialog
 import android.content.Context
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseDialog
-import kotlinx.android.synthetic.main.fragment_detail_book_appointment.*
+import kotlinx.android.synthetic.main.dialog_book_appointment_success.*
 
 class DialogBookAppointmentSuccess (context: Context, listener: OnDialogBookAppointment) :
     BaseDialog(context, R.style.BaseDialog) {

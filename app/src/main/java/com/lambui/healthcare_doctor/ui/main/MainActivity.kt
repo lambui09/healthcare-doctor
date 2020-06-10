@@ -1,5 +1,8 @@
 package com.lambui.healthcare_doctor.ui.main
 
+import android.graphics.Color
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseActivity
@@ -20,10 +23,18 @@ class MainActivity : BaseActivity<MainVM>() {
     override fun initialize() {
         initViewPager()
         initTabLayout()
+        viewModelx.getNumNotificationUnseen()
     }
 
     override fun onSubscribeObserver() {
-
+        with(viewModelx) {
+            countNotification.observe(this@MainActivity, Observer {
+                unReadNotification(it)
+            })
+            onError.observe(this@MainActivity, Observer {
+                handleApiError(it)
+            })
+        }
     }
 
     override fun registerOnClick() {
@@ -110,9 +121,24 @@ class MainActivity : BaseActivity<MainVM>() {
                     viewPagerMain.setCurrentItem(TabType.SETTING.value, false)
                     true
                 }
-                else ->false
+                else -> false
             }
         }
 
+    }
+
+    private fun unReadNotification(count: Int) {
+        if (count > 0) {
+            val badge = bottomNavigation.getOrCreateBadge(R.id.mTabNotification)
+            badge.backgroundColor = ContextCompat.getColor(this@MainActivity, R.color.K_E9546A_red)
+            badge.maxCharacterCount = 3
+            badge.badgeTextColor = Color.WHITE
+            badge.number = count
+        } else {
+            val badge = bottomNavigation.getBadge(R.id.mTabNotification)
+            badge?.let {
+                bottomNavigation.removeBadge(R.id.mTabNotification)
+            }
+        }
     }
 }
