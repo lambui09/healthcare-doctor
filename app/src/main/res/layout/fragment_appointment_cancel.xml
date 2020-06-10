@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.lambui.healthcare_doctor.widget.recycleView.SuperRecyclerView
-        android:id="@+id/rvAppointmentHisTory"
+        android:id="@+id/rvAppointmentCancel"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -39,6 +39,5 @@
             android:textColor="@color/K_787F82_gray"
             android:textSize="@dimen/sp_14"
             tools:text="@string/text_when_appointment_are_delivered_they_will_be_displayed_here" />
-
     </androidx.appcompat.widget.LinearLayoutCompat>
 </FrameLayout>

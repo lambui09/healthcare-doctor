@@ -6,7 +6,7 @@
     android:padding="@dimen/dp_8"
     android:orientation="vertical">
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardDoctor"
+        android:id="@+id/cardPatient"
         android:layout_width="@dimen/dp_326"
         android:layout_height="@dimen/dp_180"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgProfileDoctor"
+                android:id="@+id/imgProfilePatient"
                 android:layout_width="@dimen/dp_80"
                 android:layout_height="@dimen/dp_80"
                 android:layout_margin="@dimen/dp_20"
@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_8"
                     android:textSize="@dimen/sp_16"
-                    android:id="@+id/tvNameDoctor"
+                    android:id="@+id/tvNamePatient"
                     android:textColor="@color/White"
                     android:text="Dr.Join"/>
                 <androidx.appcompat.widget.AppCompatTextView
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_8"
                     android:textSize="@dimen/sp_12"
-                    android:id="@+id/tvLocationOfDoctor"
+                    android:id="@+id/tvLocationOfPatient"
                     android:textColor="@color/White"
                     android:drawableStart="@drawable/ic_marker_white"
                     android:drawablePadding="@dimen/dp_6"

@@ -20,7 +20,9 @@ class AppointmentVM(
     private val userLocalRepository: UserLocalRepository
 ) : BaseViewModel() {
     var listAppointmentPending = MutableLiveData<MutableList<AppointmentFullModel>>()
-    var listAppointmentOfDoctor = MutableLiveData<MutableList<AppointmentFullModel>>()
+    var listAppointmentCompleteOfDoctor = MutableLiveData<MutableList<AppointmentFullModel>>()
+    var listAppointmentCancelOfDoctor = MutableLiveData<MutableList<AppointmentFullModel>>()
+    var listAppointmentConfirmOfDoctor = MutableLiveData<MutableList<AppointmentFullModel>>()
     var appointmentCancelRequest = MutableLiveData<AppointmentFullModel>()
     var appointmentConfirmRequest = MutableLiveData<AppointmentFullModel>()
     var appointmentCompleteRequest = MutableLiveData<AppointmentFullModel>()
@@ -32,8 +34,8 @@ class AppointmentVM(
         navigation.value = navigationNav.name
     }
 
-    fun getAllAppointmentUpcoming() {
-        val statusForUpComing: List<String> = listOf("PENDING", "CONFIRMED")
+    fun getAllAppointmentPending() {
+        val statusForUpComing: List<String> = listOf("PENDING")
         launchDisposable {
             appointmentRepository.getAppointmentConfirmOfDoctor(GetAppointmentBody(statusForUpComing))
                 .withScheduler(baseSchedulerProvider)
@@ -49,15 +51,15 @@ class AppointmentVM(
         }
     }
 
-    fun getAllAppointmentHistory() {
-        val statusForHistory: List<String> = listOf("COMPLETED", "CANCELED")
+    fun getAllAppointmentComplete() {
+        val statusForHistory: List<String> = listOf("COMPLETED")
         launchDisposable {
             appointmentRepository.getAppointmentOfDoctor(GetAppointmentBody(statusForHistory))
                 .withScheduler(baseSchedulerProvider)
                 .loading(isLoading)
                 .subscribeBy(
                     onSuccess = {
-                        listAppointmentOfDoctor.value = it.listAppointment?.toMutableList()
+                        listAppointmentCompleteOfDoctor.value = it.listAppointment?.toMutableList()
                     },
                     onError = {
                         onError.value = it
@@ -65,6 +67,41 @@ class AppointmentVM(
                 )
         }
     }
+
+    fun getAllAppointmentCancel() {
+        val statusForHistory: List<String> = listOf("CANCELED")
+        launchDisposable {
+            appointmentRepository.getAppointmentOfDoctor(GetAppointmentBody(statusForHistory))
+                .withScheduler(baseSchedulerProvider)
+                .loading(isLoading)
+                .subscribeBy(
+                    onSuccess = {
+                        listAppointmentCancelOfDoctor.value = it.listAppointment?.toMutableList()
+                    },
+                    onError = {
+                        onError.value = it
+                    }
+                )
+        }
+    }
+
+    fun getAllAppointmentConfirm() {
+        val statusForHistory: List<String> = listOf("CONFIRMED")
+        launchDisposable {
+            appointmentRepository.getAppointmentOfDoctor(GetAppointmentBody(statusForHistory))
+                .withScheduler(baseSchedulerProvider)
+                .loading(isLoading)
+                .subscribeBy(
+                    onSuccess = {
+                        listAppointmentConfirmOfDoctor.value = it.listAppointment?.toMutableList()
+                    },
+                    onError = {
+                        onError.value = it
+                    }
+                )
+        }
+    }
+
 
     fun getDoctorId(): String {
         var id = userLocalRepository.getUserLocal()?.id
@@ -125,7 +162,12 @@ class AppointmentVM(
         }
     }
 
+    //update appointmentID
     fun getAppointmentId(): String {
+        val id = appointmentItem?.id
+        if (id != null) {
+            return id
+        }
         return ""
     }
 }

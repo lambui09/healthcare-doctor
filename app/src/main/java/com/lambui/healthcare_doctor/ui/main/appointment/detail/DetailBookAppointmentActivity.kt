@@ -4,8 +4,8 @@ import androidx.lifecycle.Observer
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseActivity
 import com.lambui.healthcare_doctor.constant.Constants.EXTRA_ARGS
-import com.lambui.healthcare_doctor.constant.ExtraKeyConstants.KEY_UPCOMING_ITEM
-import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
+import com.lambui.healthcare_doctor.constant.ExtraKeyConstants.EXTRA_ITEM_APPOINTMENT
+import com.lambui.healthcare_doctor.constant.ExtraKeyConstants.KEY_STATUS
 import com.lambui.healthcare_doctor.enums.DetailAppointmentNav
 import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
@@ -23,26 +23,34 @@ class DetailBookAppointmentActivity : BaseActivity<AppointmentVM>() {
     override fun initialize() {
         intent?.let {
             val bundle = it.getBundleExtra(EXTRA_ARGS)
-            val key = ""
             if (bundle != null) {
-                when (key) {
-                    KEY_UPCOMING_ITEM -> {
-                        val appointment =
-                            bundle.getParcelable<AppointmentFullModel>(KEY_UPCOMING_ITEM)
-                        viewModelx.appointmentItem = appointment
-                        appointment?.let { it1 ->
-                            when (it1.status) {
-                                StatusAppointmentType.PENDING.name -> {
-                                    viewModelx.setNavigationDetailAppointment(DetailAppointmentNav.CANCEL_APPOINTMENT)
-                                }
-                                StatusAppointmentType.CONFIRMED.name -> {
-                                    viewModelx.setNavigationDetailAppointment(DetailAppointmentNav.COMPLETE_APPOINTMENT)
-                                }
-                            }
+                val status = bundle.getString(KEY_STATUS)
+
+                status?.let {
+                    when (it) {
+                        StatusAppointmentType.PENDING.name -> {
+                            viewModelx.appointmentItem =
+                                bundle.getParcelable(EXTRA_ITEM_APPOINTMENT)
+                            viewModelx.setNavigationDetailAppointment(DetailAppointmentNav.DETAIL_APPOINTMENT)
+                        }
+                        StatusAppointmentType.CONFIRMED.name -> {
+                            viewModelx.appointmentItem =
+                                bundle.getParcelable(EXTRA_ITEM_APPOINTMENT)
+                            viewModelx.setNavigationDetailAppointment(DetailAppointmentNav.COMPLETE_APPOINTMENT)
+
+                        }
+                        StatusAppointmentType.COMPLETED.name -> {
+                            viewModelx.appointmentItem =
+                                bundle.getParcelable(EXTRA_ITEM_APPOINTMENT)
+
+                        }
+                        StatusAppointmentType.CANCELED.name -> {
+                            viewModelx.appointmentItem =
+                                bundle.getParcelable(EXTRA_ITEM_APPOINTMENT)
+
                         }
                     }
                 }
-
             }
         }
     }
@@ -90,7 +98,7 @@ class DetailBookAppointmentActivity : BaseActivity<AppointmentVM>() {
             }
 
             override fun onClickRight() {
-
+                finish()
             }
         })
     }

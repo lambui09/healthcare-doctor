@@ -224,5 +224,43 @@
         <item name="android:textColor">@color/K_DE173833_green</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
+    <style name="BaseDialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="DialogBaseContainer" parent="Width_Match_Height_Wrap">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@drawable/bg_base_dialog</item>
+        <item name="android:layout_marginStart">@dimen/dp_10</item>
+        <item name="android:layout_marginEnd">@dimen/dp_10</item>
+    </style>
+    <style name="Width_Match_Height_Wrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="TextViewTitleDialog" parent="Width_Match_Height_Wrap">
+        <item name="android:textSize">@dimen/sp_18</item>
+        <item name="android:paddingStart">@dimen/dp_5</item>
+        <item name="android:paddingEnd">@dimen/dp_5</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/K_173833_blue</item>
+    </style>
+    <style name="ButtonSelectedStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_54</item>
+        <item name="android:background">@drawable/bg_button_gradient</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:paddingRight">@dimen/dp_5</item>
+        <item name="android:paddingLeft">@dimen/dp_5</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
 
 </resources>

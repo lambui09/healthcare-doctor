@@ -57,7 +57,7 @@
                 android:orientation="vertical">
 
                 <include
-                    android:id="@+id/cardDoctor"
+                    android:id="@+id/cardPatient"
                     layout="@layout/view_item_card_doctor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -67,7 +67,7 @@
                     layout="@layout/view_item_option_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/cardDoctor" />
+                    app:layout_constraintTop_toBottomOf="@id/cardPatient" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerViewListDoctor"

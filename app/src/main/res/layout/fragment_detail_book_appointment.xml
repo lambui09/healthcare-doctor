@@ -6,8 +6,8 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/cardProfileDoctor"
-        layout="@layout/item_view_doctor_horizental_appointment"
+        android:id="@+id/cardProfilePatient"
+        layout="@layout/item_view_patient_horizental_appointment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +52,7 @@
         </androidx.appcompat.widget.AppCompatTextView>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvTitleNameDoctor"
+            android:id="@+id/tvTitleAddressAppointment"
             style="@style/TextViewHeaderStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             android:layout_marginTop="@dimen/dp_5"
             android:text="@string/text_address_example"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitleNameDoctor" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleAddressAppointment" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitleService"

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardDoctor"
+        android:id="@+id/cardPatient"
         android:layout_width="@dimen/dp_316"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_16"
@@ -37,7 +37,7 @@
                 android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imgProfileDoctor"
+                    android:id="@+id/imgProfilePatient"
                     android:layout_width="@dimen/dp_80"
                     android:layout_height="@dimen/dp_80"
                     android:layout_margin="@dimen/dp_12"
@@ -52,7 +52,7 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvNameDoctor"
+                        android:id="@+id/tvNamePatient"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_8"
@@ -206,7 +206,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_20"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardDoctor">
+        app:layout_constraintTop_toBottomOf="@+id/cardPatient">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/dp_343"

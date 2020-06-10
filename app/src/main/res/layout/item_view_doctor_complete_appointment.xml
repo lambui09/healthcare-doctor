@@ -7,7 +7,7 @@
     android:padding="@dimen/dp_8">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardDoctor"
+        android:id="@+id/cardPatient"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_90"
         app:cardBackgroundColor="@color/White"
@@ -21,7 +21,7 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgProfileDoctor"
+                android:id="@+id/imgProfilePatient"
                 android:layout_width="@dimen/dp_80"
                 android:layout_height="@dimen/dp_80"
                 android:layout_margin="@dimen/dp_5"
@@ -36,7 +36,7 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvNameDoctor"
+                    android:id="@+id/tvNamePatient"
                     style="@style/TextViewHeaderStyle"
                     android:layout_width="@dimen/dp_150"
                     android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvLocationOfDoctor"
+                    android:id="@+id/tvLocationOfPatient"
                     style="@style/TextViewDescriptionStyle"
                     android:layout_width="@dimen/dp_150"
                     android:layout_height="wrap_content"
@@ -60,20 +60,7 @@
                     android:singleLine="true"
                     android:text="89 Tôn Đức Thắng Hòa khánh"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvNameDoctor" />
-
-                <me.zhanghai.android.materialratingbar.MaterialRatingBar
-                    android:id="@+id/materialRatingDoctor"
-                    style="@style/Widget.MaterialRatingBar.RatingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/dp_12"
-                    android:layout_marginTop="@dimen/dp_4"
-                    android:maxHeight="@dimen/dp_12"
-                    android:rating="2.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvLocationOfDoctor"
-                    app:mrb_progressTint="@color/K_FF9500_yellow"
-                    app:mrb_secondaryProgressTint="@color/K_FF9500_yellow" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvNamePatient" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatTextView

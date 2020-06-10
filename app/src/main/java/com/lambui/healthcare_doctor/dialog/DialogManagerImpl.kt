@@ -1,7 +1,6 @@
 package com.lambui.healthcare_doctor.dialog
 
 import android.app.Activity
-import android.app.ProgressDialog
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
