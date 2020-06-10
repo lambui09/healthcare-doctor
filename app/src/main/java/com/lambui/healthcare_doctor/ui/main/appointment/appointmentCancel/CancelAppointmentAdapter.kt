@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.recycleview.BaseLoadMoreAdapter
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
-import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.utils.extension.listen
 import com.lambui.healthcare_doctor.utils.extension.loadImageUrl
 import kotlinx.android.synthetic.main.item_view_patient_history_appointment.view.*
@@ -36,9 +35,9 @@ class CancelAppointmentAdapter(context: Context) :
 class CancelAppointmentVH(view: View) : RecyclerView.ViewHolder(view) {
     fun bindData(appointmentFullModel: AppointmentFullModel?) = with(itemView) {
         with(appointmentFullModel) {
-            imgProfileDoctor.loadImageUrl(appointmentFullModel?.patientId?.avatar)
-            tvNameDoctor.text = appointmentFullModel?.patientId?.fullName ?: "Bùi Đức Lâm"
-            tvLocationOfDoctor.text = appointmentFullModel?.patientId?.address ?: "updating"
+            imgProfilePatient.loadImageUrl(appointmentFullModel?.patientId?.avatar)
+            tvNamePatient.text = appointmentFullModel?.patientId?.fullName ?: "Bùi Đức Lâm"
+            tvLocationOfPatient.text = appointmentFullModel?.patientId?.address ?: "updating"
             tvStatus.text = resources.getString(R.string.text_status_cancel)
             tvStatus.isSelected = false
             containerAppointment.isEnabled = false

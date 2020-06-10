@@ -131,7 +131,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvTitleRemainder" />
 
         <com.lambui.healthcare_doctor.widget.viewInApp.BottomButton
-            android:id="@+id/btnCompleteAppointment"
+            android:id="@+id/btnCancelAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:BottomButtonContent="@string/button_cancel"
@@ -139,6 +139,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_bias="0.9" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.appcompat.widget.LinearLayoutCompat>

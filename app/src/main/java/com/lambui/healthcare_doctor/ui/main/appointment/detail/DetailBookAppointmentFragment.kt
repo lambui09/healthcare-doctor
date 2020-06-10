@@ -3,10 +3,13 @@ package com.lambui.healthcare_doctor.ui.main.appointment.detail
 import androidx.lifecycle.Observer
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
+import com.lambui.healthcare_doctor.dialog.DialogBookAppointmentSuccess
 import com.lambui.healthcare_doctor.dialog.DialogConfirm
+import com.lambui.healthcare_doctor.dialog.OnDialogBookAppointment
 import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
 import com.lambui.healthcare_doctor.utils.RxView
+import com.lambui.healthcare_doctor.utils.extension.goBackStepFragment
 import com.lambui.healthcare_doctor.utils.extension.loadImageUrl
 import kotlinx.android.synthetic.main.fragment_detail_book_appointment.*
 import kotlinx.android.synthetic.main.item_view_doctor_complete_appointment.view.*
@@ -29,6 +32,8 @@ class DetailBookAppointmentFragment : BaseFragment<AppointmentVM>() {
                 cardProfilePatient.imgProfilePatient.loadImageUrl(it.patientId?.avatar)
                 cardProfilePatient.tvNamePatient.text = it.patientId?.fullName
                 cardProfilePatient.tvStatus.text = it.status
+                btnReject.setButtonSelected(true)
+                btnConfirm.setButtonSelected(true)
             }
         }
     }
@@ -50,7 +55,21 @@ class DetailBookAppointmentFragment : BaseFragment<AppointmentVM>() {
                 tvContentRemainder.text = this?.timeRemainSendNotification.toString()
             }
             appointmentCancelRequest.observe(this@DetailBookAppointmentFragment, Observer {
-                requireActivity().finish()
+                DialogBookAppointmentSuccess(requireContext(), object : OnDialogBookAppointment {
+                    override fun onConfirm() {
+                        requireActivity().goBackStepFragment(1)
+                    }
+                }).show()
+            })
+            appointmentConfirmRequest.observe(this@DetailBookAppointmentFragment, Observer {
+                DialogBookAppointmentSuccess(requireContext(), object : OnDialogBookAppointment {
+                    override fun onConfirm() {
+                        requireActivity().goBackStepFragment(1)
+                    }
+                }).show()
+            })
+            onError.observe(this@DetailBookAppointmentFragment, Observer {
+                handleApiError(it)
             })
         }
     }
@@ -63,7 +82,27 @@ class DetailBookAppointmentFragment : BaseFragment<AppointmentVM>() {
                         showErrorInternet()
                     }
                 }).subscribe {
-                viewModelx.confirmRequest()
+                showConfirmDialog(resources.getString(R.string.text_title_dialog_complete),
+                    resources.getString(R.string.text_content_dialog_confirm),
+                    object : DialogConfirm.OnButtonClickedListener {
+                        override fun onPositiveClicked() {
+                            showConfirmDialog(resources.getString(R.string.text_title_dialog_complete),
+                                resources.getString(R.string.text_content_dialog_confirm),
+                                object : DialogConfirm.OnButtonClickedListener {
+                                    override fun onPositiveClicked() {
+                                        viewModelx.confirmRequest()
+                                    }
+
+                                    override fun onNegativeClicked() {
+
+                                    }
+                                })
+                        }
+
+                        override fun onNegativeClicked() {
+
+                        }
+                    })
             }
             RxView.clickCheckNetwork(btnReject.getViewClick(),
                 object : RxView.IListenerCheckNetWork {
@@ -72,7 +111,7 @@ class DetailBookAppointmentFragment : BaseFragment<AppointmentVM>() {
                     }
                 }).subscribe {
                 showConfirmDialog(resources.getString(R.string.text_title_dialog_complete),
-                    resources.getString(R.string.text_content_dialog_complete),
+                    resources.getString(R.string.text_content_dialog_reject),
                     object : DialogConfirm.OnButtonClickedListener {
                         override fun onPositiveClicked() {
                             viewModelx.cancelRequest()

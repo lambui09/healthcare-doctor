@@ -8,14 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.recycleview.BaseLoadMoreAdapter
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
-import com.lambui.healthcare_doctor.enums.StatusAppointmentType
 import com.lambui.healthcare_doctor.utils.extension.listen
 import com.lambui.healthcare_doctor.utils.extension.loadImageUrl
 import kotlinx.android.synthetic.main.item_view_patient_history_appointment.view.*
-import kotlinx.android.synthetic.main.item_view_patient_horizental_appointment.view.imgProfileDoctor
-import kotlinx.android.synthetic.main.item_view_patient_horizental_appointment.view.tvLocationOfDoctor
-import kotlinx.android.synthetic.main.item_view_patient_horizental_appointment.view.tvNameDoctor
-import kotlinx.android.synthetic.main.item_view_patient_horizental_appointment.view.tvStatus
 
 class AppointmentHistoryAdapter(context: Context) :
     BaseLoadMoreAdapter<AppointmentFullModel>(context) {
@@ -39,9 +34,9 @@ class AppointmentHistoryAdapter(context: Context) :
 class AppointmentHistoryVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bindData(appointmentFullModel: AppointmentFullModel?) = with(itemView) {
         with(appointmentFullModel) {
-            imgProfileDoctor.loadImageUrl(appointmentFullModel?.patientId?.avatar)
-            tvNameDoctor.text = appointmentFullModel?.patientId?.fullName ?: "Bùi Đức Lâm"
-            tvLocationOfDoctor.text = appointmentFullModel?.patientId?.address ?: "updating"
+            imgProfilePatient.loadImageUrl(appointmentFullModel?.patientId?.avatar)
+            tvNamePatient.text = appointmentFullModel?.patientId?.fullName ?: "Bùi Đức Lâm"
+            tvLocationOfPatient.text = appointmentFullModel?.patientId?.address ?: "updating"
             tvStatus.text = resources.getString(R.string.text_status_completed)
             tvStatus.isSelected = true
         }

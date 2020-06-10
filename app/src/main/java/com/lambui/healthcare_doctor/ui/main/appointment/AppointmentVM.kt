@@ -164,6 +164,10 @@ class AppointmentVM(
 
     //update appointmentID
     fun getAppointmentId(): String {
+        val id = appointmentItem?.id
+        if (id != null) {
+            return id
+        }
         return ""
     }
 }

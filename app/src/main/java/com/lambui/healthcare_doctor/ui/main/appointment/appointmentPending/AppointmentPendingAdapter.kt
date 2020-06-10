@@ -33,9 +33,9 @@ class AppointmentPendingAdapter(context: Context) : BaseLoadMoreAdapter<Appointm
 class UpcomingVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bindData(appointmentModel: AppointmentFullModel?) = with(itemView) {
         with(appointmentModel) {
-            imgProfileDoctor.loadImageUrl(appointmentModel?.patientId?.avatar)
-            tvNameDoctor.text = appointmentModel?.patientId?.fullName ?: "Bùi Đức Lâm"
-            tvLocationOfDoctor.text = appointmentModel?.patientId?.address ?: "updating"
+            imgProfilePatient.loadImageUrl(appointmentModel?.patientId?.avatar)
+            tvNamePatient.text = appointmentModel?.patientId?.fullName ?: "Bùi Đức Lâm"
+            tvLocationOfPatient.text = appointmentModel?.patientId?.address ?: "updating"
             tvStatus.text = resources.getText(R.string.text_status_pending)
             tvStatus.isSelected = false
         }

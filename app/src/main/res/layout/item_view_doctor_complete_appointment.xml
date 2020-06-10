@@ -7,7 +7,7 @@
     android:padding="@dimen/dp_8">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardDoctor"
+        android:id="@+id/cardPatient"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_90"
         app:cardBackgroundColor="@color/White"

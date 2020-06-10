@@ -1,10 +1,14 @@
 package com.lambui.healthcare_doctor.ui.main.appointment.detail
 
+import androidx.lifecycle.Observer
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
+import com.lambui.healthcare_doctor.dialog.DialogBookAppointmentSuccess
 import com.lambui.healthcare_doctor.dialog.DialogConfirm
+import com.lambui.healthcare_doctor.dialog.OnDialogBookAppointment
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
 import com.lambui.healthcare_doctor.utils.RxView
+import com.lambui.healthcare_doctor.utils.extension.goBackStepFragment
 import com.lambui.healthcare_doctor.utils.extension.loadImageUrl
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.fragment_complete_book_appointment.*
@@ -28,12 +32,24 @@ class CompleteBookAppointmentFragment : BaseFragment<AppointmentVM>() {
                 cardProfilePatient.imgProfilePatient.loadImageUrl(it.patientId?.avatar)
                 cardProfilePatient.tvNamePatient.text = it.patientId?.fullName
                 cardProfilePatient.tvStatus.text = it.status
+                btnCompleteAppointment.setButtonSelected(true)
             }
         }
     }
 
     override fun onSubscribeObserver() {
-
+        with(viewModelx) {
+            appointmentCompleteRequest.observe(this@CompleteBookAppointmentFragment, Observer {
+                DialogBookAppointmentSuccess(requireContext(), object : OnDialogBookAppointment {
+                    override fun onConfirm() {
+                        requireActivity().goBackStepFragment(1)
+                    }
+                }).show()
+            })
+            onError.observe(this@CompleteBookAppointmentFragment, Observer {
+                handleApiError(it)
+            })
+        }
     }
 
     override fun registerOnClick() {
