@@ -8,6 +8,7 @@ import com.lambui.healthcare_doctor.base.BaseFragment
 import com.lambui.healthcare_doctor.data.model.NotificationModel
 import com.lambui.healthcare_doctor.ui.main.notification.adapter.NotificationAdapter
 import com.lambui.healthcare_doctor.utils.extension.show
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_notification.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -20,7 +21,6 @@ class NotificationFragment : BaseFragment<NotificationVM>() {
         object : RecyclerView.AdapterDataObserver() {
             override fun onChanged() {
                 notificationAdapter.let {
-//                    recyclerViewListNotification.gone(notificationAdapter.itemCount == 0)
                     linearLayoutEmpty.show(notificationAdapter.itemCount == 0)
                 }
             }

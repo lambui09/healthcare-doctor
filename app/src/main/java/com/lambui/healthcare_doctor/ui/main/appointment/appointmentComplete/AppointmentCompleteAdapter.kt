@@ -39,6 +39,7 @@ class AppointmentHistoryVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
             tvLocationOfPatient.text = appointmentFullModel?.patientId?.address ?: "updating"
             tvStatus.text = resources.getString(R.string.text_status_completed)
             tvStatus.isSelected = true
+            containerAppointment.isEnabled = false
         }
     }
 }
