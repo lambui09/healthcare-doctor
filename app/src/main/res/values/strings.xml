@@ -162,7 +162,9 @@
     <string name="address_patient_example">448 trưng nữ vương, hải châu</string>
     <string name="text_book_appointment_success">Thành công</string>
     <string name="text_book_appointment_fail">Thất bại</string>
+    <string name="text_choose_application">Select photos</string>
     <!--end dialog-->
+
 
 
 </resources>

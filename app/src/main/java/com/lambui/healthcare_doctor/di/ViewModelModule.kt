@@ -11,21 +11,23 @@ import com.lambui.healthcare_doctor.ui.main.chat.chatDetail.ChatDetailVM
 import com.lambui.healthcare_doctor.ui.main.home.HomeVM
 import com.lambui.healthcare_doctor.ui.main.notification.NotificationVM
 import com.lambui.healthcare_doctor.ui.main.setting.SettingVM
+import com.lambui.healthcare_doctor.ui.main.setting.account.AccountVM
 import com.lambui.healthcare_doctor.ui.splash.SplashVM
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel { RegisterVM(get(), get(), get(), get()) }
-    viewModel { MainVM() }
+    viewModel { MainVM(get(), get()) }
     viewModel { LoginVM(get(), get(), get(), get()) }
     viewModel { IntroduceVM() }
     viewModel { HomeVM() }
     viewModel { AppointmentVM(get(), get(), get()) }
     viewModel { ChatVM() }
-    viewModel { NotificationVM(get(),get()) }
-    viewModel { SettingVM() }
+    viewModel { NotificationVM(get(), get()) }
+    viewModel { SettingVM(get(), get()) }
     viewModel { SplashVM() }
     viewModel { ChatDetailVM() }
     viewModel { ChannelVM(get()) }
+    viewModel { AccountVM(get(), get()) }
 }
