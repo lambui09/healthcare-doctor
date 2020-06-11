@@ -2,6 +2,7 @@ package com.lambui.healthcare_doctor.di
 
 import com.google.gson.Gson
 import com.lambui.healthcare_doctor.data.source.remote.service.AuthApi
+import com.lambui.healthcare_doctor.data.source.remote.service.DoctorApi
 import com.lambui.healthcare_doctor.data.source.remote.service.InformationAppointmentApi
 import com.lambui.healthcare_doctor.data.source.remote.service.NotificationApi
 import com.lambui.healthcare_doctor.data.source.repositories.*
@@ -15,6 +16,7 @@ val repositoryModule = module {
     single { provideUserLocalRepository(get()) }
     single { provideInformationAppointmentRepository(get(), get()) }
     single { provideNotificationRepository(get(), get()) }
+    single { provideDoctorRepository(get(), get()) }
 }
 
 fun provideTimeCountDownRepository(sharedPrefsApi: SharedPrefsApi): TimeCountDownRepository =
@@ -39,3 +41,8 @@ fun provideNotificationRepository(
     notificationApi: NotificationApi,
     gson: Gson
 ): NotificationRepository = NotificationRepositoryImpl(notificationApi, gson)
+
+fun provideDoctorRepository(
+    doctorApi: DoctorApi,
+    gson: Gson
+): DoctorRepository = DoctorRepositoryImpl(doctorApi, gson)
