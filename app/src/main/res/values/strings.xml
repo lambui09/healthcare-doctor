@@ -163,6 +163,8 @@
     <string name="text_book_appointment_success">Thành công</string>
     <string name="text_book_appointment_fail">Thất bại</string>
     <string name="text_choose_application">Select photos</string>
+    <string name="text_title_examination">Examination</string>
+    <string name="text_title_schedule">Schedule Time</string>
     <!--end dialog-->
 
 

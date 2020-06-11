@@ -4,11 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <com.lambui.healthcare_doctor.widget.toolbar.MainToolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:toolbarType="hideBoth">
-    </com.lambui.healthcare_doctor.widget.toolbar.MainToolbar>
+        app:toolbarTitle="@string/text_title_schedule"
+        app:toolbarType="showBoth" />
 
-
+    <FrameLayout
+        android:id="@+id/frameLayoutScheduleTime"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
