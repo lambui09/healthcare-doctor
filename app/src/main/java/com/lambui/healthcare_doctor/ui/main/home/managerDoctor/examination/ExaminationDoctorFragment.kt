@@ -6,7 +6,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ExaminationDoctorFragment : BaseFragment<ExaminationDoctorVM>() {
     override val layoutID: Int
-        get() = R.layout.fragment_search_doctor
+        get() = R.layout.fragment_examination_doctor
     override val viewModelx: ExaminationDoctorVM by sharedViewModel()
 
     override fun initialize() {
