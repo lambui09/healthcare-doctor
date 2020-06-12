@@ -42,7 +42,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgSelectItemCreditCard"
+            android:id="@+id/imgSelectItemExamination"
             android:layout_width="@dimen/dp_20"
             android:layout_height="@dimen/dp_20"
             android:layout_gravity="end|center"
