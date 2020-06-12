@@ -10,6 +10,7 @@ interface AuthApi {
     /**
      * api register member
      * */
+    @Headers("Content-Type: application/json")
     @POST("auth/signup")
     fun register(
         @Body body: JsonObject
@@ -18,6 +19,7 @@ interface AuthApi {
     /**
      * api login member
      * */
+    @Headers("Content-Type: application/json")
     @POST("auth/login")
     fun login(
         @Body body: JsonObject
@@ -26,6 +28,7 @@ interface AuthApi {
     /**
      * update patient
      * */
+    @Headers("Content-Type: application/json")
     @PATCH("doctors/{doctor_id}")
     fun updateInformationPatient(
         @Path("doctor_id") doctorId: String,
@@ -42,6 +45,7 @@ interface AuthApi {
         @Body body: LocationModel
     ): Single<ApiResponse<DoctorModel>>
 
+    @Headers("Content-Type: application/json")
     @PATCH("doctors/{doctor_id}")
     fun updateDeviceToken(
         @Path("doctor_id") doctorId: String,

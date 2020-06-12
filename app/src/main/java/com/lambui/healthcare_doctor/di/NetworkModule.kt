@@ -6,10 +6,7 @@ import com.lambui.healthcare_doctor.data.source.remote.api.middleware.RxErrorHan
 import com.lambui.healthcare_doctor.data.source.repositories.TokenRepository
 import com.google.gson.Gson
 import com.lambui.healthcare_doctor.BuildConfig
-import com.lambui.healthcare_doctor.data.source.remote.service.AuthApi
-import com.lambui.healthcare_doctor.data.source.remote.service.InformationAppointmentApi
-import com.lambui.healthcare_doctor.data.source.remote.service.NotificationApi
-import com.lambui.healthcare_doctor.data.source.remote.service.SettingAccountApi
+import com.lambui.healthcare_doctor.data.source.remote.service.*
 import okhttp3.Cache
 import okhttp3.Dispatcher
 import okhttp3.Interceptor
@@ -30,6 +27,7 @@ val networkModule = module {
     single { provideInformationAppointment(get()) }
     single { provideNotification(get()) }
     single { provideSettingAccountApi(get()) }
+    single { provideDoctorApi(get()) }
 }
 
 fun provideInterceptor(
@@ -89,5 +87,7 @@ fun provideNotification(retrofit: Retrofit): NotificationApi =
 
 fun provideSettingAccountApi(retrofit: Retrofit): SettingAccountApi =
     retrofit.create(SettingAccountApi::class.java)
+
+fun provideDoctorApi(retrofit: Retrofit): DoctorApi = retrofit.create(DoctorApi::class.java)
 
 

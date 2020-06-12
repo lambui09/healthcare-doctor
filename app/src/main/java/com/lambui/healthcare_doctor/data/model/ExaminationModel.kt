@@ -15,9 +15,18 @@ data class ExaminationModel(
     val serviceName: String? = null,
     @Expose
     @SerializedName("image")
-    val image: String? =null,
+    val image: String? = null,
     @Expose
-    @SerializedName("doctor_id")
+    @SerializedName("price")
+    val price: Long?,
+    @Expose
+    @SerializedName("creator")
     val doctorId: String? = null,
-    var isSelect : Boolean = false
+    @Expose
+    @SerializedName("createdAt")
+    val createAt: String? = null,
+    @Expose
+    @SerializedName("updatedAt")
+    val updatedAt: String? = null,
+    var isSelect: Boolean = false
 ) : Parcelable

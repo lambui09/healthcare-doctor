@@ -165,6 +165,7 @@
     <string name="text_choose_application">Select photos</string>
     <string name="text_title_examination">Examination</string>
     <string name="text_title_schedule">Schedule Time</string>
+    <string name="text_action_title_create_new_examination">add new examination</string>
     <!--end dialog-->
 
 
