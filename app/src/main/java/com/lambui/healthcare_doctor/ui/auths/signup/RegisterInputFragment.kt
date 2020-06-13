@@ -27,9 +27,9 @@ class RegisterInputFragment : BaseFragment<RegisterVM>() {
         with(viewModelx) {
             signUpSuccess.observe(this@RegisterInputFragment, Observer {
                 val deviceToken = FirebaseInstanceId.getInstance().getToken() ?: ""
-                val patientId = getDoctorId() ?: ""
-                if (isBlank(deviceToken) && isBlank(patientId)) {
-                    viewModelx.updateDeviceToken(deviceToken, patientId)
+                val doctorId = getDoctorId() ?: ""
+                if (isBlank(deviceToken) && isBlank(doctorId)) {
+                    viewModelx.updateDeviceToken(deviceToken, doctorId)
                 }
                 viewModelx.setNavigationRegister(RegisterNav.CONFIRM_SMS)
             })
@@ -37,6 +37,18 @@ class RegisterInputFragment : BaseFragment<RegisterVM>() {
     }
 
     override fun registerOnClick() {
+        launchDisposable {
+            RxView.clicks(btnRegisterSubmit.getViewClick(), false)
+                .subscribe {
+                    if (checkValidate()) {
+
+                        val phoneNumber = edtPhoneNumber.getEditText().text.toString()
+                        val password = edtPassword.getEditText().text.toString()
+                        val passwordConfirm = edtConfirmPassword.getEditText().text.toString()
+                        viewModelx.signUp(phoneNumber, password, passwordConfirm)
+                    }
+                }
+        }
 
     }
 

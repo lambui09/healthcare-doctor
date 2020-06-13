@@ -21,7 +21,7 @@ class ExaminationDoctorFragment : BaseFragment<ExaminationDoctorVM>(), IItemList
 
     override fun initialize() {
         initAdapter()
-        with(viewModelx){
+        with(viewModelx) {
             getListExaminationOfDoctor()
         }
 
@@ -35,7 +35,6 @@ class ExaminationDoctorFragment : BaseFragment<ExaminationDoctorVM>(), IItemList
             onError.observe(this@ExaminationDoctorFragment, Observer {
                 handleApiError(it)
             })
-
         }
     }
 
@@ -43,14 +42,14 @@ class ExaminationDoctorFragment : BaseFragment<ExaminationDoctorVM>(), IItemList
     }
 
     override fun onDeleteExamination(item: ExaminationModel, position: Int) {
-        showConfirmDeleteDialog("${item?.serviceName}"
-            , resources.getString(R.string.text_title_remove_service)
-            , object : DialogConfirmDelete.OnButtonClickedListener {
+        showConfirmDeleteDialog("${item?.serviceName}",
+            resources.getString(R.string.text_title_remove_service),
+            object : DialogConfirmDelete.OnButtonClickedListener {
                 override fun onPositiveClicked() {
                     viewModelx.deleteExamination(position)
                 }
-                override fun onNegativeClicked() {
 
+                override fun onNegativeClicked() {
                 }
             })
     }

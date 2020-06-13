@@ -3,6 +3,7 @@ package com.lambui.healthcare_doctor.ui.auths.signup
 import android.app.Activity
 import android.content.Intent
 import android.util.Log
+import androidx.lifecycle.Observer
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
 import com.google.android.gms.common.GooglePlayServicesRepairableException
 import com.google.android.libraries.places.api.Places
@@ -14,6 +15,7 @@ import com.lambui.healthcare_doctor.BuildConfig
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
 import com.lambui.healthcare_doctor.data.model.LocationModel
+import com.lambui.healthcare_doctor.enums.RegisterNav
 import kotlinx.android.synthetic.main.fragment_input_address.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -29,7 +31,11 @@ class InputAddressFragment : BaseFragment<RegisterVM>() {
     }
 
     override fun onSubscribeObserver() {
-        TODO("Not yet implemented")
+        with(viewModelx) {
+            userModelUpdateAddressResponse.observe(this@InputAddressFragment, Observer {
+                viewModelx.setNavigationRegister(RegisterNav.MAIN)
+            })
+        }
     }
 
     override fun registerOnClick() {
@@ -39,7 +45,7 @@ class InputAddressFragment : BaseFragment<RegisterVM>() {
         btnSend.setOnClickListener {
             if (viewModelx.address != null) {
                 val patientId = viewModelx.getDoctorId() ?: ""
-                viewModelx.updateAddressPatient(patientId, viewModelx.address!!)
+                viewModelx.updateAddressDoctor(patientId, viewModelx.address!!)
             }
         }
     }

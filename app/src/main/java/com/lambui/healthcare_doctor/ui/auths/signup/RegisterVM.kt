@@ -2,12 +2,10 @@ package com.lambui.healthcare_doctor.ui.auths.signup
 
 import androidx.lifecycle.MutableLiveData
 import com.lambui.healthcare_doctor.base.BaseViewModel
-import com.lambui.healthcare_doctor.constant.Constants.Manager.KEY_CLINIC
 import com.lambui.healthcare_doctor.constant.Constants.Manager.KEY_DOCTOR
 import com.lambui.healthcare_doctor.data.model.DoctorModel
 import com.lambui.healthcare_doctor.data.model.LocationModel
 import com.lambui.healthcare_doctor.data.model.SignUpModelResponse
-import com.lambui.healthcare_doctor.data.model.UserModel
 import com.lambui.healthcare_doctor.data.source.repositories.TokenRepository
 import com.lambui.healthcare_doctor.data.source.repositories.UserAuthRepository
 import com.lambui.healthcare_doctor.data.source.repositories.UserLocalRepository
@@ -71,7 +69,7 @@ class RegisterVM(
         gender: String
     ) {
         launchDisposable {
-            userAuthRepository.updateInformationPatient(
+            userAuthRepository.updateInformationDoctor(
                     doctorId, firstName, lastName, birthDay, gender
                 ).withScheduler(baseSchedulerProvider)
                 .loading(isLoading)
@@ -103,9 +101,9 @@ class RegisterVM(
         }
     }
 
-    fun updateAddressPatient(patientId: String, location: LocationModel) {
+    fun updateAddressDoctor(patientId: String, location: LocationModel) {
         launchDisposable {
-            userAuthRepository.updateAddressPatient(patientId, location)
+            userAuthRepository.updateAddressDoctor(patientId, location)
                 .withScheduler(baseSchedulerProvider)
                 .loading(isLoading)
                 .subscribeBy(
