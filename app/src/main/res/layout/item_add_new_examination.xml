@@ -11,7 +11,7 @@
         android:background="@color/K_707070_gray" />
 
     <LinearLayout
-        android:id="@+id/llContainerItemCard"
+        android:id="@+id/llContainerItemExamination"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/White"

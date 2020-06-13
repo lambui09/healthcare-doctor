@@ -166,8 +166,9 @@
     <string name="text_title_examination">Examination</string>
     <string name="text_title_schedule">Schedule Time</string>
     <string name="text_action_title_create_new_examination">add new examination</string>
+    <string name="text_title_remove_service">Bạn có chắc chắn muốn xóa dịch vụ này không?</string>
+    <string name="button_next">next</string>
     <!--end dialog-->
-
 
 
 </resources>

@@ -20,18 +20,18 @@ interface UserAuthRepository {
         password: String
     ): Single<ApiResponse<LoginModelResponse>>
 
-    fun updateInformationPatient(
-        patientId: String,
+    fun updateInformationDoctor(
+        doctorId: String,
         firstName: String, lastName: String, birthDay: String, gender: String
     ): Single<ApiResponse<DoctorModel>>
 
-    fun updateAddressPatient(
-        patientId: String,
+    fun updateAddressDoctor(
+        doctorId: String,
         location: LocationModel
     ): Single<ApiResponse<DoctorModel>>
 
     fun updateDeviceToken(
-        patientId: String,
+        doctorId: String,
         deviceToken: String
     ): Single<ApiResponse<DoctorModel>>
 }
@@ -66,7 +66,7 @@ class UserAuthRepositoryImpl(
         }
     }
 
-    override fun updateInformationPatient(
+    override fun updateInformationDoctor(
         doctorId: String,
         firstName: String,
         lastName: String,
@@ -92,7 +92,7 @@ class UserAuthRepositoryImpl(
         }
     }
 
-    override fun updateAddressPatient(
+    override fun updateAddressDoctor(
         doctorId: String,
         location: LocationModel
     ): Single<ApiResponse<DoctorModel>> {
