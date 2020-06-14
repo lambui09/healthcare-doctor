@@ -8,6 +8,7 @@
     android:clickable="true"
     android:focusable="true">
 
+
     <com.lambui.healthcare_doctor.widget.toolbar.MainToolbar
         android:id="@+id/toolBar"
         android:layout_width="0dp"
@@ -35,6 +36,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/aniSayHi"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:lottie_rawRes="@raw/ani_say_hi"
+        app:lottie_loop="true"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomView"
+        android:layout_marginBottom="32dp"/>
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/bottomView"
         android:layout_width="0dp"
@@ -48,29 +61,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/btnTakePic"
-            android:layout_width="@dimen/dp_32"
-            android:layout_height="@dimen/dp_32"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/dp_3"
-            android:background="?selectableItemBackgroundBorderless"
-            android:padding="@dimen/dp_3"
-            app:srcCompat="@drawable/ic_camera_black" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/btnChooseFromGallery"
-            android:layout_width="@dimen/dp_32"
-            android:layout_height="@dimen/dp_32"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginEnd="@dimen/dp_16"
-            android:layout_marginBottom="@dimen/dp_3"
-            android:background="?selectableItemBackgroundBorderless"
-            android:padding="@dimen/dp_4"
-            app:srcCompat="@drawable/ic_gallery_black" />
-
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
