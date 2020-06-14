@@ -9,7 +9,7 @@ import io.reactivex.Single
 interface DoctorRepository {
     fun addNewExamination(service: String): Single<ExaminationModel>
     fun deleteExamination(examinationId: String): Single<Any>
-    fun getAllExaminationOfDoctor(id: String): Single<List<ExaminationModel>>
+    fun getAllExaminationOfDoctor(doctorId: String): Single<List<ExaminationModel>>
 
 }
 

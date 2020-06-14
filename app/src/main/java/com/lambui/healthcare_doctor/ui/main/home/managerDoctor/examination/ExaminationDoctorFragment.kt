@@ -27,7 +27,6 @@ class ExaminationDoctorFragment : BaseFragment<ExaminationDoctorVM>(), IItemList
         with(viewModelx) {
             getListExaminationOfDoctor()
         }
-
     }
 
     override fun onSubscribeObserver() {
