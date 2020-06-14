@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:toolbarTitle="@string/text_title_schedule"
+        android:id="@+id/tooBarScheduleDoctor"
         app:toolbarType="showBoth" />
 
     <FrameLayout

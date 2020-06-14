@@ -88,7 +88,7 @@ class ExaminationDoctorAdapter(
         }
     }
 
-    fun getTypeCardSelected(): TypeExaminationSelect {
+    fun getPositionExaminationSelected(): TypeExaminationSelect {
         if (selectedPosition < 0) {
             return TypeExaminationSelect.NO_SELECT
         }
@@ -97,8 +97,6 @@ class ExaminationDoctorAdapter(
         }
         return TypeExaminationSelect.OLD_EXAMINATION
     }
-
-    fun getPositionCardSelected(): Int = selectedPosition
 }
 
 class ExaminationVH(private val view: View, private val listener: IItemListener) :

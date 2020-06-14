@@ -168,6 +168,18 @@
     <string name="text_action_title_create_new_examination">add new examination</string>
     <string name="text_title_remove_service">Bạn có chắc chắn muốn xóa dịch vụ này không?</string>
     <string name="button_next">next</string>
+    <string name="text_examination">Add new examination</string>
+    <string name="text_title_examination_examination">Khám mắt</string>
+    <string name="from_date">From Date</string>
+    <string name="text_example_from_date">2020–05-24</string>
+    <string name="end_date">End Date</string>
+    <string name="text_example_end_date">2020-07-07</string>
+    <string name="start_time_working">Work start time in a day</string>
+    <string name="end_time_working">Work end time in a day</string>
+    <string name="time_start_example">08:00</string>
+    <string name="time_end_example">17:00</string>
+    <string name="time_duration_example">15</string>
+    <string name="duration_appointment">Duration default appointment</string>
     <!--end dialog-->
 
 

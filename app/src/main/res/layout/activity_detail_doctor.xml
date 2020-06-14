@@ -187,7 +187,7 @@
                         android:layout_margin="@dimen/dp_10"
                         android:orientation="horizontal">
 
-                        <com.lambui.healthcare_app.widget.viewInApp.BottomButton
+                        <com.lambui.healthcare_doctor.widget.viewInApp.BottomButton
                             android:id="@+id/btnBookAppointment"
                             android:layout_width="@dimen/dp_236"
                             android:layout_height="wrap_content"

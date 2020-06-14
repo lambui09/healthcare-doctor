@@ -3,6 +3,7 @@ package com.lambui.healthcare_doctor.ui.main.home
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
 import com.lambui.healthcare_doctor.ui.main.home.managerDoctor.examination.ExaminationDoctorActivity
+import com.lambui.healthcare_doctor.ui.main.home.managerDoctor.scheduleTime.ScheduleTimeActivity
 import com.lambui.healthcare_doctor.utils.RxView
 import com.lambui.healthcare_doctor.utils.extension.goTo
 import kotlinx.android.synthetic.main.list_item_top_option_cagories.*
@@ -22,7 +23,7 @@ class HomeFragment : BaseFragment<HomeVM>() {
     override fun registerOnClick() {
 
         launchDisposable {
-            RxView.clickCheckNetwork(btnCreateSchedule, object : RxView.IListenerCheckNetWork {
+            RxView.clickCheckNetwork(btnCreateExamination, object : RxView.IListenerCheckNetWork {
                 override fun showError(isCheckNetwork: Boolean) {
                     showErrorInternet()
                 }
@@ -36,7 +37,7 @@ class HomeFragment : BaseFragment<HomeVM>() {
                     showErrorInternet()
                 }
             }).subscribe {
-                this@HomeFragment.goTo(ExaminationDoctorActivity::class)
+                this@HomeFragment.goTo(ScheduleTimeActivity::class)
             }
         }
     }

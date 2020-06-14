@@ -24,8 +24,8 @@ interface DoctorApi {
     ): Single<ApiResponse<Any>>
 
     @Headers("Content-Type: application/json")
-    @GET("examinations/{}")
+    @GET("examinations/{doctor_id}")
     fun getAllExaminationOfDoctor(
-        @Path("examination_id") examinationId: String
+        @Path("doctor_id") examinationId: String
     ): Single<ApiResponse<List<ExaminationModel>>>
 }

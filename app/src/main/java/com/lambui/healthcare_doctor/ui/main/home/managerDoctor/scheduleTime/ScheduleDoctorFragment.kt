@@ -14,6 +14,7 @@ class ScheduleDoctorFragment : BaseFragment<ScheduleDoctorVM>() {
     }
 
     override fun registerOnClick() {
+
     }
 
     override fun initialize() {

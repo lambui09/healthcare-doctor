@@ -6,8 +6,11 @@ import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
 import com.lambui.healthcare_doctor.data.model.ExaminationModel
 import com.lambui.healthcare_doctor.dialog.DialogConfirmDelete
+import com.lambui.healthcare_doctor.enums.ExaminationNav
+import com.lambui.healthcare_doctor.enums.TypeExaminationSelect
 import com.lambui.healthcare_doctor.ui.main.home.managerDoctor.examination.adapter.ExaminationDoctorAdapter
 import com.lambui.healthcare_doctor.ui.main.home.managerDoctor.examination.adapter.IItemListener
+import com.lambui.healthcare_doctor.utils.RxView
 import kotlinx.android.synthetic.main.fragment_examination_doctor.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -24,7 +27,6 @@ class ExaminationDoctorFragment : BaseFragment<ExaminationDoctorVM>(), IItemList
         with(viewModelx) {
             getListExaminationOfDoctor()
         }
-
     }
 
     override fun onSubscribeObserver() {
@@ -39,6 +41,17 @@ class ExaminationDoctorFragment : BaseFragment<ExaminationDoctorVM>(), IItemList
     }
 
     override fun registerOnClick() {
+        launchDisposable {
+            RxView.clickCheckNetwork(btnNext.getViewClick(), object : RxView.IListenerCheckNetWork {
+                override fun showError(isCheckNetwork: Boolean) {
+                    showErrorInternet()
+                }
+            }).subscribe {
+                if (adapterExamination.getPositionExaminationSelected() == TypeExaminationSelect.CREATE_NEW_EXAMINATION) {
+                    viewModelx.navigationExamination(ExaminationNav.ADD_NEW_EXAMINATION)
+                }
+            }
+        }
     }
 
     override fun onDeleteExamination(item: ExaminationModel, position: Int) {
