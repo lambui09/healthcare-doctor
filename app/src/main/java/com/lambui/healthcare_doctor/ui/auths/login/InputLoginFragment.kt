@@ -29,22 +29,25 @@ class InputLoginFragment : BaseFragment<LoginVM>() {
         edtPhoneNumber.getEditText().setText("04012312302")
         edtPassword.getEditText().setText("aa123123")
         handleRegister()
-        validate()
+//        validate()
         Log.d(
             "@@@@@",
             "Token on the 1st " + FirebaseInstanceId.getInstance().getToken() ?: "NULLLL"
         )
+        val phoneNumber = edtPhoneNumber.getEditText().text.toString()
+        val passWord = edtPassword.getEditText().text.toString()
+        viewModelx.login(phoneNumber, passWord)
     }
 
     override fun onSubscribeObserver() {
         with(viewModelx) {
             loginSuccess.observe(this@InputLoginFragment, Observer {
-                val deviceToken = FirebaseInstanceId.getInstance().getToken() ?: ""
-                val doctorId = getUserId() ?: ""
-                if (!isBlank(deviceToken) && !isBlank(doctorId)) {
-                    viewModelx.updateDeviceToken(deviceToken, doctorId)
-                }
-                viewModelx.setNavigationLogin(LoginNav.CONFIRM_CODE)
+//                val deviceToken = FirebaseInstanceId.getInstance().getToken() ?: ""
+//                val doctorId = getUserId() ?: ""
+//                if (!isBlank(deviceToken) && !isBlank(doctorId)) {
+//                    viewModelx.updateDeviceToken(deviceToken, doctorId)
+//                }
+                viewModelx.setNavigationLogin(LoginNav.MAIN)
             })
         }
     }
