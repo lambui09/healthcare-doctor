@@ -25,11 +25,11 @@ val viewModelModule = module {
     viewModel { IntroduceVM() }
     viewModel { HomeVM(get(), get(), get()) }
     viewModel { AppointmentVM(get(), get(), get()) }
-    viewModel { ChatVM() }
+    viewModel { ChatVM(get()) }
     viewModel { NotificationVM(get(), get()) }
     viewModel { SettingVM(get(), get()) }
     viewModel { SplashVM() }
-    viewModel { ChatDetailVM() }
+    viewModel { ChatDetailVM(get(), get()) }
     viewModel { ChannelVM(get()) }
     viewModel { AccountVM(get(), get()) }
     viewModel { ScheduleDoctorVM(get(), get(), get(), get()) }

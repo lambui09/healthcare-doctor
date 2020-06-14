@@ -51,4 +51,16 @@ interface AuthApi {
         @Path("doctor_id") doctorId: String,
         @Body body: JsonObject
     ): Single<ApiResponse<DoctorModel>>
+
+    @Headers("Content-Type: application/json")
+    @GET("patients/{patient_id}")
+    fun getPatientInfo(
+        @Path("patient_id") patientId: String
+    ): Single<ApiResponse<PatientModel>>
+
+    @Headers("Content-Type: application/json")
+    @GET("doctors/{doctor_id}")
+    fun getDoctorInfo(
+        @Path("doctor_id") doctor_id: String
+    ): Single<ApiResponse<DoctorModel>>
 }
