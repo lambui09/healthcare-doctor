@@ -32,6 +32,6 @@ val viewModelModule = module {
     viewModel { ChatDetailVM() }
     viewModel { ChannelVM(get()) }
     viewModel { AccountVM(get(), get()) }
-    viewModel { ScheduleDoctorVM() }
+    viewModel { ScheduleDoctorVM(get(), get(), get(),get()) }
     viewModel { ExaminationDoctorVM(get(), get(), get()) }
 }

@@ -48,13 +48,168 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <VideoView
-                    android:id="@+id/videoViewCommercial"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardDoctor"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_200"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_8"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardElevation="@dimen/sp_10"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/imgProfileDoctor"
+                                android:layout_width="@dimen/dp_80"
+                                android:layout_height="@dimen/dp_80"
+                                android:layout_margin="@dimen/dp_12"
+                                android:src="@drawable/img_profile_doctor"
+                                app:civ_border_color="@color/White"
+                                app:civ_border_width="2dp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_12"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvNameDoctor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp_8"
+                                    android:text="Dr.Join"
+                                    android:textColor="@color/White"
+                                    android:textSize="@dimen/sp_16" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvNameHospital"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Vinmec"
+                                    android:textColor="@color/White"
+                                    android:textSize="@dimen/sp_12" />
+
+                                <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                                    style="@style/Widget.MaterialRatingBar.RatingBar"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/dp_12"
+                                    android:maxHeight="@dimen/dp_12"
+                                    android:rating="2.5"
+                                    app:mrb_progressTint="@color/K_FF9500_yellow"
+                                    app:mrb_secondaryProgressTint="@color/K_FF9500_yellow" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp_20"
+                            android:orientation="horizontal"
+                            android:weightSum="9">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvTitleSex"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/dp_2"
+                                    android:text="Gender"
+                                    android:textColor="@color/White"
+                                    android:textSize="@dimen/sp_12" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvContentGender"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/dp_2"
+                                    android:text="Male"
+                                    android:textColor="@color/White"
+                                    android:textSize="@dimen/sp_10" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/dp_2"
+                                android:layout_height="@dimen/dp_38"
+                                android:layout_marginStart="@dimen/dp_20"
+                                android:background="@color/K_C3CBCA_gray" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:layout_weight="3"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvTitleExperience"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/dp_2"
+                                    android:text="Experience"
+                                    android:textColor="@color/White"
+                                    android:textSize="@dimen/sp_12" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvContentExperience"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/dp_2"
+                                    android:text="10 year"
+                                    android:textColor="@color/White"
+                                    android:textSize="@dimen/sp_10" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/dp_2"
+                                android:layout_height="@dimen/dp_38"
+                                android:layout_marginStart="@dimen/dp_20"
+                                android:background="@color/K_C3CBCA_gray" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp_15"
+                                android:layout_weight="3"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tvTitleNumberPatient"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/dp_2"
+                                    android:text="Patient"
+                                    android:textColor="@color/White"
+                                    android:textSize="@dimen/sp_12" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/dp_2"
+                                    android:text="0"
+                                    android:textColor="@color/White"
+                                    android:textSize="@dimen/sp_10" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/mTvHeaderCategories"
@@ -67,7 +222,7 @@
                     android:textSize="@dimen/sp_15"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/videoViewCommercial" />
+                    app:layout_constraintTop_toBottomOf="@+id/cardDoctor" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

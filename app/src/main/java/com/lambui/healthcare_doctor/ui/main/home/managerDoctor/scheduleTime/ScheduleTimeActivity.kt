@@ -4,6 +4,7 @@ import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseActivity
 import com.lambui.healthcare_doctor.enums.AnimateType
 import com.lambui.healthcare_doctor.utils.extension.replaceFragmentInActivity
+import com.lambui.healthcare_doctor.widget.toolbar.MainToolbar
 import kotlinx.android.synthetic.main.activity_schedule_time_doctor.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,5 +27,18 @@ class ScheduleTimeActivity : BaseActivity<ScheduleDoctorVM>() {
     }
 
     override fun registerOnClick() {
+        tooBarScheduleDoctor.setToolBarOnClick(object : MainToolbar.OnToolBarListener {
+            override fun onClickLeft() {
+                onBackPressed()
+            }
+
+            override fun onClickRight() {
+                onBackPressed()
+            }
+        })
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }
