@@ -33,6 +33,7 @@ interface DoctorApi {
     @Headers("Content-Type: application/json")
     @GET("working-schedule/{doctor_id}")
     fun getWorkingScheduleOfDoctor(
-        @Path("doctor_id") doctorId : String
-    ) : Single<ApiResponse<WorkingScheduleFullModel>>
+        @Path("doctor_id") doctorId: String
+    ): Single<ApiResponse<WorkingScheduleFullModel>>
+
 }

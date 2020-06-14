@@ -20,4 +20,8 @@ class ScheduleDoctorFragment : BaseFragment<ScheduleDoctorVM>() {
     override fun initialize() {
 
     }
+
+    private fun validate(): Boolean {
+
+    }
 }
