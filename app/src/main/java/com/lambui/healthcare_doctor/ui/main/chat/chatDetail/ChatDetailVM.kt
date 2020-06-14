@@ -101,28 +101,28 @@ class ChatDetailVM(
         repoConversation.isConversationExist(conversationId)
             .flatMap { exist ->
                 if (!exist)
-                    authRepository.getDoctorInformation(receiverId)
+                    authRepository.getPatientInformation(receiverId)
                         .doOnSuccess {
                             partnerName.postValue(it.data?.fullName ?: "Null")
-                            partnerAvatarUrl.postValue(it.data?.avatarUrl ?: "Null")
+                            partnerAvatarUrl.postValue(it.data?.avatar ?: "Null")
                         }
-                        .flatMap { responseDoctor ->
+                        .flatMap { responsePatient ->
                             authRepository.getPatientInformation(senderId)
-                                .flatMap { responsePatient ->
+                                .flatMap { responseDoctor ->
                                     repoConversation.createConversation(
                                         senderId,
                                         receiverId,
                                         conversationId,
                                         memberNames = hashMapOf(
-                                            senderId to (responsePatient.data?.fullName
+                                            senderId to (responseDoctor.data?.fullName
                                                 ?: "Null"),
-                                            receiverId to (responseDoctor.data?.fullName
+                                            receiverId to (responsePatient.data?.fullName
                                                 ?: "Null")
                                         ),
                                         memberAvatars = hashMapOf(
-                                            senderId to (responsePatient.data?.avatar
+                                            senderId to (responseDoctor.data?.avatar
                                                 ?: "Null"),
-                                            receiverId to (responseDoctor.data?.avatarUrl
+                                            receiverId to (responsePatient.data?.avatar
                                                 ?: "Null")
                                         )
                                     )
