@@ -53,7 +53,7 @@ class ChatDetailVM(
     }
 
     private fun buildConversationId(id1: String, id2: String): String {
-        return if (id1.compareTo(id2) == -1) id2 + '_' + id1
+        return if (id1 < id2) id2 + '_' + id1
         else id1 + '_' + id2
     }
 
@@ -107,7 +107,7 @@ class ChatDetailVM(
                             partnerAvatarUrl.postValue(it.data?.avatar ?: "Null")
                         }
                         .flatMap { responsePatient ->
-                            authRepository.getPatientInformation(senderId)
+                            authRepository.getDoctorInformation(senderId)
                                 .flatMap { responseDoctor ->
                                     repoConversation.createConversation(
                                         senderId,
@@ -120,7 +120,7 @@ class ChatDetailVM(
                                                 ?: "Null")
                                         ),
                                         memberAvatars = hashMapOf(
-                                            senderId to (responseDoctor.data?.avatar
+                                            senderId to (responseDoctor.data?.avatarUrl
                                                 ?: "Null"),
                                             receiverId to (responsePatient.data?.avatar
                                                 ?: "Null")
