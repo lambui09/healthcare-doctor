@@ -5,6 +5,7 @@ import com.lambui.healthcare_doctor.base.BaseViewModel
 import com.lambui.healthcare_doctor.data.model.ExaminationModel
 import com.lambui.healthcare_doctor.data.source.repositories.DoctorRepository
 import com.lambui.healthcare_doctor.data.source.repositories.UserLocalRepository
+import com.lambui.healthcare_doctor.enums.ExaminationNav
 import com.lambui.healthcare_doctor.utils.extension.loading
 import com.lambui.healthcare_doctor.utils.extension.withScheduler
 import com.lambui.healthcare_doctor.utils.rxAndroid.BaseSchedulerProvider
@@ -18,6 +19,11 @@ class ExaminationDoctorVM(
     var listExamination = MutableLiveData<MutableList<ExaminationModel>>()
     var isDeleteExamination = MutableLiveData<Boolean>()
     var addNewExamination = MutableLiveData<ExaminationModel>()
+    var navigationExamination = MutableLiveData<String>()
+
+    fun navigationExamination(navigation: ExaminationNav) {
+        navigationExamination.value = navigation.name
+    }
 
     fun getListExaminationOfDoctor() {
         launchDisposable {

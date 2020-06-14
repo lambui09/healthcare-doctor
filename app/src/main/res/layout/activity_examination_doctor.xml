@@ -7,6 +7,7 @@
 
     <com.lambui.healthcare_doctor.widget.toolbar.MainToolbar
         android:layout_width="match_parent"
+        android:id="@+id/tooBarExamination"
         android:layout_height="wrap_content"
         app:toolbarTitle="@string/text_title_examination"
         app:toolbarType="showBoth" />

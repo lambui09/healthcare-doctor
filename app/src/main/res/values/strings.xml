@@ -168,6 +168,8 @@
     <string name="text_action_title_create_new_examination">add new examination</string>
     <string name="text_title_remove_service">Bạn có chắc chắn muốn xóa dịch vụ này không?</string>
     <string name="button_next">next</string>
+    <string name="text_examination">Add new examination</string>
+    <string name="text_title_examination_examination">Khám mắt</string>
     <!--end dialog-->
 
 
