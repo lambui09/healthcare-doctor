@@ -3,6 +3,7 @@ package com.lambui.healthcare_doctor.data.source.remote.service
 import com.cloudinary.Api
 import com.google.gson.JsonObject
 import com.lambui.healthcare_doctor.data.model.ExaminationModel
+import com.lambui.healthcare_doctor.data.model.WorkingScheduleFullModel
 import com.lambui.healthcare_doctor.data.source.remote.api.response.ApiResponse
 import io.reactivex.Single
 import retrofit2.http.*
@@ -28,4 +29,10 @@ interface DoctorApi {
     fun getAllExaminationOfDoctor(
         @Path("doctor_id") examinationId: String
     ): Single<ApiResponse<List<ExaminationModel>>>
+
+    @Headers("Content-Type: application/json")
+    @GET("working-schedule/{doctor_id}")
+    fun getWorkingScheduleOfDoctor(
+        @Path("doctor_id") doctorId : String
+    ) : Single<ApiResponse<WorkingScheduleFullModel>>
 }
