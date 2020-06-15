@@ -58,7 +58,10 @@ class ConversationAdapter(
             Glide.with(context)
                 .load(conversation.memberAvatars[partnerId])
                 .into(imvAvatar)
-            tvMessageContent.text = conversation.lastMessage
+            val prefix = if (conversation.lastSender == yourId)
+                resources.getString(R.string.you) + ": "
+            else ""
+            tvMessageContent.text = prefix + conversation.lastMessage
 
             val updateAt = conversation.updateAt.toDate()
             if (DateUtils.isToday(updateAt.time)) {
