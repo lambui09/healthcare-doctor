@@ -28,11 +28,11 @@ class ChatFragment : BaseFragment<ChatVM>() {
         conversationAdapter = ConversationAdapter(activity!!, yourID)
         conversationAdapter.onConversationClick =
             object : ConversationAdapter.OnConversationClickListener {
-                override fun onConversationClick(userId: String) {
+                override fun onConversationClick(userId: String, userName: String) {
                     val intent = Intent(context, ChatDetailActivity::class.java)
                     with(intent) {
-                        putExtra(ChatDetailActivity.KEY_SENDER, yourID)
                         putExtra(ChatDetailActivity.KEY_RECIEVER, userId)
+                        putExtra(ChatDetailActivity.KEY_RECEIVER_NAME, userName)
                     }
                     startActivity(intent)
                 }

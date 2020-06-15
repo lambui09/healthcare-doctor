@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lambui.healthcare_app.data.model.ConversationModel
@@ -33,6 +34,19 @@ class ConversationAdapter(
 
     override fun getItemCount(): Int {
         return conversationList.size
+    }
+
+    fun setData(newData: List<ConversationModel>) {
+        val diffUtilResult = DiffUtil.calculateDiff(
+            ConversationDiffUtilCallback(conversationList, newData)
+        )
+        conversationList.clear()
+        conversationList.addAll(newData)
+        diffUtilResult.dispatchUpdatesTo(this)
+    }
+
+    fun getData(): List<ConversationModel> {
+        return conversationList
     }
 
     override fun onBindViewHolder(holder: ConversationViewHolder, position: Int) {
@@ -86,7 +100,7 @@ class ConversationAdapter(
                     else conversation.members[0]
 
                 onConversationClick?.run {
-                    onConversationClick(partner)
+                    onConversationClick(partner, conversation.memberNames[partner]?: "")
                 }
             }
         }
@@ -111,6 +125,6 @@ class ConversationAdapter(
     }
 
     interface OnConversationClickListener {
-        fun onConversationClick(userId: String)
+        fun onConversationClick(userId: String, userName: String)
     }
 }

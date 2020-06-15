@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.data.model.MessageModel
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.item_message_sender.view.chat_message
 
 class MessageAdapter(var context: Context, var sender: String) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var messages: MutableList<MessageModel> = ArrayList()
+    private var messages: MutableList<MessageModel> = ArrayList()
     var pendingWriteMessageIds: MutableList<String> = mutableListOf()
     var seen: Boolean = false
     var partnerAvatar: Drawable? = ContextCompat.getDrawable(context, R.drawable.ic_account)
@@ -37,6 +38,19 @@ class MessageAdapter(var context: Context, var sender: String) :
 
     override fun getItemCount(): Int {
         return messages.size
+    }
+
+    fun setData(newData: List<MessageModel>) {
+        val diffUtilResult = DiffUtil.calculateDiff(
+            MessageDiffUtilCallback(messages, newData)
+        )
+        messages.clear()
+        messages.addAll(newData)
+        diffUtilResult.dispatchUpdatesTo(this)
+    }
+
+    fun getData(): List<MessageModel> {
+        return messages
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {

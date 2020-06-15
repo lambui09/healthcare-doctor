@@ -19,4 +19,15 @@ data class ConversationModel(
     constructor() : this(id = "") {
 
     }
+
+    fun compareTo(another: ConversationModel): Boolean {
+        return members == another.members
+                && memberAvatars == another.memberAvatars
+                && memberNames == another.memberNames
+                && lastSender == another.lastSender
+                && seen == another.seen
+                && lastMessage == another.lastMessage
+                && createAt == another.createAt
+                && updateAt == another.updateAt
+    }
 }
