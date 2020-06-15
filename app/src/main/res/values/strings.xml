@@ -1,20 +1,20 @@
 <resources>
     <string name="app_name">HealthCare-Doctor</string>
-    <string name="msg_error_no_internet">loi roi</string>
-    <string name="text_internet_error">There was a problem connecting to the Internet.</string>
-    <string name="title_error">error</string>
-    <string name="messenger_error_connect_network">No internet connection</string>
+    <string name="msg_error_no_internet">Lỗi rồi</string>
+    <string name="text_internet_error">Đây là vấn đề do kết nối mạng</string>
+    <string name="title_error">Lỗi</string>
+    <string name="messenger_error_connect_network">Không có kết nối đến internet</string>
     <string name="empty">""</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="password">Password</string>
-    <string name="confirm_password">Confirm password</string>
+    <string name="phone_number">Di động</string>
+    <string name="password">Mật khẩu</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
     <string name="button_send">submit</string>
-    <string name="button_register">Register</string>
+    <string name="button_register">Đăng ký</string>
     <string name="text_confirm_sms_register">Enter code</string>
     <string name="text_description_code_sms_resend">%1$s min left</string>
-    <string name="text_show_password">save information for again</string>
-    <string name="text_login_ua_1">Login</string>
-    <string name="button_sign_up">Don’t have an account? Sign Up</string>
+    <string name="text_show_password">Lưu thông tin đăng nhập</string>
+    <string name="text_login_ua_1">Đăng nhập</string>
+    <string name="button_sign_up">Bạn không có tài khoản? Đăng ký</string>
     <!--screen introduce -->
     <string name="title_splash_1">Discover doctor near you</string>
     <string name="title_splash_2">Make a schedule easily</string>
@@ -22,7 +22,7 @@
     <string name="text_description_splash_1">Find the best doctor you want by your location or neighborhood</string>
     <string name="text_description_splash_2">Choose the time you want to make an appointment with a doctor</string>
     <string name="text_description_splash_3">Find the best doctor you want by your location or neighborhood</string>
-    <string name="text_sign_up">Sign Up</string>
+    <string name="text_sign_up">Đăng ký</string>
     <!--end endpoint-->
     <!--screen main activity -->
     <string name="title_tab_home">Home</string>
@@ -30,14 +30,14 @@
     <string name="title_tab_chat">Chat</string>
     <string name="title_tab_notification">Notification</string>
     <string name="title_tab_setting">Setting</string>
-    <string name="text_top_option_header">Nearby</string>
+    <string name="text_top_option_header">Gần đây</string>
     <string name="text_top_categories_header">Categories</string>
     <string name="text_show_all_near_by">See all</string>
 
     <!--end endpoint-->
     <!--screen home fragment -->
-    <string name="text_title_categories_dentist">Dentist</string>
-    <string name="text_description_categories_dentist">Dentist sdfds</string>
+    <string name="text_title_categories_dentist">Khoa răng hàm mặt</string>
+    <string name="text_description_categories_dentist">Khám bệnh liên quan răng miệng</string>
     <string name="text_title_categories_cardiology">Cardiology</string>
     <string name="text_description_categories_cardiology">Cardiology sdfds</string>
     <string name="text_title_categories_physician">Physician</string>
