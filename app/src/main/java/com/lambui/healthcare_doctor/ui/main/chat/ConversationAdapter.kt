@@ -7,6 +7,7 @@ import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,8 +16,10 @@ import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.utils.DateTimeUtils
 import kotlinx.android.synthetic.main.item_conversation.view.*
 
-class ConversationAdapter(private val context: Context, private val yourId: String) :
-    RecyclerView.Adapter<ConversationAdapter.ConversationViewHolder>() {
+class ConversationAdapter(
+    private val context: Context,
+    private val yourId: String
+) : RecyclerView.Adapter<ConversationAdapter.ConversationViewHolder>() {
     private val TAG = ConversationAdapter::class.java.simpleName
 
     var conversationList: MutableList<ConversationModel> = mutableListOf()
@@ -36,77 +39,70 @@ class ConversationAdapter(private val context: Context, private val yourId: Stri
         val conversation = conversationList[position]
         val partnerId =
             if (conversation.members[0] == yourId) conversation.members[1] else conversation.members[0]
-        holder.itemView.tvName.text = conversation.memberNames[partnerId]
-        Glide.with(context)
-            .load(conversation.memberAvatars[partnerId])
-            .into(holder.itemView.imvAvatar)
-        holder.itemView.tvMessageContent.text = conversation.lastMessage
-        val updateAt = conversation.updateAt.toDate()
-        if (DateUtils.isToday(updateAt.time)) {
-            val time = DateTimeUtils.getDateTimeDisPlay(updateAt, DateTimeUtils.TIME_FORMAT_HH_MM)
-            holder.itemView.tvUpdateAt.text = time
-        } else {
-            val time = DateTimeUtils.getDateTimeDisPlay(updateAt, DateTimeUtils.DATE_FORMAT_DD_MM)
-            holder.itemView.tvUpdateAt.text = time
-        }
+        with(holder.itemView) {
+            tvName.text = conversation.memberNames[partnerId]
+            Glide.with(context)
+                .load(conversation.memberAvatars[partnerId])
+                .into(imvAvatar)
+            tvMessageContent.text = conversation.lastMessage
 
-        holder.itemView.tvMessageContent.run {
-            this.setTypeface(this.typeface, Typeface.NORMAL)
-            this.setTextColor(
-                ContextCompat.getColor(
-                    context,
-                    R.color.primary_text_color
-                )
-            )
-        }
-        holder.itemView.tvName.run {
-            this.setTypeface(this.typeface, Typeface.NORMAL)
-        }
-        holder.itemView.tvUpdateAt.run {
-            this.setTypeface(this.typeface, Typeface.NORMAL)
-            this.setTextColor(
-                ContextCompat.getColor(
-                    context,
-                    R.color.primary_text_color
-                )
-            )
-        }
-
-        if (yourId == conversation.lastSender) {
-            if (conversation.seen) {
-                holder.itemView.imvMessageStatus.setImageDrawable(holder.itemView.imvAvatar.drawable)
-                holder.itemView.imvMessageStatus.visibility = View.VISIBLE
-            } else
-                holder.itemView.imvMessageStatus.visibility = View.INVISIBLE
-        } else {
-            if (!conversation.seen) {
-                //load notify icon to message status and visible it
-                holder.itemView.imvMessageStatus.setImageResource(R.color.quantum_googblue)
-                holder.itemView.imvMessageStatus.visibility = View.VISIBLE
-
-                holder.itemView.tvMessageContent.run {
-                    this.setTypeface(this.typeface, Typeface.BOLD)
-                    this.setTextColor(Color.BLACK)
-                }
-                holder.itemView.tvName.run {
-                    this.setTypeface(this.typeface, Typeface.BOLD)
-                }
-                holder.itemView.tvUpdateAt.run {
-                    this.setTypeface(this.typeface, Typeface.BOLD)
-                    this.setTextColor(Color.BLACK)
-                }
+            val updateAt = conversation.updateAt.toDate()
+            if (DateUtils.isToday(updateAt.time)) {
+                val time =
+                    DateTimeUtils.getDateTimeDisPlay(updateAt, DateTimeUtils.TIME_FORMAT_HH_MM)
+                tvUpdateAt.text = time
             } else {
-                holder.itemView.imvMessageStatus.visibility = View.INVISIBLE
+                val time =
+                    DateTimeUtils.getDateTimeDisPlay(updateAt, DateTimeUtils.DATE_FORMAT_DD_MM)
+                tvUpdateAt.text = time
+            }
+
+            unreadTextView(tvMessageContent, false)
+            unreadTextView(tvUpdateAt, false)
+
+            if (yourId == conversation.lastSender) {
+                if (conversation.seen) {
+                    imvMessageStatus.setImageDrawable(imvAvatar.drawable)
+                    imvMessageStatus.visibility = View.VISIBLE
+                } else
+                    imvMessageStatus.visibility = View.INVISIBLE
+            } else {
+                if (!conversation.seen) {
+                    //load notify icon to message status and visible it
+                    imvMessageStatus.setImageResource(R.color.quantum_googblue)
+                    imvMessageStatus.visibility = View.VISIBLE
+
+                    unreadTextView(tvMessageContent, true)
+                    unreadTextView(tvUpdateAt, true)
+                } else {
+                    imvMessageStatus.visibility = View.INVISIBLE
+                }
+            }
+
+            setOnClickListener {
+                val partner =
+                    if (conversation.members[0] == yourId)
+                        conversation.members[1]
+                    else conversation.members[0]
+
+                onConversationClick?.run {
+                    onConversationClick(partner)
+                }
             }
         }
+    }
 
-        holder.itemView.setOnClickListener {
-            val partner =
-                if (conversation.members[0].equals(yourId)) conversation.members[1] else conversation.members[0]
-
-            onConversationClick?.run {
-                onConversationClick(partner)
-            }
+    private fun unreadTextView(textView: TextView, unread: Boolean) {
+        with(textView) {
+            setTypeface(typeface, if (unread) Typeface.BOLD else Typeface.ITALIC)
+            setTextColor(
+                if (unread) Color.BLACK
+                else
+                    ContextCompat.getColor(
+                        context,
+                        R.color.primary_text_color
+                    )
+            )
         }
     }
 

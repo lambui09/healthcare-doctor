@@ -13,10 +13,6 @@ import com.bumptech.glide.request.target.Target
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseActivity
 import com.lambui.healthcare_doctor.data.model.MessageModel
-import io.reactivex.SingleObserver
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_detail_chat.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -54,6 +50,11 @@ class ChatDetailActivity : BaseActivity<ChatDetailVM>() {
             conversationUpdate.observe(this@ChatDetailActivity,
                 Observer {
                     mMessageAdapter.seen = it.seen
+                    mMessageAdapter.updateLastItem()
+                    rvMessages.smoothScrollToPosition(
+                        mMessageAdapter.messages.size
+                    )
+
                 })
 
             partnerName.observe(this@ChatDetailActivity, Observer {
@@ -85,6 +86,7 @@ class ChatDetailActivity : BaseActivity<ChatDetailVM>() {
                             return true
                         }
                     })
+                    .submit()
             })
 
             messages.observe(this@ChatDetailActivity,
@@ -117,40 +119,10 @@ class ChatDetailActivity : BaseActivity<ChatDetailVM>() {
                 senderId = senderId,
                 content = content
             )
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : SingleObserver<MessageModel> {
-                    override fun onSuccess(t: MessageModel) {
-//                        showToast("Send")
-                    }
-
-                    override fun onSubscribe(d: Disposable) {
-//                        showToast("Sending")
-                    }
-
-                    override fun onError(e: Throwable) {
-//                        showToast(e.message!!)
-                    }
-                })
         }
 
         aniSayHi.setOnClickListener {
             viewModelx.sendMessage(conversationId, senderId, "Hello Doctor")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : SingleObserver<MessageModel> {
-                    override fun onSuccess(t: MessageModel) {
-
-                    }
-
-                    override fun onSubscribe(d: Disposable) {
-
-                    }
-
-                    override fun onError(e: Throwable) {
-
-                    }
-                })
         }
     }
 

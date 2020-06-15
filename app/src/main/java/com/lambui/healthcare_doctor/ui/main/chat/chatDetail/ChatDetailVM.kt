@@ -75,7 +75,8 @@ class ChatDetailVM(
     }
 
     private fun loadConversationUpdate(conversationId: String) {
-        repoConversation.getConversation2(conversationId)
+        repoConversation.getConversationUpdate(conversationId)
+            .doOnSubscribe { mDisposable.add(it) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<ConversationModel> {
@@ -83,11 +84,12 @@ class ChatDetailVM(
                 }
 
                 override fun onSubscribe(d: Disposable) {
-                    mDisposable.add(d)
+
                 }
 
                 override fun onNext(t: ConversationModel) {
                     conversationUpdate.value = t
+                    updateSeenStatus()
                 }
 
                 override fun onError(e: Throwable) {
@@ -161,7 +163,7 @@ class ChatDetailVM(
     fun loadMessage() {
         repoMessage.getMessage()
             .doOnSubscribe { mDisposable.add(it) }
-            .doOnNext { updateSeenStatus() }
+//            .doOnNext { updateSeenStatus() }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<MutableList<MessageModel>> {
@@ -191,6 +193,31 @@ class ChatDetailVM(
     }
 
     fun sendMessage(
+        conversationId: String,
+        senderId: String,
+        content: String
+    ) {
+        _sendMessage(conversationId, senderId, content)
+            .doOnSubscribe { mDisposable.add(it) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object: SingleObserver<MessageModel> {
+                override fun onSuccess(t: MessageModel) {
+
+                }
+
+                override fun onSubscribe(d: Disposable) {
+
+                }
+
+                override fun onError(e: Throwable) {
+
+                }
+
+            })
+    }
+
+    fun _sendMessage(
         conversationId: String,
         senderId: String,
         content: String

@@ -9,7 +9,6 @@ import io.reactivex.Observable
 
 interface ChatRepository {
     fun getConversationList(yourId: String): Observable<MutableList<ConversationModel>>
-
     fun dispose()
 }
 
@@ -17,7 +16,10 @@ class ChatRepositoryImpl(
     private val rootConversationRef: CollectionReference
 ) : ChatRepository {
     private val registrations: MutableList<ListenerRegistration> = mutableListOf()
-    override fun getConversationList(yourId: String): Observable<MutableList<ConversationModel>> {
+
+    override fun getConversationList(
+        yourId: String
+    ): Observable<MutableList<ConversationModel>> {
         return Observable.create { emitter ->
             val registration = rootConversationRef
                 .orderBy("updateAt", Query.Direction.DESCENDING)

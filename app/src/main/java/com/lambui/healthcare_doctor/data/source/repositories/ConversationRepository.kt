@@ -10,18 +10,17 @@ import io.reactivex.Single
 interface ConversationRepository {
     fun isConversationExist(id: String): Single<Boolean>
     fun getConversation(id: String): Single<ConversationModel>
-    fun getConversation2(id: String): Observable<ConversationModel>
+    fun getConversationUpdate(id: String): Observable<ConversationModel>
     fun createConversation(
         user1: String,
         user2: String,
         conversationId: String,
         memberNames: HashMap<String, String>,
-        memberAvatas: HashMap<String, String>
+        memberAvatars: HashMap<String, String>
     ): Single<ConversationModel>
 
     fun updateConversationAfterSend(conversationId: String, lastMesasge: MessageModel)
     fun seenConversation()
-
     fun dispose()
 }
 
@@ -31,13 +30,13 @@ class ConversationRepositoryImpl(
     private val registrations: MutableList<ListenerRegistration> = mutableListOf()
 
     override fun isConversationExist(id: String): Single<Boolean> {
-        return Single.create { emiter ->
+        return Single.create { emitter ->
             conversationFirestoreRef
                 .get()
                 .addOnSuccessListener { snapshot ->
-                    emiter.onSuccess(snapshot?.data != null)
+                    emitter.onSuccess(snapshot?.data != null)
                 }
-                .addOnFailureListener { e -> emiter.onError(e) }
+                .addOnFailureListener { e -> emitter.onError(e) }
         }
     }
 
@@ -56,7 +55,7 @@ class ConversationRepositoryImpl(
         }
     }
 
-    override fun getConversation2(id: String): Observable<ConversationModel> {
+    override fun getConversationUpdate(id: String): Observable<ConversationModel> {
         return Observable.create { emitter ->
             val registration = conversationFirestoreRef
                 .addSnapshotListener { snapshot, e ->
@@ -119,7 +118,8 @@ class ConversationRepositoryImpl(
     }
 
     override fun dispose() {
-
+        registrations.forEach {
+            it.remove()
+        }
     }
-
 }
