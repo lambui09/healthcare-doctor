@@ -24,14 +24,14 @@ class MessageAdapter(var context: Context, var sender: String) :
     private val VIEW_TYPE_RECEIVER = 1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == VIEW_TYPE_SENDER) {
+        return if (viewType == VIEW_TYPE_SENDER) {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_message_sender, parent, false)
-            return SenderViewHolder(view)
+            SenderViewHolder(view)
         } else {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_message_receiver, parent, false)
-            return ReceiverViewHolder(view)
+            ReceiverViewHolder(view)
         }
     }
 
@@ -43,16 +43,24 @@ class MessageAdapter(var context: Context, var sender: String) :
         val message = messages[position]
 
         if (holder is SenderViewHolder) {
-            holder.itemView.chat_message.text = messages[position].content
-            holder.itemView.tvSending.visibility =
-                if (pendingWriteMessageIds.indexOf(message.id) == -1) View.GONE else View.VISIBLE
-            if (position == messages.size - 1) {
-                holder.itemView.tvSeen.visibility = if (seen) View.VISIBLE else View.GONE
-            } else
-                holder.itemView.tvSeen.visibility = View.GONE
+            with(holder.itemView) {
+                chat_message.text = message.content
+                tvSending.visibility =
+                    if (pendingWriteMessageIds.indexOf(message.id) == -1)
+                        View.GONE
+                    else View.VISIBLE
+                if (position == messages.size - 1) {
+                    tvSeen.visibility =
+                        if (seen) View.VISIBLE
+                        else View.GONE
+                } else
+                    tvSeen.visibility = View.GONE
+            }
         } else {
-            holder.itemView.imvAvatar.setImageDrawable(partnerAvatar)
-            holder.itemView.chat_message.text = messages[position].content
+            with(holder.itemView) {
+                imvAvatar.setImageDrawable(partnerAvatar)
+                chat_message.text = message.content
+            }
         }
     }
 

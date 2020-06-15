@@ -1,11 +1,9 @@
 package com.lambui.healthcare_doctor.ui.main.chat
 
 import android.content.Intent
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
 import com.lambui.healthcare_doctor.ui.main.chat.chatDetail.ChatDetailActivity
@@ -18,7 +16,6 @@ class ChatFragment : BaseFragment<ChatVM>() {
     override val viewModelx: ChatVM by sharedViewModel()
 
     private var yourID: String = "null"
-
     private lateinit var conversationAdapter: ConversationAdapter
 
     override fun initialize() {
@@ -29,17 +26,18 @@ class ChatFragment : BaseFragment<ChatVM>() {
 
     private fun initView() {
         conversationAdapter = ConversationAdapter(activity!!, yourID)
-        conversationAdapter.onConversationClick = object: ConversationAdapter.OnConversationClickListener {
-            override fun onConversationClick(userId: String) {
-                val intent = Intent(context, ChatDetailActivity::class.java)
-                with(intent) {
-                    putExtra(ChatDetailActivity.KEY_SENDER, yourID)
-                    putExtra(ChatDetailActivity.KEY_RECIEVER, userId)
+        conversationAdapter.onConversationClick =
+            object : ConversationAdapter.OnConversationClickListener {
+                override fun onConversationClick(userId: String) {
+                    val intent = Intent(context, ChatDetailActivity::class.java)
+                    with(intent) {
+                        putExtra(ChatDetailActivity.KEY_SENDER, yourID)
+                        putExtra(ChatDetailActivity.KEY_RECIEVER, userId)
+                    }
+                    startActivity(intent)
                 }
-                startActivity(intent)
-            }
 
-        }
+            }
         rvConversation.layoutManager = LinearLayoutManager(activity!!, RecyclerView.VERTICAL, false)
         rvConversation.adapter = conversationAdapter
     }
