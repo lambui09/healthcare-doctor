@@ -22,7 +22,7 @@ val viewModelModule = module {
     viewModel { MainVM(get(), get()) }
     viewModel { LoginVM(get(), get(), get(), get()) }
     viewModel { IntroduceVM() }
-    viewModel { HomeVM() }
+    viewModel { HomeVM(get(), get(), get()) }
     viewModel { AppointmentVM(get(), get(), get()) }
     viewModel { ChatVM(get()) }
     viewModel { NotificationVM(get(), get()) }
@@ -30,6 +30,6 @@ val viewModelModule = module {
     viewModel { SplashVM() }
     viewModel { ChatDetailVM(get(), get()) }
     viewModel { AccountVM(get(), get()) }
-    viewModel { ScheduleDoctorVM() }
+    viewModel { ScheduleDoctorVM(get(), get(), get(), get()) }
     viewModel { ExaminationDoctorVM(get(), get(), get()) }
 }

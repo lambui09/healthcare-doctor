@@ -4,13 +4,14 @@ import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.lambui.healthcare_doctor.data.model.ExaminationModel
 import com.lambui.healthcare_doctor.data.model.WorkingScheduleBody
+import com.lambui.healthcare_doctor.data.model.WorkingScheduleFullModel
 import com.lambui.healthcare_doctor.data.model.WorkingScheduleModel
 import com.lambui.healthcare_doctor.data.source.remote.service.SettingAccountApi
 import io.reactivex.Single
 
 interface SettingAccountRepository {
     fun createExamination(serviceName: String): Single<ExaminationModel>
-    fun createWorkingSchedule(workingScheduleBody: WorkingScheduleBody): Single<WorkingScheduleModel>
+    fun createWorkingSchedule(workingScheduleBody: WorkingScheduleBody): Single<WorkingScheduleFullModel>
 }
 
 class SettingAccontRepositoryImpl(private var settingAccountApi: SettingAccountApi, gson: Gson) :
@@ -22,7 +23,7 @@ class SettingAccontRepositoryImpl(private var settingAccountApi: SettingAccountA
         }
     }
 
-    override fun createWorkingSchedule(workingScheduleBody: WorkingScheduleBody): Single<WorkingScheduleModel> {
+    override fun createWorkingSchedule(workingScheduleBody: WorkingScheduleBody): Single<WorkingScheduleFullModel> {
         return settingAccountApi.createWorkingSchedule(workingScheduleBody).map { it.data }
     }
 }
