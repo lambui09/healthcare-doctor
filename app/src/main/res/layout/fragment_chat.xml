@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <com.lambui.healthcare_doctor.widget.toolbar.MainToolbar
         android:id="@+id/toolbarNotification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:toolbarTitle="@string/title_tab_chat"
         app:toolbarType="hideBoth" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvConversation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_conversation" />
 
 </LinearLayout>

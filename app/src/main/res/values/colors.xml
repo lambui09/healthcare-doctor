@@ -57,5 +57,8 @@
     <color name="K_435C70_black">#435C70</color>
     <color name="K_F8F9FB_gray">#F8F9FB</color>
     <color name="K_8F9EAA_black">#8F9EAA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="primary_text_color">#212121</color>
+    <color name="lighter_gray">#4f5f6d</color>
     <!--endregion - Project color-->
 </resources>

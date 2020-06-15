@@ -51,9 +51,9 @@ data class PatientModel(
     var deviceToken: String? = null,
     @Expose
     @SerializedName("full_name")
-    var fullName : String? = null,
+    var fullName: String? = null,
     @Expose
     @SerializedName("address")
-    var address : String? = null
+    var address: String? = null
 
 ) : Parcelable

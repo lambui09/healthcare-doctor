@@ -50,6 +50,7 @@ object DateTimeUtils {
   const val DATE_TIME_FORMAT_YYYY_MM_月_DD_日_E_HH_MM_SS = "yyyy年MM月dd日(E) HH:mm:ss"
   const val DATE_FORMAT_MM_SEPERATOR_YY = "MM/yy"
   const val DATE_FORMAT_MM_YY = "MMyy"
+  const val DATE_FORMAT_DD_MM = "dd MMM"
   const val DATE_FORMAT_YYYY_MM = "yyyyMM"
   const val DATE_FORMAT_YYYY_DASH_MM = "yyyy-MM"
   const val DATE_FORMAT_MM_YYYY = "MM/yyyy"

@@ -180,6 +180,10 @@
     <string name="time_end_example">17:00</string>
     <string name="time_duration_example">15</string>
     <string name="duration_appointment">Duration default appointment</string>
+    <string name="send_message">send message</string>
+    <string name="select_time">select time</string>
+    <string name="sending">sending...</string>
+    <string name="seen">seen</string>
     <!--end dialog-->
 
 
