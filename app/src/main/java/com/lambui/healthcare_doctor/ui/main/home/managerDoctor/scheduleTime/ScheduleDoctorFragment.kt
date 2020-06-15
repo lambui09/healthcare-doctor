@@ -20,11 +20,7 @@ class ScheduleDoctorFragment : BaseFragment<ScheduleDoctorVM>() {
     override val viewModelx: ScheduleDoctorVM by sharedViewModel()
 
     override fun initialize() {
-        EditTextInputValidateStartDate(fromDate).listen()
-        EditTextInputValidateStartDate(endDate).listen()
-        timeStart.addTextChangedListener(TimeStartFormattingTextWatcher())
-        timeEnd.addTextChangedListener(TimeStartFormattingTextWatcher())
-        listner()
+        listener()
         viewModelx.getWorkingScheduleOfDoctor()
     }
 
@@ -90,7 +86,7 @@ class ScheduleDoctorFragment : BaseFragment<ScheduleDoctorVM>() {
         return true
     }
 
-    private fun listner() {
+    private fun listener() {
         launchDisposable {
             RxView.search(durationAppointment)
                 .map { return@map ValidateUtils.validateName(it, requireContext()) }
@@ -104,5 +100,8 @@ class ScheduleDoctorFragment : BaseFragment<ScheduleDoctorVM>() {
                     }
                 )
         }
+        EditTextInputValidateStartDate(fromDate).listen()
+        EditTextInputValidateStartDate(endDate).listen()
+        timeStart.addTextChangedListener(TimeStartFormattingTextWatcher())
     }
 }
