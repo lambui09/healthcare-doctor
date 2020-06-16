@@ -16,4 +16,12 @@ data class MessageModel(
     var sender: String
 ): Parcelable {
     constructor(): this(id = "", conversationId = "", content = "", sender = "sender")
+
+    fun compareTo(another: MessageModel): Boolean {
+        return id == id
+                && conversationId == conversationId
+                && content == content
+                && createAt == createAt
+                && sender == sender
+    }
 }

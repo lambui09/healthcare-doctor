@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -13,16 +14,14 @@ import com.bumptech.glide.request.target.Target
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseActivity
 import com.lambui.healthcare_doctor.data.model.MessageModel
-import io.reactivex.SingleObserver
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
+import com.lambui.healthcare_doctor.widget.toolbar.MainToolbar
 import kotlinx.android.synthetic.main.activity_detail_chat.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ChatDetailActivity : BaseActivity<ChatDetailVM>() {
     private var receiverId: String = "sender"
     private var senderId: String = "receiver"
+    private var receiverName: String = "receiverName"
     override val layoutID: Int
         get() = R.layout.activity_detail_chat
     override val viewModelx: ChatDetailVM by viewModel()
@@ -32,16 +31,29 @@ class ChatDetailActivity : BaseActivity<ChatDetailVM>() {
 
     override fun initialize() {
         senderId = viewModelx.getCurrentUserId()
-        receiverId = intent.getStringExtra(KEY_RECIEVER)
+        receiverId = intent.getStringExtra(KEY_RECIEVER)?: ""
+        receiverName = intent.getStringExtra(KEY_RECEIVER_NAME)?: ""
         viewModelx.initUser(senderId, receiverId)
         viewModelx.loadConversation(senderId, receiverId)
         initView()
     }
 
     private fun initView() {
+        toolBar.setTitleTooBar(receiverName)
+        toolBar.setToolBarOnClick(object: MainToolbar.OnToolBarListener {
+            override fun onClickLeft() {
+                onBackPressed()
+            }
+
+            override fun onClickRight() {
+
+            }
+
+        })
         rvMessages.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         mMessageAdapter = MessageAdapter(this, sender = senderId)
         rvMessages.adapter = mMessageAdapter
+        (rvMessages.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
     }
 
     override fun onSubscribeObserver() {
@@ -54,6 +66,11 @@ class ChatDetailActivity : BaseActivity<ChatDetailVM>() {
             conversationUpdate.observe(this@ChatDetailActivity,
                 Observer {
                     mMessageAdapter.seen = it.seen
+                    mMessageAdapter.updateLastItem()
+                    rvMessages.smoothScrollToPosition(
+                        mMessageAdapter.itemCount
+                    )
+
                 })
 
             partnerName.observe(this@ChatDetailActivity, Observer {
@@ -85,6 +102,7 @@ class ChatDetailActivity : BaseActivity<ChatDetailVM>() {
                             return true
                         }
                     })
+                    .submit()
             })
 
             messages.observe(this@ChatDetailActivity,
@@ -93,10 +111,10 @@ class ChatDetailActivity : BaseActivity<ChatDetailVM>() {
                         aniSayHi.visibility = View.VISIBLE
                     } else
                         aniSayHi.visibility = View.GONE
-                    mMessageAdapter.messages = it as MutableList<MessageModel>
+                    mMessageAdapter.setData(it as MutableList<MessageModel>)
                     mMessageAdapter.notifyDataSetChanged()
                     rvMessages.smoothScrollToPosition(
-                        mMessageAdapter.messages.size
+                        mMessageAdapter.itemCount
                     )
                 })
             pendingWriteMessageIds.observe(this@ChatDetailActivity,
@@ -117,45 +135,15 @@ class ChatDetailActivity : BaseActivity<ChatDetailVM>() {
                 senderId = senderId,
                 content = content
             )
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : SingleObserver<MessageModel> {
-                    override fun onSuccess(t: MessageModel) {
-//                        showToast("Send")
-                    }
-
-                    override fun onSubscribe(d: Disposable) {
-//                        showToast("Sending")
-                    }
-
-                    override fun onError(e: Throwable) {
-//                        showToast(e.message!!)
-                    }
-                })
         }
 
         aniSayHi.setOnClickListener {
             viewModelx.sendMessage(conversationId, senderId, "Hello Doctor")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : SingleObserver<MessageModel> {
-                    override fun onSuccess(t: MessageModel) {
-
-                    }
-
-                    override fun onSubscribe(d: Disposable) {
-
-                    }
-
-                    override fun onError(e: Throwable) {
-
-                    }
-                })
         }
     }
 
     companion object {
-        val KEY_SENDER = "sender"
         val KEY_RECIEVER = "reciever"
+        val KEY_RECEIVER_NAME = "receiver_name"
     }
 }
