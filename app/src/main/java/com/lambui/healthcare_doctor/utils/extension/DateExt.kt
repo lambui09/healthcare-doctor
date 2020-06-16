@@ -77,7 +77,7 @@ fun Date.convertDateToDate(outputFormat: String = DateTimeUtils.DATE_TIME_FORMAT
 }
 
 fun Date.convertDateToString(outputFormat: String = DateTimeUtils.DATE_TIME_FORMAT_UTC,
-  locale: Locale = Locale.JAPAN): String? {
+  locale: Locale = Locale.getDefault()): String? {
   val df = SimpleDateFormat(outputFormat, locale)
   return df.format(this)
 }

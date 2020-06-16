@@ -30,7 +30,7 @@ class ChatVM(
 
     fun getConversationList(yourId: String) {
         repoChat.getConversationList(yourId)
-//            .doOnSubscribe { mDisposable.add(it) }
+            .doOnSubscribe { mDisposable.add(it) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<MutableList<ConversationModel>> {
@@ -47,14 +47,14 @@ class ChatVM(
                 }
 
                 override fun onError(e: Throwable) {
-
+                    showError(e.message)
                 }
 
             })
     }
 
     override fun onCleared() {
-//        mDisposable.clear()
+        mDisposable.clear()
         repoChat.dispose()
         super.onCleared()
     }
