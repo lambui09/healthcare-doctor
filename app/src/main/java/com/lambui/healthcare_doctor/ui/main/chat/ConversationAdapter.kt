@@ -18,116 +18,116 @@ import com.lambui.healthcare_doctor.utils.DateTimeUtils
 import kotlinx.android.synthetic.main.item_conversation.view.*
 
 class ConversationAdapter(
-    private val context: Context,
-    private val yourId: String
+  private val context: Context,
+  private val yourId: String
 ) : RecyclerView.Adapter<ConversationAdapter.ConversationViewHolder>() {
-    private val TAG = ConversationAdapter::class.java.simpleName
+  private val TAG = ConversationAdapter::class.java.simpleName
 
-    var conversationList: MutableList<ConversationModel> = mutableListOf()
-    var onConversationClick: OnConversationClickListener? = null
+  var conversationList: MutableList<ConversationModel> = mutableListOf()
+  var onConversationClick: OnConversationClickListener? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConversationViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_conversation, parent, false)
-        return ConversationViewHolder(view)
-    }
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConversationViewHolder {
+    val view =
+      LayoutInflater.from(parent.context).inflate(R.layout.item_conversation, parent, false)
+    return ConversationViewHolder(view)
+  }
 
-    override fun getItemCount(): Int {
-        return conversationList.size
-    }
+  override fun getItemCount(): Int {
+    return conversationList.size
+  }
 
-    fun setData(newData: List<ConversationModel>) {
-        val diffUtilResult = DiffUtil.calculateDiff(
-            ConversationDiffUtilCallback(conversationList, newData)
-        )
-        conversationList.clear()
-        conversationList.addAll(newData)
-        diffUtilResult.dispatchUpdatesTo(this)
-    }
+  fun setData(newData: List<ConversationModel>) {
+    val diffUtilResult = DiffUtil.calculateDiff(
+      ConversationDiffUtilCallback(conversationList, newData)
+    )
+    conversationList.clear()
+    conversationList.addAll(newData)
+    diffUtilResult.dispatchUpdatesTo(this)
+  }
 
-    fun getData(): List<ConversationModel> {
-        return conversationList
-    }
+  fun getData(): List<ConversationModel> {
+    return conversationList
+  }
 
-    override fun onBindViewHolder(holder: ConversationViewHolder, position: Int) {
-        val conversation = conversationList[position]
-        val partnerId =
-            if (conversation.members[0] == yourId) conversation.members[1] else conversation.members[0]
-        with(holder.itemView) {
-            tvName.text = conversation.memberNames[partnerId]
-            Glide.with(context)
-                .load(conversation.memberAvatars[partnerId])
-                .into(imvAvatar)
-            val prefix = if (conversation.lastSender == yourId)
-                resources.getString(R.string.you) + ": "
-            else ""
-            tvMessageContent.text = prefix + conversation.lastMessage
+  override fun onBindViewHolder(holder: ConversationViewHolder, position: Int) {
+    val conversation = conversationList[position]
+    val partnerId =
+      if (conversation.members[0] == yourId) conversation.members[1] else conversation.members[0]
+    with(holder.itemView) {
+      tvName.text = conversation.memberNames[partnerId]
+      Glide.with(context)
+        .load(conversation.memberAvatars[partnerId])
+        .into(imvAvatar)
+      val prefix = if (conversation.lastSender == yourId)
+        resources.getString(R.string.you) + ": "
+      else ""
+      tvMessageContent.text = prefix + conversation.lastMessage
 
-            val updateAt = conversation.updateAt.toDate()
-            if (DateUtils.isToday(updateAt.time)) {
-                val time =
-                    DateTimeUtils.getDateTimeDisPlay(updateAt, DateTimeUtils.TIME_FORMAT_HH_MM)
-                tvUpdateAt.text = time
-            } else {
-                val time =
-                    DateTimeUtils.getDateTimeDisPlay(updateAt, DateTimeUtils.DATE_FORMAT_DD_MM)
-                tvUpdateAt.text = time
-            }
+      val updateAt = conversation.updateAt.toDate()
+      if (DateUtils.isToday(updateAt.time)) {
+        val time =
+          DateTimeUtils.getDateTimeDisPlay(updateAt, DateTimeUtils.TIME_FORMAT_HH_MM)
+        tvUpdateAt.text = time
+      } else {
+        val time =
+          DateTimeUtils.getDateTimeDisPlay(updateAt, DateTimeUtils.DATE_FORMAT_DD_MM)
+        tvUpdateAt.text = time
+      }
 
-            unreadTextView(tvMessageContent, false)
-            unreadTextView(tvUpdateAt, false)
+      unreadTextView(tvMessageContent, false)
+      unreadTextView(tvUpdateAt, false)
 
-            if (yourId == conversation.lastSender) {
-                if (conversation.seen) {
-                    imvMessageStatus.setImageDrawable(imvAvatar.drawable)
-                    imvMessageStatus.visibility = View.VISIBLE
-                } else
-                    imvMessageStatus.visibility = View.INVISIBLE
-            } else {
-                if (!conversation.seen) {
-                    //load notify icon to message status and visible it
-                    imvMessageStatus.setImageResource(R.color.quantum_googblue)
-                    imvMessageStatus.visibility = View.VISIBLE
+      if (yourId == conversation.lastSender) {
+        if (conversation.seen) {
+          imvMessageStatus.setImageDrawable(imvAvatar.drawable)
+          imvMessageStatus.visibility = View.VISIBLE
+        } else
+          imvMessageStatus.visibility = View.INVISIBLE
+      } else {
+        if (!conversation.seen) {
+          //load notify icon to message status and visible it
+          imvMessageStatus.setImageResource(R.color.quantum_googblue)
+          imvMessageStatus.visibility = View.VISIBLE
 
-                    unreadTextView(tvMessageContent, true)
-                    unreadTextView(tvUpdateAt, true)
-                } else {
-                    imvMessageStatus.visibility = View.INVISIBLE
-                }
-            }
-
-            setOnClickListener {
-                val partner =
-                    if (conversation.members[0] == yourId)
-                        conversation.members[1]
-                    else conversation.members[0]
-
-                onConversationClick?.run {
-                    onConversationClick(partner, conversation.memberNames[partner]?: "")
-                }
-            }
+          unreadTextView(tvMessageContent, true)
+          unreadTextView(tvUpdateAt, true)
+        } else {
+          imvMessageStatus.visibility = View.INVISIBLE
         }
-    }
+      }
 
-    private fun unreadTextView(textView: TextView, unread: Boolean) {
-        with(textView) {
-            setTypeface(typeface, if (unread) Typeface.BOLD else Typeface.ITALIC)
-            setTextColor(
-                if (unread) Color.BLACK
-                else
-                    ContextCompat.getColor(
-                        context,
-                        R.color.primary_text_color
-                    )
-            )
+      setOnClickListener {
+        val partner =
+          if (conversation.members[0] == yourId)
+            conversation.members[1]
+          else conversation.members[0]
+
+        onConversationClick?.run {
+          onConversationClick(partner, conversation.memberNames[partner] ?: "")
         }
+      }
     }
+  }
 
-    class ConversationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+  private fun unreadTextView(textView: TextView, unread: Boolean) {
+    with(textView) {
+      setTypeface(typeface, if (unread) Typeface.BOLD else Typeface.ITALIC)
+      setTextColor(
+        if (unread) Color.BLACK
+        else
+          ContextCompat.getColor(
+            context,
+            R.color.primary_text_color
+          )
+      )
     }
+  }
 
-    interface OnConversationClickListener {
-        fun onConversationClick(userId: String, userName: String)
-    }
+  class ConversationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+  }
+
+  interface OnConversationClickListener {
+    fun onConversationClick(userId: String, userName: String)
+  }
 }

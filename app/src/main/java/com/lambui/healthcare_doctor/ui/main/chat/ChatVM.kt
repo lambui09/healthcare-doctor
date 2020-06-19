@@ -13,49 +13,49 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class ChatVM(
-    private val userLocalRepository: UserLocalRepository
+  private val userLocalRepository: UserLocalRepository
 ) : BaseViewModel() {
 
-    private var repoChat: ChatRepositoryImpl = ChatRepositoryImpl(
-        FirebaseFirestore.getInstance().collection("conversation")
-    )
-    var conversationList: MutableLiveData<MutableList<ConversationModel>> =
-        MutableLiveData(mutableListOf())
+  private var repoChat: ChatRepositoryImpl = ChatRepositoryImpl(
+    FirebaseFirestore.getInstance().collection("conversation")
+  )
+  var conversationList: MutableLiveData<MutableList<ConversationModel>> =
+    MutableLiveData(mutableListOf())
 
-    private val mDisposable = CompositeDisposable()
+  private val mDisposable = CompositeDisposable()
 
-    fun getCurrentUserId(): String? {
-        return userLocalRepository.getUserId()
-    }
+  fun getCurrentUserId(): String? {
+    return userLocalRepository.getUserId()
+  }
 
-    fun getConversationList(yourId: String) {
-        repoChat.getConversationList(yourId)
-            .doOnSubscribe { mDisposable.add(it) }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : Observer<MutableList<ConversationModel>> {
-                override fun onComplete() {
+  fun getConversationList(yourId: String) {
+    repoChat.getConversationList(yourId)
+      .doOnSubscribe { mDisposable.add(it) }
+      .subscribeOn(Schedulers.io())
+      .observeOn(AndroidSchedulers.mainThread())
+      .subscribe(object : Observer<MutableList<ConversationModel>> {
+        override fun onComplete() {
 
-                }
+        }
 
-                override fun onSubscribe(d: Disposable) {
+        override fun onSubscribe(d: Disposable) {
 
-                }
+        }
 
-                override fun onNext(t: MutableList<ConversationModel>) {
-                    conversationList.value = t
-                }
+        override fun onNext(t: MutableList<ConversationModel>) {
+          conversationList.value = t
+        }
 
-                override fun onError(e: Throwable) {
-                    showError(e.message)
-                }
+        override fun onError(e: Throwable) {
+          showError(e.message)
+        }
 
-            })
-    }
+      })
+  }
 
-    override fun onCleared() {
-        mDisposable.clear()
-        repoChat.dispose()
-        super.onCleared()
-    }
+  override fun onCleared() {
+    mDisposable.clear()
+    repoChat.dispose()
+    super.onCleared()
+  }
 }

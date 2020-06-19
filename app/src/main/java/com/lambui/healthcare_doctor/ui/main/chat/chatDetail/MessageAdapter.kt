@@ -15,89 +15,89 @@ import kotlinx.android.synthetic.main.item_message_sender.view.*
 import kotlinx.android.synthetic.main.item_message_sender.view.chat_message
 
 class MessageAdapter(var context: Context, var sender: String) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var messages: MutableList<MessageModel> = ArrayList()
-    var pendingWriteMessageIds: MutableList<String> = mutableListOf()
-    var seen: Boolean = false
-    var partnerAvatar: Drawable? = ContextCompat.getDrawable(context, R.drawable.ic_account)
+  RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+  private var messages: MutableList<MessageModel> = ArrayList()
+  var pendingWriteMessageIds: MutableList<String> = mutableListOf()
+  var seen: Boolean = false
+  var partnerAvatar: Drawable? = ContextCompat.getDrawable(context, R.drawable.ic_account)
 
-    private val VIEW_TYPE_SENDER = 0
-    private val VIEW_TYPE_RECEIVER = 1
+  private val VIEW_TYPE_SENDER = 0
+  private val VIEW_TYPE_RECEIVER = 1
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == VIEW_TYPE_SENDER) {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_message_sender, parent, false)
-            SenderViewHolder(view)
-        } else {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_message_receiver, parent, false)
-            ReceiverViewHolder(view)
-        }
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    return if (viewType == VIEW_TYPE_SENDER) {
+      val view = LayoutInflater.from(parent.context)
+        .inflate(R.layout.item_message_sender, parent, false)
+      SenderViewHolder(view)
+    } else {
+      val view = LayoutInflater.from(parent.context)
+        .inflate(R.layout.item_message_receiver, parent, false)
+      ReceiverViewHolder(view)
     }
+  }
 
-    override fun getItemCount(): Int {
-        return messages.size
+  override fun getItemCount(): Int {
+    return messages.size
+  }
+
+  fun setData(newData: List<MessageModel>) {
+    val diffUtilResult = DiffUtil.calculateDiff(
+      MessageDiffUtilCallback(messages, newData)
+    )
+    messages.clear()
+    messages.addAll(newData)
+    diffUtilResult.dispatchUpdatesTo(this)
+  }
+
+  fun getData(): List<MessageModel> {
+    return messages
+  }
+
+  override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    val message = messages[position]
+
+    if (holder is SenderViewHolder) {
+      with(holder.itemView) {
+        chat_message.text = message.content
+        tvSending.visibility =
+          if (pendingWriteMessageIds.indexOf(message.id) == -1)
+            View.GONE
+          else View.VISIBLE
+        if (position == messages.size - 1) {
+          tvSeen.visibility =
+            if (seen) View.VISIBLE
+            else View.GONE
+        } else
+          tvSeen.visibility = View.GONE
+      }
+    } else {
+      with(holder.itemView) {
+        imvAvatar.setImageDrawable(partnerAvatar)
+        chat_message.text = message.content
+      }
     }
+  }
 
-    fun setData(newData: List<MessageModel>) {
-        val diffUtilResult = DiffUtil.calculateDiff(
-            MessageDiffUtilCallback(messages, newData)
-        )
-        messages.clear()
-        messages.addAll(newData)
-        diffUtilResult.dispatchUpdatesTo(this)
-    }
+  fun updateLastItem() {
+    notifyItemChanged(messages.size - 1)
+  }
 
-    fun getData(): List<MessageModel> {
-        return messages
-    }
+  override fun getItemViewType(position: Int): Int {
+    if (messages[position].sender == this.sender)
+      return VIEW_TYPE_SENDER
+    return VIEW_TYPE_RECEIVER
+  }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val message = messages[position]
+  fun updatePendingWriteMessageIds(ids: MutableList<String>) {
+    pendingWriteMessageIds = ids
+    notifyDataSetChanged()
+  }
 
-        if (holder is SenderViewHolder) {
-            with(holder.itemView) {
-                chat_message.text = message.content
-                tvSending.visibility =
-                    if (pendingWriteMessageIds.indexOf(message.id) == -1)
-                        View.GONE
-                    else View.VISIBLE
-                if (position == messages.size - 1) {
-                    tvSeen.visibility =
-                        if (seen) View.VISIBLE
-                        else View.GONE
-                } else
-                    tvSeen.visibility = View.GONE
-            }
-        } else {
-            with(holder.itemView) {
-                imvAvatar.setImageDrawable(partnerAvatar)
-                chat_message.text = message.content
-            }
-        }
-    }
+  inner class SenderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun updateLastItem() {
-        notifyItemChanged(messages.size - 1)
-    }
+  }
 
-    override fun getItemViewType(position: Int): Int {
-        if (messages[position].sender == this.sender)
-            return VIEW_TYPE_SENDER
-        return VIEW_TYPE_RECEIVER
-    }
+  inner class ReceiverViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun updatePendingWriteMessageIds(ids: MutableList<String>) {
-        pendingWriteMessageIds = ids
-        notifyDataSetChanged()
-    }
-
-    inner class SenderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-    }
-
-    inner class ReceiverViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-    }
+  }
 }
