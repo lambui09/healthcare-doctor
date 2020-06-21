@@ -44,7 +44,7 @@ class InputLoginFragment : BaseFragment<LoginVM>() {
                 if (!isBlank(deviceToken) && !isBlank(doctorId)) {
                     viewModelx.updateDeviceToken(deviceToken, doctorId)
                 }
-                viewModelx.setNavigationLogin(LoginNav.MAIN)
+                viewModelx.setNavigationLogin(LoginNav.CONFIRM_CODE)
             })
         }
     }
