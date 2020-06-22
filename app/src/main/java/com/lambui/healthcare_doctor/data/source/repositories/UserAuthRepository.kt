@@ -34,6 +34,14 @@ interface UserAuthRepository {
         doctorId: String,
         deviceToken: String
     ): Single<ApiResponse<DoctorModel>>
+
+    fun getPatientInformation(
+        patientId: String
+    ): Single<ApiResponse<PatientModel>>
+
+    fun getDoctorInformation(
+        doctorId: String
+    ): Single<ApiResponse<DoctorModel>>
 }
 
 class UserAuthRepositoryImpl(
@@ -90,6 +98,14 @@ class UserAuthRepositoryImpl(
             this.addProperty("device_token", deviceToken)
             return authApi.updateDeviceToken(doctorId, this)
         }
+    }
+
+    override fun getPatientInformation(patientId: String): Single<ApiResponse<PatientModel>> {
+        return authApi.getPatientInfo(patientId)
+    }
+
+    override fun getDoctorInformation(doctorId: String): Single<ApiResponse<DoctorModel>> {
+        return authApi.getDoctorInfo(doctorId)
     }
 
     override fun updateAddressDoctor(

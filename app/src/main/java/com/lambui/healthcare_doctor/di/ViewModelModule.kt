@@ -6,7 +6,6 @@ import com.lambui.healthcare_doctor.ui.introduce.IntroduceVM
 import com.lambui.healthcare_doctor.ui.main.MainVM
 import com.lambui.healthcare_doctor.ui.main.appointment.AppointmentVM
 import com.lambui.healthcare_doctor.ui.main.chat.ChatVM
-import com.lambui.healthcare_doctor.ui.main.chat.chatChannel.ChannelVM
 import com.lambui.healthcare_doctor.ui.main.chat.chatDetail.ChatDetailVM
 import com.lambui.healthcare_doctor.ui.main.home.HomeVM
 import com.lambui.healthcare_doctor.ui.main.home.managerDoctor.examination.ExaminationDoctorVM
@@ -25,12 +24,11 @@ val viewModelModule = module {
     viewModel { IntroduceVM() }
     viewModel { HomeVM(get(), get(), get()) }
     viewModel { AppointmentVM(get(), get(), get()) }
-    viewModel { ChatVM() }
+    viewModel { ChatVM(get()) }
     viewModel { NotificationVM(get(), get()) }
     viewModel { SettingVM(get(), get()) }
     viewModel { SplashVM() }
-    viewModel { ChatDetailVM() }
-    viewModel { ChannelVM(get()) }
+    viewModel { ChatDetailVM(get(), get()) }
     viewModel { AccountVM(get(), get()) }
     viewModel { ScheduleDoctorVM(get(), get(), get(), get()) }
     viewModel { ExaminationDoctorVM(get(), get(), get()) }

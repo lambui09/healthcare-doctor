@@ -78,7 +78,7 @@
             android:layout_marginBottom="@dimen/dp_8"
             android:textSize="@dimen/sp_14"
             app:BottomButtonContent="@string/button_send"
-            app:BottomButtonSelected="false" />
+            app:BottomButtonSelected="true" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvRegister"
