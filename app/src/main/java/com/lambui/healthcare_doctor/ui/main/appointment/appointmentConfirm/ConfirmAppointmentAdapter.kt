@@ -36,6 +36,7 @@ class ConfirmAppointmentVH(view: View) : RecyclerView.ViewHolder(view) {
             imgProfilePatient.loadImageUrl(appointmentFullModel?.patientId?.avatar)
             tvNamePatient.text = appointmentFullModel?.patientId?.fullName ?: "Bùi Đức Lâm"
             tvLocationOfPatient.text = appointmentFullModel?.patientId?.address ?: "updating"
+            tvTimeAppointment.text = appointmentFullModel?.timeStartBook + "-" + appointmentFullModel?.dataStartBook
             tvStatus.text = resources.getString(R.string.text_status_confirmed)
             tvStatus.isSelected = true
         }
