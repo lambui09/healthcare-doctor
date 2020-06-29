@@ -1,7 +1,13 @@
 package com.lambui.healthcare_doctor.ui.splash
 
+import androidx.lifecycle.MutableLiveData
 import com.lambui.healthcare_doctor.base.BaseViewModel
+import com.lambui.healthcare_doctor.data.source.repositories.TokenRepository
 
-class SplashVM : BaseViewModel(){
-
+class SplashVM(private val tokenRepository: TokenRepository) : BaseViewModel() {
+  var tokenExist = MutableLiveData<Boolean>()
+  fun checkLogin(): Boolean {
+    tokenExist.value = tokenRepository.getToken() != null
+    return tokenExist.value ?: false
+  }
 }
