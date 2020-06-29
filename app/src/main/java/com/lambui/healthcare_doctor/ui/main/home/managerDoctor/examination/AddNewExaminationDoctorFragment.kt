@@ -34,7 +34,7 @@ class AddNewExaminationDoctorFragment : BaseFragment<ExaminationDoctorVM>() {
     override fun onSubscribeObserver() {
         with(viewModelx) {
             addNewExamination.observe(this@AddNewExaminationDoctorFragment, Observer {
-                requireActivity().goBackStepFragment(1)
+                requireActivity().goBackStepFragment(2)
             })
         }
     }

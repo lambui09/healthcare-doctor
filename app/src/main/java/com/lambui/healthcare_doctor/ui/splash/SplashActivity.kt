@@ -33,13 +33,14 @@ class SplashActivity : BaseActivity<SplashVM>() {
   override fun onSubscribeObserver() {
     with(viewModelx) {
       tokenExist.observe(this@SplashActivity, Observer {
-        if (it == true) {
+        if (it != null && it == true) {
           this@SplashActivity.goTo(MainActivity::class)
           finish()
           return@Observer
         }
+        goToLogin()
       })
-      goToLogin()
+
     }
   }
 

@@ -5,11 +5,8 @@ import androidx.lifecycle.Observer
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.BaseFragment
 import com.lambui.healthcare_doctor.data.model.WorkingScheduleBody
-import com.lambui.healthcare_doctor.utils.EditTextInputValidateStartDate
-import com.lambui.healthcare_doctor.utils.RxView
+import com.lambui.healthcare_doctor.utils.*
 import com.lambui.healthcare_doctor.utils.StringUtils.isBlank
-import com.lambui.healthcare_doctor.utils.TimeStartFormattingTextWatcher
-import com.lambui.healthcare_doctor.utils.ValidateUtils
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.fragment_schedule_time_doctor.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -102,6 +99,7 @@ class ScheduleDoctorFragment : BaseFragment<ScheduleDoctorVM>() {
         }
         EditTextInputValidateStartDate(fromDate).listen()
         EditTextInputValidateStartDate(endDate).listen()
-        timeStart.addTextChangedListener(TimeStartFormattingTextWatcher())
+        EditTextInputValidateTimeSchedule(timeStart).listen()
+        EditTextInputValidateTimeSchedule(timeEnd).listen()
     }
 }

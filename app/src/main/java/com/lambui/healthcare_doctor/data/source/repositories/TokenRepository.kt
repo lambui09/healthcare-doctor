@@ -1,6 +1,5 @@
 package com.lambui.healthcare_doctor.data.source.repositories
 
-import com.lambui.healthcare_doctor.data.Token
 import com.lambui.healthcare_doctor.data.source.sharedprf.SharedPrefsApi
 import com.lambui.healthcare_doctor.data.source.sharedprf.SharedPrefsKey
 import com.lambui.healthcare_doctor.utils.extension.notNull
