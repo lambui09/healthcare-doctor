@@ -9,7 +9,7 @@ import io.reactivex.Single
 interface DoctorRepository {
     fun addNewExamination(service: String): Single<ExaminationModel>
     fun deleteExamination(examinationId: String): Single<Any>
-    fun getAllExaminationOfDoctor(doctorId: String): Single<List<ExaminationModel>>
+    fun getAllExaminationOfDoctor(doctorId: String): Single<ExaminationDataResponse>
     fun getWorkingScheduleOfDoctor(doctorId: String): Single<WorkingScheduleFullModel>
     fun getDetailDoctor(doctorId: String): Single<DoctorModel>
 }
@@ -27,7 +27,7 @@ class DoctorRepositoryImpl(private val doctorApi: DoctorApi, private val gson: G
         return doctorApi.deleteExamination(examinationId).map { it.data }
     }
 
-    override fun getAllExaminationOfDoctor(doctorId: String): Single<List<ExaminationModel>> {
+    override fun getAllExaminationOfDoctor(doctorId: String): Single<ExaminationDataResponse> {
         return doctorApi.getAllExaminationOfDoctor(doctorId).map { it.data }
     }
 

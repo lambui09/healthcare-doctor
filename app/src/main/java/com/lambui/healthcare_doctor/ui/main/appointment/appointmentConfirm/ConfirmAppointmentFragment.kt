@@ -72,7 +72,7 @@ class ConfirmAppointmentFragment : BaseFragment<AppointmentVM>() {
             setAdapter(appointmentConfirmAppointmentAdapter)
             setLayoutManager(LinearLayoutManager(context?.applicationContext))
             setEnableLoadMore(false)
-            setEnableSwipe(true)
+            setEnableSwipe(false)
             setHasFixedSize(true)
         }
     }
@@ -94,6 +94,6 @@ class ConfirmAppointmentFragment : BaseFragment<AppointmentVM>() {
     }
 
     private fun bindData(newList: MutableList<AppointmentFullModel>) {
-        appointmentConfirmAppointmentAdapter.updateData(newList)
+        appointmentConfirmAppointmentAdapter.replaceData(newList)
     }
 }

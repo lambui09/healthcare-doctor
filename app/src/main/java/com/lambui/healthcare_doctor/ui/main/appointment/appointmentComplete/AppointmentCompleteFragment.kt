@@ -71,7 +71,7 @@ class AppointmentCompleteFragment : BaseFragment<AppointmentVM>() {
             setAdapter(appointmentHistoryAdapter)
             setLayoutManager(LinearLayoutManager(context?.applicationContext))
             setEnableLoadMore(false)
-            setEnableSwipe(true)
+            setEnableSwipe(false)
             setHasFixedSize(true)
         }
     }
@@ -93,6 +93,6 @@ class AppointmentCompleteFragment : BaseFragment<AppointmentVM>() {
     }
 
     private fun bindData(newList: MutableList<AppointmentFullModel>) {
-        appointmentHistoryAdapter.updateData(newList)
+        appointmentHistoryAdapter.replaceData(newList)
     }
 }

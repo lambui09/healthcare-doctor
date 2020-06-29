@@ -26,7 +26,7 @@ class InputLoginFragment : BaseFragment<LoginVM>() {
     override val viewModelx: LoginVM by sharedViewModel()
 
     override fun initialize() {
-        edtPhoneNumber.getEditText().setText("04012312302")
+        edtPhoneNumber.getEditText().setText("04012312306")
         edtPassword.getEditText().setText("aa123123")
         handleRegister()
         validate()
