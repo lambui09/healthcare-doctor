@@ -38,7 +38,7 @@ class ExaminationDoctorAdapter(
     }
 
     override fun getItemCount(): Int {
-        return if (listItem.isNullOrEmpty()) 0 else listItem!!.size
+        return if (listItem.isNullOrEmpty()) 1 else listItem!!.size + 1
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
