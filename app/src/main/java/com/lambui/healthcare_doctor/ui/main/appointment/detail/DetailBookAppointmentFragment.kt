@@ -32,7 +32,7 @@ class DetailBookAppointmentFragment : BaseFragment<AppointmentVM>() {
                 cardProfilePatient.imgProfilePatient.loadImageUrl(it.patientId?.avatar)
                 cardProfilePatient.tvNamePatient.text = it.patientId?.fullName
                 cardProfilePatient.tvStatus.text = it.status
-                btnReject.setButtonSelected(true)
+                btnReject.isSelected = true
                 btnConfirm.setButtonSelected(true)
             }
         }

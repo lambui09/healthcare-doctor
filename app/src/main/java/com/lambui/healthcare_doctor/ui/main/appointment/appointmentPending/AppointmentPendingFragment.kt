@@ -92,12 +92,12 @@ class AppointmentPendingFragment : BaseFragment<AppointmentVM>() {
             setAdapter(upcomingAdapter)
             setLayoutManager(LinearLayoutManager(context?.applicationContext))
             setEnableLoadMore(false)
-            setEnableSwipe(true)
+            setEnableSwipe(false)
             setHasFixedSize(true)
         }
     }
 
     private fun bindData(newList: MutableList<AppointmentFullModel>) {
-        upcomingAdapter.updateData(newList)
+        upcomingAdapter.replaceData(newList)
     }
 }

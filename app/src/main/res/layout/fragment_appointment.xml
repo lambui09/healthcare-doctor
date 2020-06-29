@@ -19,6 +19,7 @@
         app:tabIndicatorColor="@color/colorPrimary"
         app:tabRippleColor="@color/K_05173833_gray"
         app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabMode="scrollable"
         app:tabTextColor="@color/K_787F82_gray" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
