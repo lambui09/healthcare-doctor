@@ -32,7 +32,7 @@ class CancelBookAppointmentFragment : BaseFragment<AppointmentVM>() {
                 cardProfilePatient.imgProfilePatient.loadImageUrl(it.patientId?.avatar)
                 cardProfilePatient.tvNamePatient.text = it.patientId?.fullName
                 cardProfilePatient.tvStatus.text = it.status
-                btnCancelAppointment.setButtonSelected(true)
+                btnCancelAppointment.isSelected = true
             }
         }
     }
@@ -55,7 +55,7 @@ class CancelBookAppointmentFragment : BaseFragment<AppointmentVM>() {
     override fun registerOnClick() {
         launchDisposable {
             RxView.clickCheckNetwork(
-                btnCancelAppointment.getViewClick(),
+                btnCancelAppointment,
                 object : RxView.IListenerCheckNetWork {
                     override fun showError(isCheckNetwork: Boolean) {
                         showErrorInternet()

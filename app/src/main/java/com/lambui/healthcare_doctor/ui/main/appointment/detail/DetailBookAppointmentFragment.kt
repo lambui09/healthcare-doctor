@@ -104,7 +104,7 @@ class DetailBookAppointmentFragment : BaseFragment<AppointmentVM>() {
                         }
                     })
             }
-            RxView.clickCheckNetwork(btnReject.getViewClick(),
+            RxView.clickCheckNetwork(btnReject,
                 object : RxView.IListenerCheckNetWork {
                     override fun showError(isCheckNetwork: Boolean) {
                         showErrorInternet()

@@ -264,8 +264,8 @@
     </style>
     <style name="ButtonRejectStyle">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/dp_54</item>
-        <item name="android:background">@drawable/bg_button_gradient</item>
+        <item name="android:layout_height">@dimen/dp_45</item>
+        <item name="android:background">@drawable/bg_button_enable_reject</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">@dimen/sp_14</item>
         <item name="android:paddingRight">@dimen/dp_5</item>
