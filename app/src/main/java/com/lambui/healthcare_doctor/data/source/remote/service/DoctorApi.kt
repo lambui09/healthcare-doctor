@@ -2,6 +2,7 @@ package com.lambui.healthcare_doctor.data.source.remote.service
 
 import com.google.gson.JsonObject
 import com.lambui.healthcare_doctor.data.model.DoctorModel
+import com.lambui.healthcare_doctor.data.model.ExaminationDataResponse
 import com.lambui.healthcare_doctor.data.model.ExaminationModel
 import com.lambui.healthcare_doctor.data.model.WorkingScheduleFullModel
 import com.lambui.healthcare_doctor.data.source.remote.api.response.ApiResponse
@@ -28,7 +29,7 @@ interface DoctorApi {
     @GET("examinations/{doctor_id}")
     fun getAllExaminationOfDoctor(
         @Path("doctor_id") examinationId: String
-    ): Single<ApiResponse<List<ExaminationModel>>>
+    ): Single<ApiResponse<ExaminationDataResponse>>
 
     @Headers("Content-Type: application/json")
     @GET("working-schedule/{doctor_id}")
