@@ -34,7 +34,7 @@ class ExaminationDoctorVM(
                         onError.value = it
                     },
                     onSuccess = {
-                        listExamination.value = it?.data?.toMutableList()
+                        listExamination.value = it.data?.toMutableList()
                     }
                 )
         }
