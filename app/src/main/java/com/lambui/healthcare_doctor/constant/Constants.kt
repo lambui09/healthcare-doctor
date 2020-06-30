@@ -38,7 +38,9 @@ object Constants {
     const val QUALITY = 75
     const val STRING_DEFAULT = ""
     const val LENGTH_INPUT_BIRTHDAY = 10
+    const val LENGTH_TIME_SCHEDULE = 5
     const val POSITION_SEPARATOR_FIRST = 4
+    const val POSITION_SEPARATOR_FIRST_TIME_START = 2
     const val POSITION_SEPARATOR_DASH = 3
     const val POSITION_SEPARATOR_SECOND = 7
     const val TIME_OUT_EVENT_CLICK = 1000L

@@ -68,12 +68,19 @@ class ExaminationDoctorFragment : BaseFragment<ExaminationDoctorVM>(), IItemList
     }
 
     override fun onItemChoice(position: Int) {
-
+        validate()
     }
 
     private fun initAdapter() {
         rvExamination.adapter = adapterExamination
         rvExamination.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+    }
+    private fun validate(){
+        if (adapterExamination.getPositionExaminationSelected() == TypeExaminationSelect.CREATE_NEW_EXAMINATION ){
+            btnNext.setButtonSelected(true)
+        }else{
+            btnNext.setButtonSelected(false)
+        }
     }
 }

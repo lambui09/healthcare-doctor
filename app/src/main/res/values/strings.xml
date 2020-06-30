@@ -185,6 +185,10 @@
     <string name="sending">sending...</string>
     <string name="seen">seen</string>
     <string name="you">You</string>
+    <string name="confirm_content_dialog">Bạn có chắc chắn muốn cập nhật lịch làm việc của mình?</string>
+    <string name="confirm_tittle_dialog">Xác nhận</string>
+
+
     <!--end dialog-->
 
 

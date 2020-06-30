@@ -19,7 +19,7 @@ class TimeStartFormattingTextWatcher : TextWatcher {
             return
         }
         internalStopFormatFlag = true
-        val maxLength = 5
+        val maxLength = 4
         formatExpiryDate(s, maxLength)
         internalStopFormatFlag = false
     }

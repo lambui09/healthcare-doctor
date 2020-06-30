@@ -19,6 +19,7 @@ class ScheduleDoctorVM(
     private val settingAccountRepository: SettingAccountRepository
 ) : BaseViewModel() {
     var workingSchedule = MutableLiveData<WorkingScheduleFullModel>()
+    var updateWorkingSchedule = MutableLiveData<Boolean>()
 
     fun getWorkingScheduleOfDoctor() {
         launchDisposable {
@@ -44,6 +45,7 @@ class ScheduleDoctorVM(
                 .subscribeBy(
                     onSuccess = {
                         workingSchedule.value = it
+                        updateWorkingSchedule.value = true
                     },
                     onError = {
                         onError.value = it

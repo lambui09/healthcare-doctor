@@ -11,7 +11,7 @@
         android:background="@color/K_707070_gray" />
 
     <LinearLayout
-        android:id="@+id/llContainerItemExamination"
+        android:id="@+id/llContainerItemExaminationNew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/White"
@@ -19,7 +19,7 @@
         android:padding="@dimen/dp_16">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgCardTypeNewCard"
+            android:id="@+id/imgExaminationNew"
             android:layout_width="@dimen/dp_30"
             android:layout_height="@dimen/dp_20"
             android:layout_gravity="center"
@@ -28,7 +28,7 @@
 
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvTitleRequest"
+            android:id="@+id/tvTitleRequestNew"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -41,7 +41,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imgSelectItemCreditCard"
+            android:id="@+id/imgSelectItemNewExamination"
             android:layout_width="@dimen/dp_20"
             android:layout_height="@dimen/dp_20"
             android:layout_gravity="end|center"

@@ -27,7 +27,7 @@ val viewModelModule = module {
     viewModel { ChatVM(get()) }
     viewModel { NotificationVM(get(), get()) }
     viewModel { SettingVM(get(), get()) }
-    viewModel { SplashVM() }
+    viewModel { SplashVM(get()) }
     viewModel { ChatDetailVM(get(), get()) }
     viewModel { AccountVM(get(), get()) }
     viewModel { ScheduleDoctorVM(get(), get(), get(), get()) }
