@@ -60,8 +60,8 @@
     <!--end endpoint-->
     <!--key map-->
     <string name="google_maps_api_key">AIzaSyCSsh65nOvuZTHQYQtz7dmAj5CPXwXtlzE</string>
-    <string name="address">Address</string>
-    <string name="remainder">Remainder</string>
+    <string name="address">Địa chỉ</string>
+    <string name="remainder">Nhắc nhở</string>
     <string name="consultation_and_treatment">Consultation and treatment</string>
     <string name="text_setting_time_remainder">30 minutes before</string>
     <string name="select_item_time_example">10:AM</string>
@@ -71,14 +71,14 @@
     <string name="confirm_book_appointment">Confirm</string>
     <string name="reject_book_appointment">Reject</string>
     <string name="complete_book_appointment">Complete</string>
-    <string name="title_review">Review</string>
+    <string name="title_review">Kiểm tra</string>
     <string name="date_example">2019:12:12</string>
     <string name="time_example">8:30</string>
     <string name="title_specialist_doctor">Specialist</string>
     <string name="content_specialist_doctor_example">Khoa Mat</string>
-    <string name="title_service_doctor">Service</string>
+    <string name="title_service_doctor">Dịch vụ</string>
     <string name="title_fee">Fee</string>
-    <string name="title_remainder">Remainder</string>
+    <string name="title_remainder">Nhắc nhở</string>
     <string name="fee_75_example">75$</string>
     <string name="text_appointment_confirmed">Confirmed</string>
     <string name="text_appointment_confirming">Confirming</string>
@@ -187,6 +187,8 @@
     <string name="you">You</string>
     <string name="confirm_content_dialog">Bạn có chắc chắn muốn cập nhật lịch làm việc của mình?</string>
     <string name="confirm_tittle_dialog">Xác nhận</string>
+    <string name="title_symptom">triệu chứng</string>
+    <string name="symptom_example">đau đầu</string>
 
 
     <!--end dialog-->

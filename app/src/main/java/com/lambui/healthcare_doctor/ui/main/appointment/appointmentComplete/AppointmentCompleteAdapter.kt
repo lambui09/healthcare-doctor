@@ -1,5 +1,6 @@
 package com.lambui.healthcare_doctor.ui.main.appointment.appointmentComplete
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lambui.healthcare_doctor.R
 import com.lambui.healthcare_doctor.base.recycleview.BaseLoadMoreAdapter
 import com.lambui.healthcare_doctor.data.model.AppointmentFullModel
+import com.lambui.healthcare_doctor.utils.DateTimeUtils
 import com.lambui.healthcare_doctor.utils.extension.listen
 import com.lambui.healthcare_doctor.utils.extension.loadImageUrl
 import kotlinx.android.synthetic.main.item_view_patient_history_appointment.view.*
@@ -32,13 +34,15 @@ class AppointmentHistoryAdapter(context: Context) :
 }
 
 class AppointmentHistoryVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+  @SuppressLint("SetTextI18n")
   fun bindData(appointmentFullModel: AppointmentFullModel?) = with(itemView) {
     with(appointmentFullModel) {
       imgProfilePatient.loadImageUrl(appointmentFullModel?.patientId?.avatar)
       tvNamePatient.text = appointmentFullModel?.patientId?.fullName ?: "Bùi Đức Lâm"
       tvLocationOfPatient.text = appointmentFullModel?.patientId?.address ?: "updating"
-      tvTimeAppointment.text =
-        appointmentFullModel?.timeStartBook + "-" + appointmentFullModel?.dataStartBook
+      tvTimeAppointment.text = appointmentFullModel?.timeStartBook + "-" + DateTimeUtils.convertIOStoDefault(
+        appointmentFullModel?.dataStartBook ?: ""
+      )
       tvStatus.text = resources.getString(R.string.text_status_completed)
       tvStatus.isSelected = true
       containerAppointment.isEnabled = false

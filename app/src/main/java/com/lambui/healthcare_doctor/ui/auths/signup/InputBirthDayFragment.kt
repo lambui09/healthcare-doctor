@@ -31,6 +31,9 @@ class InputBirthDayFragment : BaseFragment<RegisterVM>() {
             userModelDataResponse.observe(this@InputBirthDayFragment, Observer {
                 viewModelx.setNavigationRegister(RegisterNav.MAP)
             })
+            onError.observe(this@InputBirthDayFragment, Observer {
+                handleApiError(it)
+            })
         }
 
     }

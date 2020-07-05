@@ -42,8 +42,6 @@ class AppointmentCompleteFragment : BaseFragment<AppointmentVM>() {
         with(viewModelx) {
             listAppointmentCompleteOfDoctor.observe(this@AppointmentCompleteFragment, Observer {
                 bindData(it.toMutableList())
-                rvAppointmentComplete.stopRefreshData()
-                rvAppointmentComplete.stopAllStatusLoadData()
             })
         }
     }
@@ -84,6 +82,7 @@ class AppointmentCompleteFragment : BaseFragment<AppointmentVM>() {
 
     override fun onResume() {
         super.onResume()
+        callApi()
         appointmentHistoryAdapter.registerAdapterDataObserver(adapterObserver)
     }
 

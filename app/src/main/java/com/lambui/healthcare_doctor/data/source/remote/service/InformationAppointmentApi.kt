@@ -35,7 +35,7 @@ interface InformationAppointmentApi {
     fun cancelRequestAppointment(
         @Path("appointment_id") appointmentId: String,
         @Body body: JsonObject
-    ): Single<ApiResponse<AppointmentFullModel>>
+    ): Single<ApiResponse<Any>>
     /**
      * confirm appointment of patient
      * */
@@ -44,7 +44,7 @@ interface InformationAppointmentApi {
     fun confirmRequestAppointment(
         @Path("appointment_id") appointmentId: String,
         @Body body: JsonObject
-    ): Single<ApiResponse<AppointmentFullModel>>
+    ): Single<ApiResponse<Any>>
 
     /**
      * complete appointment of patient
@@ -54,6 +54,6 @@ interface InformationAppointmentApi {
     fun completeRequestAppointment(
         @Path("appointment_id") appointmentId: String,
         @Body body: JsonObject
-    ): Single<ApiResponse<AppointmentFullModel>>
+    ): Single<ApiResponse<Any>>
 
 }

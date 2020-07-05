@@ -215,5 +215,16 @@ object DateTimeUtils {
 
     return DateUtils.isToday(date.time)
   }
+  fun convertIOStoDefault(input: String): String {
+    val defaultTimezone = TimeZone.getDefault().id;
+    val  date = SimpleDateFormat("yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'", Locale.getDefault()).parse(input.replace("Z$", "+0000"))
+    var output = SimpleDateFormat(DATE_TIME_FORMAT_YYYY_MM_DD)
+    return try {
+      output.format(date).toString()
+    } catch (e: ParseException) {
+      // TODO Auto-generated catch block
+      e.printStackTrace()
+    }.toString()
+  }
 
 }

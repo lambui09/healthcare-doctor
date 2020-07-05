@@ -58,6 +58,7 @@ class AppointmentPendingFragment : BaseFragment<AppointmentVM>() {
 
     override fun onResume() {
         super.onResume()
+        callApi()
         upcomingAdapter.registerAdapterDataObserver(adapterObserver)
     }
 

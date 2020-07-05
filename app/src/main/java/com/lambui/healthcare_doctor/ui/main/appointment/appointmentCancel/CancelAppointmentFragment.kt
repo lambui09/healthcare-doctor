@@ -45,6 +45,9 @@ class CancelAppointmentFragment : BaseFragment<AppointmentVM>() {
                 rvAppointmentCancel.stopRefreshData()
                 rvAppointmentCancel.stopAllStatusLoadData()
             })
+            onError.observe(this@CancelAppointmentFragment, Observer {
+                handleApiError(it)
+            })
         }
     }
 
@@ -84,6 +87,7 @@ class CancelAppointmentFragment : BaseFragment<AppointmentVM>() {
 
     override fun onResume() {
         super.onResume()
+        callApi()
         appointmentCancelAppointmentAdapter.registerAdapterDataObserver(adapterObserver)
     }
 

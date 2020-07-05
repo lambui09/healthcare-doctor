@@ -23,9 +23,9 @@ class AppointmentVM(
     var listAppointmentCompleteOfDoctor = MutableLiveData<MutableList<AppointmentFullModel>>()
     var listAppointmentCancelOfDoctor = MutableLiveData<MutableList<AppointmentFullModel>>()
     var listAppointmentConfirmOfDoctor = MutableLiveData<MutableList<AppointmentFullModel>>()
-    var appointmentCancelRequest = MutableLiveData<AppointmentFullModel>()
-    var appointmentConfirmRequest = MutableLiveData<AppointmentFullModel>()
-    var appointmentCompleteRequest = MutableLiveData<AppointmentFullModel>()
+    var appointmentCancelRequest = MutableLiveData<Any>()
+    var appointmentConfirmRequest = MutableLiveData<Any>()
+    var appointmentCompleteRequest = MutableLiveData<Any>()
     var isRefresh = MutableLiveData<Boolean>()
     var appointmentItem: AppointmentFullModel? = null
     var navigation = MutableLiveData<String>()

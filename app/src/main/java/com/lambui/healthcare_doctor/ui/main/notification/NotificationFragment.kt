@@ -34,6 +34,7 @@ class NotificationFragment : BaseFragment<NotificationVM>() {
 
     override fun onResume() {
         super.onResume()
+        callApi()
         notificationAdapter.registerAdapterDataObserver(adapterObserver)
     }
 

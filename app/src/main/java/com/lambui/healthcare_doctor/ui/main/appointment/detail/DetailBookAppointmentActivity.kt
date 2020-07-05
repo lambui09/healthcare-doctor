@@ -25,7 +25,6 @@ class DetailBookAppointmentActivity : BaseActivity<AppointmentVM>() {
             val bundle = it.getBundleExtra(EXTRA_ARGS)
             if (bundle != null) {
                 val status = bundle.getString(KEY_STATUS)
-
                 status?.let {
                     when (it) {
                         StatusAppointmentType.PENDING.name -> {

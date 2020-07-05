@@ -12,7 +12,7 @@ class SplashVM(private val tokenRepository: TokenRepository) : BaseViewModel() {
     Log.d("####", "${tokenRepository.getToken().toString()}")
     if (tokenRepository.getToken() != null) {
       //todo update because call api update deivce token
-       tokenExist.postValue(true)
+       tokenExist.postValue(false)
     }else{
       tokenExist.postValue(false)
     }
