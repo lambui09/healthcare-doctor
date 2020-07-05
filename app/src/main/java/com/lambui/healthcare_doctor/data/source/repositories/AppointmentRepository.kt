@@ -15,11 +15,11 @@ interface AppointmentRepository {
 
     fun getAppointmentOfDoctor(status: GetAppointmentBody): Single<ListAppointmentResponse>
 
-    fun cancelAppointment(appointmentId: String): Single<AppointmentFullModel>
+    fun cancelAppointment(appointmentId: String): Single<Any>
 
-    fun confirmAppointment(appointmentId: String): Single<AppointmentFullModel>
+    fun confirmAppointment(appointmentId: String): Single<Any>
 
-    fun completeAppointment(appointmentId: String): Single<AppointmentFullModel>
+    fun completeAppointment(appointmentId: String): Single<Any>
 }
 
 class AppointmentRepositoryImpl(
@@ -37,7 +37,7 @@ class AppointmentRepositoryImpl(
         return informationAppointmentApi.getAllAppointmentOfDoctor(status).map { it.data }
     }
 
-    override fun cancelAppointment(appointmentId: String): Single<AppointmentFullModel> {
+    override fun cancelAppointment(appointmentId: String): Single<Any> {
         with(JsonObject()) {
             this.addProperty("status", "CANCELED")
             return informationAppointmentApi.cancelRequestAppointment(appointmentId, this)
@@ -45,7 +45,7 @@ class AppointmentRepositoryImpl(
         }
     }
 
-    override fun confirmAppointment(appointmentId: String): Single<AppointmentFullModel> {
+    override fun confirmAppointment(appointmentId: String): Single<Any> {
         with(JsonObject()) {
             this.addProperty("status", "CONFIRMED")
             return informationAppointmentApi.confirmRequestAppointment(appointmentId, this)
@@ -53,7 +53,7 @@ class AppointmentRepositoryImpl(
         }
     }
 
-    override fun completeAppointment(appointmentId: String): Single<AppointmentFullModel> {
+    override fun completeAppointment(appointmentId: String): Single<Any> {
         with(JsonObject()) {
             this.addProperty("status", "COMPLETED")
             return informationAppointmentApi.completeRequestAppointment(appointmentId, this)

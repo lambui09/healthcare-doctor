@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <include
-        android:id="@+id/cardProfilePatient"
+        android:id="@+id/patientItemComplete"
         layout="@layout/item_view_doctor_complete_appointment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -91,24 +91,24 @@
             app:layout_constraintTop_toBottomOf="@+id/tvTitleService" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvFeeService"
+            android:id="@+id/tvTitleSymptom"
             style="@style/TextViewHeaderStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"
-            android:text="@string/title_fee"
+            android:text="@string/title_symptom"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvContentService" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvContentFeeService"
+            android:id="@+id/tvContentSymptom"
             style="@style/TextViewDescriptionStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_5"
-            android:text="@string/fee_75_example"
+            android:text="@string/symptom_example"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFeeService" />
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleSymptom" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitleRemainder"
@@ -118,7 +118,7 @@
             android:layout_marginTop="@dimen/dp_16"
             android:text="@string/title_remainder"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvContentFeeService" />
+            app:layout_constraintTop_toBottomOf="@+id/tvContentSymptom" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvContentRemainder"

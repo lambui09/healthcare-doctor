@@ -33,6 +33,9 @@ class RegisterInputFragment : BaseFragment<RegisterVM>() {
                 }
                 viewModelx.setNavigationRegister(RegisterNav.CONFIRM_SMS)
             })
+            onError.observe(this@RegisterInputFragment, Observer {
+                handleApiError(it)
+            })
         }
     }
 

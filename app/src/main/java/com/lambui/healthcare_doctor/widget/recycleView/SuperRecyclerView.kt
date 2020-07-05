@@ -102,10 +102,10 @@ class SuperRecyclerView : FrameLayout {
     fun startRefreshData() {
         if (isRefresh) return
 
-        isRefresh = true
+        isRefresh = false
         currentPage = Constants.PAGE_DEFAULT
 
-        swipeRefreshLayout?.setRefreshing(true)
+        swipeRefreshLayout?.setRefreshing(false)
         loadDataListener?.onRefreshData()
     }
 

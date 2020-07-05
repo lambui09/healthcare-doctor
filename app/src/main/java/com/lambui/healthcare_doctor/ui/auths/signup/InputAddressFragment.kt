@@ -35,6 +35,9 @@ class InputAddressFragment : BaseFragment<RegisterVM>() {
             userModelUpdateAddressResponse.observe(this@InputAddressFragment, Observer {
                 viewModelx.setNavigationRegister(RegisterNav.MAIN)
             })
+            onError.observe(this@InputAddressFragment, Observer {
+                handleApiError(it)
+            })
         }
     }
 

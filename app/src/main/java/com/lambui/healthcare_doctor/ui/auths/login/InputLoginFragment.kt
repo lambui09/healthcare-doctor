@@ -46,6 +46,9 @@ class InputLoginFragment : BaseFragment<LoginVM>() {
                 }
                 viewModelx.setNavigationLogin(LoginNav.CONFIRM_CODE)
             })
+            onError.observe(this@InputLoginFragment, Observer {
+                handleApiError(it)
+            })
         }
     }
 

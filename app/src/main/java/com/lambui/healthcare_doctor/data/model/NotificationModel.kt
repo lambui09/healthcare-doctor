@@ -27,5 +27,11 @@ data class NotificationModel(
     var doctor: DoctorModelConvert?,
     @Expose
     @SerializedName("isSent")
-    var isSent: Boolean?
+    var isSent: Boolean?,
+    @Expose
+    @SerializedName("createdAt")
+    var createdAt: String? = null,
+    @Expose
+    @SerializedName("updatedAt")
+    var updatedAt: String? = null
 ) : Parcelable

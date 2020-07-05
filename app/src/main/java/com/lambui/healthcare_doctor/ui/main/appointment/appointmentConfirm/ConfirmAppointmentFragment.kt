@@ -85,6 +85,7 @@ class ConfirmAppointmentFragment : BaseFragment<AppointmentVM>() {
 
     override fun onResume() {
         super.onResume()
+        callApi()
         appointmentConfirmAppointmentAdapter.registerAdapterDataObserver(adapterObserver)
     }
 
